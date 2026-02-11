@@ -87,7 +87,7 @@ export function AppCard({ app }: { app: AppItem }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex flex-1 items-center justify-center rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex flex-1 items-center justify-center rounded-lg bg-success px-3 py-2 text-sm font-medium text-success-foreground transition-colors hover:bg-[#059669]"
             >
               <ExternalLink className="mr-2 h-3.5 w-3.5" />
               Ver Demo

@@ -107,7 +107,7 @@ export default function PreciosPage() {
                   </span>
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">pago unico</p>
-                <Button asChild size="lg" className="mt-6 px-8 shadow-sm shadow-primary/20">
+                <Button asChild variant="success" size="lg" className="mt-6 px-8 shadow-sm shadow-success/20">
                   <Link href="/contacto">
                     Empezar mi proyecto
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -175,7 +175,7 @@ export default function PreciosPage() {
             Te ayudamos a elegir el plan perfecto para tu equipo y tus
             necesidades. Consulta gratuita y sin compromiso.
           </p>
-          <Button asChild size="lg" className="mt-10 text-base px-8 shadow-lg shadow-primary/20">
+          <Button asChild variant="success" size="lg" className="mt-10 text-base px-8 shadow-lg shadow-success/25">
             <Link href="/contacto">
               Contactar ahora
               <ArrowRight className="ml-2 h-5 w-5" />

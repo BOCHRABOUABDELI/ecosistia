@@ -107,7 +107,7 @@ export function AppsCarousel() {
                     loading="lazy"
                   />
                   <div className="absolute top-2 left-2 flex gap-1.5">
-                    <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow">
+                    <span className="rounded-full bg-success px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-success-foreground shadow">
                       Demo
                     </span>
                     <span className="rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-medium text-foreground backdrop-blur-sm shadow">

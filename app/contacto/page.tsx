@@ -31,7 +31,7 @@ export default function ContactoPage() {
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Contacto</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Contacto'}</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
             Empezar mi proyecto
           </h1>
@@ -48,7 +48,7 @@ export default function ContactoPage() {
           </div>
 
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6">
+            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6" >
               <h3 className="font-heading text-lg font-semibold text-foreground">
                 {"Prefieres hablar con el asistente?"}
               </h3>

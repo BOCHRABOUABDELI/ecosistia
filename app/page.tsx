@@ -120,7 +120,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative pb-20 pt-24 lg:pb-32 lg:pt-36 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(345_82%_55%_/_0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.08),transparent)]" />
         <div className="relative mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
@@ -137,7 +137,7 @@ export default function HomePage() {
               <span className="font-semibold text-foreground">precio cerrado de 899{"\u00A0\u20AC"}</span>.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="text-base px-8 shadow-lg shadow-primary/20">
+              <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
                 <Link href="/contacto">
                   Hablemos de tu proyecto
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -421,7 +421,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Button asChild>
+            <Button asChild variant="success">
               <Link href="/contacto">
                 Solicitar consulta gratuita
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -442,7 +442,7 @@ export default function HomePage() {
             Te respondemos en menos de 24 horas con una propuesta clara y personalizada.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="text-base px-8 shadow-lg shadow-primary/20">
+            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
               <Link href="/contacto">
                 Empezar mi proyecto
                 <ArrowRight className="ml-2 h-5 w-5" />

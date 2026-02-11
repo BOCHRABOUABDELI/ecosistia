@@ -53,7 +53,7 @@ export default async function AppDetailPage({
             className="h-full w-full object-cover"
           />
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            <Badge className="bg-accent text-accent-foreground hover:bg-accent/90 border-0 text-[10px] font-bold uppercase tracking-wide">
+            <Badge className="bg-success text-success-foreground hover:bg-success/90 border-0 text-[10px] font-bold uppercase tracking-wide">
               Demo Funcional
             </Badge>
             <Badge
@@ -106,7 +106,7 @@ export default async function AppDetailPage({
                 key={feature}
                 className="flex items-start gap-3 text-foreground"
               >
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-success" />
                 <span className="text-sm leading-relaxed">{feature}</span>
               </li>
             ))}
@@ -132,7 +132,7 @@ export default async function AppDetailPage({
         {/* Ver Demo button */}
         {app.demoUrl && (
           <div className="mt-12 flex justify-center">
-            <Button asChild size="lg" className="text-base px-8 bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild variant="success" size="lg" className="text-base px-8">
               <a href={app.demoUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 Ver Demo en vivo
@@ -141,21 +141,21 @@ export default async function AppDetailPage({
           </div>
         )}
 
-        <div className="mt-12 rounded-2xl bg-primary p-8 text-center">
-          <h2 className="font-heading text-2xl font-bold text-primary-foreground">
+        <div className="mt-12 rounded-2xl bg-foreground p-8 text-center">
+          <h2 className="font-heading text-2xl font-bold text-background">
             {"Quiero algo asi"}
           </h2>
-          <p className="mt-2 text-primary-foreground/60">
+          <p className="mt-2 text-background/60">
             Cuentanos tu caso y te preparamos una solucion a medida.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild variant="success" size="lg">
               <Link href="/contacto">
                 Empezar mi proyecto
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-primary-foreground/20 text-primary-foreground bg-transparent hover:bg-primary-foreground/10">
+            <Button asChild variant="outline" size="lg" className="border-background/20 text-background bg-transparent hover:bg-background/10">
               <Link href="/aplicaciones">
                 Ver mas aplicaciones
               </Link>

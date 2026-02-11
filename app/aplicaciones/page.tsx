@@ -30,7 +30,7 @@ export default function AplicacionesPage() {
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
-          <span className="inline-block text-sm font-semibold uppercase tracking-widest text-accent">
+          <span className="inline-block text-sm font-semibold uppercase tracking-widest text-accent" >
             Portfolio
           </span>
           <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">

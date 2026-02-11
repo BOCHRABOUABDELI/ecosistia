@@ -63,7 +63,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button asChild size="sm" className="px-5 shadow-sm shadow-primary/20">
+          <Button asChild variant="success" size="sm" className="px-5 shadow-sm shadow-success/20">
             <Link href="/contacto">Contactar</Link>
           </Button>
         </div>
@@ -98,7 +98,7 @@ export function Header() {
             ))}
           </nav>
           <div className="mt-4">
-            <Button asChild className="w-full">
+            <Button asChild variant="success" className="w-full">
               <Link href="/contacto" onClick={() => setMobileOpen(false)}>
                 Contactar
               </Link>

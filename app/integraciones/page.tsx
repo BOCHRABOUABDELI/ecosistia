@@ -268,7 +268,7 @@ export default function IntegracionesPage() {
                             </Badge>
                           )}
                           {item.recentlyLaunched && (
-                            <Badge className="shrink-0 text-[10px] px-1.5 py-0 bg-accent/10 text-accent hover:bg-accent/20 border-0">
+                            <Badge className="shrink-0 text-[10px] px-1.5 py-0 bg-success/10 text-success hover:bg-success/20 border-0">
                               Nuevo
                             </Badge>
                           )}
@@ -341,16 +341,16 @@ export default function IntegracionesPage() {
             )}
 
             {/* CTA */}
-            <div className="mt-12 rounded-2xl bg-primary p-8 text-center">
-              <h2 className="font-heading text-xl font-bold text-primary-foreground">
+            <div className="mt-12 rounded-2xl bg-foreground p-8 text-center">
+              <h2 className="font-heading text-xl font-bold text-background">
                 {"No encuentras la integracion que necesitas?"}
               </h2>
-              <p className="mt-2 text-sm text-primary-foreground/60">
+              <p className="mt-2 text-sm text-background/60">
                 Podemos conectar tu app con cualquier sistema que tenga API.
                 Cuentanos tu caso y lo resolvemos.
               </p>
               <div className="mt-6">
-                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button asChild variant="success">
                   <Link href="/contacto">
                     Contactar
                     <ArrowRight className="ml-2 h-4 w-4" />

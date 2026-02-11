@@ -192,7 +192,7 @@ export default function ComoFuncionaPage() {
             Cuentanos tu idea y te preparamos una propuesta sin compromiso. Respondemos en menos de 24 horas.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="text-base px-8 shadow-lg shadow-primary/20">
+            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
               <Link href="/contacto">
                 Empezar mi proyecto
                 <ArrowRight className="ml-2 h-5 w-5" />

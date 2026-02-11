@@ -62,8 +62,8 @@ export default function ChatbotDialog({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md p-0 gap-0 overflow-hidden">
-        <DialogHeader className="px-6 py-4 border-b border-border bg-primary text-primary-foreground">
-          <DialogTitle className="flex items-center gap-2 text-primary-foreground">
+        <DialogHeader className="px-6 py-4 border-b border-border bg-accent text-accent-foreground">
+          <DialogTitle className="flex items-center gap-2 text-accent-foreground">
             <Bot className="h-5 w-5" />
             Asistente de Requisitos
           </DialogTitle>
@@ -82,7 +82,7 @@ export default function ChatbotDialog({
                   className={cn(
                     "flex h-7 w-7 shrink-0 items-center justify-center rounded-full",
                     msg.role === "bot"
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-accent text-accent-foreground"
                       : "bg-muted text-muted-foreground"
                   )}
                 >
@@ -97,7 +97,7 @@ export default function ChatbotDialog({
                     "rounded-lg px-3 py-2 text-sm leading-relaxed",
                     msg.role === "bot"
                       ? "bg-muted text-foreground"
-                      : "bg-primary text-primary-foreground"
+                      : "bg-accent text-accent-foreground"
                   )}
                 >
                   {msg.content}
@@ -118,7 +118,7 @@ export default function ChatbotDialog({
               placeholder="Escribe tu mensaje..."
               className="flex-1"
             />
-            <Button type="submit" size="icon" aria-label="Enviar mensaje">
+            <Button type="submit" size="icon" className="bg-accent text-accent-foreground hover:bg-accent/90" aria-label="Enviar mensaje">
               <Send className="h-4 w-4" />
             </Button>
           </form>

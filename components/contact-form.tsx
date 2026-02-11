@@ -99,7 +99,7 @@ export function ContactForm() {
         </Select>
       </div>
 
-      <Button type="submit" size="lg" className="mt-2 shadow-sm shadow-primary/20">
+      <Button type="submit" variant="success" size="lg" className="mt-2 shadow-sm shadow-success/20">
         Enviar mensaje
         <Send className="ml-2 h-4 w-4" />
       </Button>
