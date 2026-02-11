@@ -104,7 +104,7 @@ export default function ComoFuncionaPage() {
       {/* Hero */}
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Proceso</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Proceso</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
             {"De tu idea a una aplicacion con IA en produccion"}
           </h1>
@@ -123,11 +123,11 @@ export default function ComoFuncionaPage() {
             <div className="flex flex-col gap-16">
               {steps.map((step) => (
                 <div key={step.number} className="relative flex gap-6 md:gap-10">
-                  <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/20 md:h-16 md:w-16">
+                  <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-sm shadow-accent/20 md:h-16 md:w-16">
                     <step.icon className="h-6 w-6 md:h-7 md:w-7" />
                   </div>
                   <div className="flex-1 pb-2">
-                    <span className="font-heading text-sm font-bold text-primary">
+                    <span className="font-heading text-sm font-bold text-accent">
                       {"Paso "}{step.number}
                     </span>
                     <h2 className="mt-1 font-heading text-2xl font-bold text-foreground lg:text-3xl">
@@ -142,7 +142,7 @@ export default function ComoFuncionaPage() {
                           key={detail}
                           className="flex items-start gap-2 text-sm text-foreground"
                         >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                           {detail}
                         </li>
                       ))}
@@ -156,7 +156,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 lg:py-28 bg-card">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground text-center lg:text-4xl text-balance">
             Preguntas frecuentes
@@ -167,7 +167,7 @@ export default function ComoFuncionaPage() {
                 <AccordionItem
                   key={`faq-${i}`}
                   value={`faq-${i}`}
-                  className="rounded-xl border border-border bg-background px-6 shadow-sm"
+                  className="rounded-2xl border border-border bg-card px-6 shadow-sm"
                 >
                   <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline">
                     {faq.question}
@@ -183,22 +183,22 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-foreground">
+      <section className="py-24 lg:py-32 bg-primary">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-background lg:text-4xl text-balance">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
             {"Listo para empezar?"}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-background/50 text-lg leading-relaxed">
+          <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
             Cuentanos tu idea y te preparamos una propuesta sin compromiso. Respondemos en menos de 24 horas.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
+            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
               <Link href="/contacto">
                 Empezar mi proyecto
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 border-background/20 text-background bg-transparent hover:bg-background/10">
+            <Button asChild variant="outline" size="lg" className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/aplicaciones">Ver aplicaciones</Link>
             </Button>
           </div>

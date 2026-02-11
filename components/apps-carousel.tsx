@@ -98,7 +98,7 @@ export function AppsCarousel() {
               href={`/aplicaciones/${app.slug}`}
               className="w-1/3 shrink-0 px-2"
             >
-              <div className="group rounded-xl border border-border bg-background overflow-hidden transition-all hover:shadow-md hover:border-primary/30">
+              <div className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-lg hover:border-accent/20">
                 <div className="relative h-32 w-full overflow-hidden bg-muted">
                   <img
                     src={app.image || "/placeholder.svg"}

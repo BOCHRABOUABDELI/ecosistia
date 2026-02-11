@@ -120,11 +120,12 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative pb-20 pt-24 lg:pb-32 lg:pt-36 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.06),transparent)]" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-accent/[0.03] blur-3xl pointer-events-none" />
         <div className="relative mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               Desarrollo de software con IA
             </div>
             <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance leading-[1.1]">
@@ -137,7 +138,7 @@ export default function HomePage() {
               <span className="font-semibold text-foreground">precio cerrado de 899{"\u00A0\u20AC"}</span>.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
+              <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
                 <Link href="/contacto">
                   Hablemos de tu proyecto
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -147,7 +148,7 @@ export default function HomePage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="text-base px-8 bg-transparent"
+                className="text-base px-8"
               >
                 <Link href="/aplicaciones">Ver demos funcionales</Link>
               </Button>
@@ -193,7 +194,7 @@ export default function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-10">
           <div className="mb-12 text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Casos de exito
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -207,7 +208,7 @@ export default function HomePage() {
           </div>
           <AppsCarousel />
           <div className="mt-10 text-center">
-            <Button asChild variant="outline" className="bg-transparent">
+            <Button asChild variant="outline">
               <Link href="/aplicaciones">
                 Ver todas las aplicaciones
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -218,10 +219,10 @@ export default function HomePage() {
       </section>
 
       {/* Problems we solve */}
-      <section className="py-20 lg:py-28 bg-card">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Soluciones
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -233,13 +234,13 @@ export default function HomePage() {
               reduciendo costes operativos y multiplicando la productividad de los equipos.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {problems.map((problem) => (
               <div
                 key={problem.title}
-                className="group rounded-xl border border-border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/20"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
                   <problem.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 font-heading text-lg font-semibold text-foreground">
@@ -259,7 +260,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 {"Por que elegirnos"}
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -285,10 +286,10 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               {whyUs.map((item) => (
-                <div key={item.title} className="flex gap-5 rounded-xl border border-border bg-card p-5 shadow-sm">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <div key={item.title} className="flex gap-5 rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-accent/20">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                     <item.icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -310,37 +311,37 @@ export default function HomePage() {
       <IntegrationsGrid />
 
       {/* How it works */}
-      <section className="py-20 lg:py-28 bg-foreground">
+      <section className="py-20 lg:py-28 bg-primary">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Proceso
             </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-background lg:text-4xl text-balance">
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
               De tu idea a una aplicacion en produccion
             </h2>
-            <p className="mt-4 text-background/50 text-lg leading-relaxed">
+            <p className="mt-4 text-primary-foreground/60 text-lg leading-relaxed">
               Un proceso transparente en 4 fases. Tu decides en cada paso y tienes visibilidad
               completa del avance. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
             </p>
           </div>
-          <div className="mt-16 grid gap-px bg-background/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
+          <div className="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
             {steps.map((step) => (
-              <div key={step.number} className="bg-foreground p-8">
-                <span className="font-heading text-4xl font-bold text-primary">
+              <div key={step.number} className="bg-primary p-8">
+                <span className="font-heading text-4xl font-bold text-accent">
                   {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-lg font-semibold text-background">
+                <h3 className="mt-4 font-heading text-lg font-semibold text-primary-foreground">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-background/50">
+                <p className="mt-2 text-sm leading-relaxed text-primary-foreground/60">
                   {step.description}
                 </p>
               </div>
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Button asChild variant="outline" size="lg" className="border-background/20 text-background bg-transparent hover:bg-background/10">
+            <Button asChild variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/como-funciona">
                 Ver proceso completo
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -354,7 +355,7 @@ export default function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Precios transparentes
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -371,7 +372,7 @@ export default function HomePage() {
             {"Todos los planes incluyen hosting, soporte y actualizaciones. Facturacion anual disponible con 15% de descuento."}
           </p>
           <div className="mt-6 text-center">
-            <Button asChild variant="outline" className="bg-transparent">
+            <Button asChild variant="outline">
               <Link href="/precios">
                 Ver precios detallados
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -382,10 +383,10 @@ export default function HomePage() {
       </section>
 
       {/* SEO Sectors block */}
-      <section className="py-20 lg:py-28 bg-card">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Sectores
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -414,8 +415,8 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector) => (
-              <div key={sector} className="flex items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground">
-                <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
+              <div key={sector} className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground">
+                <span className="h-2 w-2 rounded-full bg-accent shrink-0" />
                 {sector}
               </div>
             ))}
@@ -432,17 +433,17 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 lg:py-32 bg-foreground">
+      <section className="py-24 lg:py-32 bg-primary">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-background lg:text-4xl text-balance">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
             {"Tu proxima aplicacion con IA empieza aqui"}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-background/50 text-lg leading-relaxed">
+          <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
             Cuentanos que problema quieres resolver. Sin compromiso, sin tecnicismos.
             Te respondemos en menos de 24 horas con una propuesta clara y personalizada.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/25">
+            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
               <Link href="/contacto">
                 Empezar mi proyecto
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -452,7 +453,7 @@ export default function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="text-base px-8 border-background/20 text-background bg-transparent hover:bg-background/10"
+              className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
               <Link href="/aplicaciones">Ver aplicaciones</Link>
             </Button>

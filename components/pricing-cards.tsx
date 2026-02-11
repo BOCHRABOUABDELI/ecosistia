@@ -68,9 +68,9 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
         <div
           key={plan.name}
           className={cn(
-            "relative flex flex-col rounded-xl border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5",
+            "relative flex flex-col rounded-2xl border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
             plan.popular
-              ? "border-accent ring-1 ring-accent/20"
+              ? "border-accent ring-1 ring-accent/20 shadow-accent/5"
               : "border-border"
           )}
         >

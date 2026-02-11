@@ -59,7 +59,7 @@ export default function PreciosPage() {
       {/* Hero */}
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Precios</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Precios</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
             Precios claros, sin letra pequena
           </h1>
@@ -73,10 +73,10 @@ export default function PreciosPage() {
       {/* Development price */}
       <section className="pb-20 lg:pb-28">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-primary/5 p-8 lg:p-12 shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-accent/5 p-8 lg:p-12 shadow-sm">
             <div className="relative flex flex-col items-center gap-8 lg:flex-row lg:justify-between">
               <div className="text-center lg:text-left">
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                   Desarrollo
                 </p>
                 <h2 className="mt-3 font-heading text-3xl font-bold text-foreground lg:text-4xl">
@@ -120,7 +120,7 @@ export default function PreciosPage() {
       </section>
 
       {/* Maintenance plans */}
-      <section className="py-20 lg:py-28 bg-card">
+      <section className="py-20 lg:py-28 bg-muted/50">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-14">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -150,7 +150,7 @@ export default function PreciosPage() {
                 <AccordionItem
                   key={`faq-${i}`}
                   value={`faq-${i}`}
-                  className="rounded-xl border border-border bg-card px-6 shadow-sm"
+                  className="rounded-2xl border border-border bg-card px-6 shadow-sm"
                 >
                   <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline">
                     {faq.question}
@@ -166,16 +166,16 @@ export default function PreciosPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-foreground">
+      <section className="py-24 lg:py-32 bg-primary">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-background lg:text-4xl text-balance">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
             {"Hablemos de tu proyecto"}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-background/50 text-lg leading-relaxed">
+          <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
             Te ayudamos a elegir el plan perfecto para tu equipo y tus
             necesidades. Consulta gratuita y sin compromiso.
           </p>
-          <Button asChild variant="success" size="lg" className="mt-10 text-base px-8 shadow-lg shadow-success/25">
+          <Button asChild variant="success" size="lg" className="mt-10 text-base px-8 shadow-lg shadow-success/20">
             <Link href="/contacto">
               Contactar ahora
               <ArrowRight className="ml-2 h-5 w-5" />

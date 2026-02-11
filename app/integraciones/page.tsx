@@ -96,7 +96,7 @@ export default function IntegracionesPage() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Ecosistema</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Ecosistema'}</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
             Integraciones
           </h1>
@@ -228,7 +228,7 @@ export default function IntegracionesPage() {
                 {filtered.map((item) => (
                   <div
                     key={item.slug}
-                    className="group flex flex-col rounded-xl border border-border bg-background p-5 transition-all hover:shadow-lg hover:border-primary/30"
+                    className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:border-accent/20"
                   >
                     <div className="flex items-start gap-3">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-muted p-2">
@@ -289,7 +289,7 @@ export default function IntegracionesPage() {
                 {filtered.map((item) => (
                   <div
                     key={item.slug}
-                    className="group flex items-center gap-4 rounded-lg border border-border bg-background px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
+                    className="group flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 transition-all hover:shadow-md hover:border-accent/20"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted p-2">
                       <img
@@ -341,11 +341,11 @@ export default function IntegracionesPage() {
             )}
 
             {/* CTA */}
-            <div className="mt-12 rounded-2xl bg-foreground p-8 text-center">
-              <h2 className="font-heading text-xl font-bold text-background">
+            <div className="mt-12 rounded-2xl bg-primary p-8 text-center">
+              <h2 className="font-heading text-xl font-bold text-primary-foreground">
                 {"No encuentras la integracion que necesitas?"}
               </h2>
-              <p className="mt-2 text-sm text-background/60">
+              <p className="mt-2 text-sm text-primary-foreground/60">
                 Podemos conectar tu app con cualquier sistema que tenga API.
                 Cuentanos tu caso y lo resolvemos.
               </p>

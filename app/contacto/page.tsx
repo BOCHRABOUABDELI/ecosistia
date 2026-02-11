@@ -42,13 +42,13 @@ export default function ContactoPage() {
 
         <div className="mt-14 grid gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <div className="rounded-2xl border border-border bg-background p-6 lg:p-8">
+            <div className="rounded-2xl border border-border bg-card p-6 lg:p-8 shadow-sm">
               <ContactForm />
             </div>
           </div>
 
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6" >
+            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6">
               <h3 className="font-heading text-lg font-semibold text-foreground">
                 {"Prefieres hablar con el asistente?"}
               </h3>
@@ -62,7 +62,7 @@ export default function ContactoPage() {
             <div className="flex flex-col gap-5">
               {trustPoints.map((point) => (
                 <div key={point.title} className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                     <point.icon className="h-5 w-5" />
                   </div>
                   <div>
