@@ -255,7 +255,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Ecosistia */}
+      {/* Why ValerIA */}
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
@@ -395,7 +395,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 flex flex-col gap-6 text-muted-foreground leading-relaxed">
             <p>
-              En Ecosistia desarrollamos aplicaciones con inteligencia artificial adaptadas a las necesidades
+              En ValerIA desarrollamos aplicaciones con inteligencia artificial adaptadas a las necesidades
               reales de cada industria. Ya sea en el sector salud, legal, inmobiliario, industrial,
               administracion publica o servicios profesionales, nuestras soluciones se integran con los
               sistemas que ya utilizas y automatizan los procesos que mas tiempo consumen a tu equipo.

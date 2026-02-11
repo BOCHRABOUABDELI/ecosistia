@@ -21,7 +21,7 @@ const initialMessages: ChatMessage[] = [
   {
     role: "bot",
     content:
-      "Hola, soy el asistente de Ecosistia. Te ayudo a definir tu proyecto con IA. Cuentame, que proceso de tu empresa te gustaria automatizar o mejorar?",
+      "Hola, soy el asistente de ValerIA. Te ayudo a definir tu proyecto con IA. Cuentame, que proceso de tu empresa te gustaria automatizar o mejorar?",
   },
 ]
 

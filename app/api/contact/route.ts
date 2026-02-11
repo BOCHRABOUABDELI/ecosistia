@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error: resendError } = await resend.emails.send({
-      from: "Ecosistia <hola@softwareopium.com>",
+      from: "ValerIA <hola@softwareopium.com>",
       to: [toEmail],
       replyTo: email,
       subject: `Nuevo contacto: ${nombre}${empresa ? ` (${empresa})` : ""}`,
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
           <h3 style="color: #1E1B4B; font-size: 14px; margin-bottom: 8px;">Descripcion del proyecto</h3>
           <p style="color: #0f172a; font-size: 14px; line-height: 1.6; background: #f8fafc; padding: 16px; border-radius: 8px;">${idea.replace(/\n/g, "<br />")}</p>
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 16px 0;" />
-          <p style="color: #94a3b8; font-size: 12px;">Enviado desde el formulario de contacto de Ecosistia</p>
+          <p style="color: #94a3b8; font-size: 12px;">Enviado desde el formulario de contacto de ValerIA</p>
         </div>
       `,
     })
@@ -75,13 +75,13 @@ export async function POST(request: Request) {
     }
 
     const { error: confirmError } = await resend.emails.send({
-      from: "Ecosistia <hola@softwareopium.com>",
+      from: "ValerIA <hola@softwareopium.com>",
       to: [email],
-      subject: "Hemos recibido tu mensaje - Ecosistia",
+      subject: "Hemos recibido tu mensaje - ValerIA",
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #0f172a;">
           <div style="text-align: center; padding: 32px 0 24px;">
-            <h1 style="color: #1E1B4B; font-size: 24px; margin: 0;">Ecosistia</h1>
+            <h1 style="color: #1E1B4B; font-size: 24px; margin: 0;">ValerIA</h1>
           </div>
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 0 0 24px;" />
           <p style="font-size: 16px; line-height: 1.6;">Hola <strong>${nombre}</strong>,</p>
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
           </p>
           <p style="font-size: 15px; line-height: 1.6; color: #334155; margin-top: 24px;">
             Un saludo,<br />
-            <strong style="color: #1E1B4B;">El equipo de Ecosistia</strong>
+            <strong style="color: #1E1B4B;">El equipo de ValerIA</strong>
           </p>
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 32px 0 16px;" />
           <p style="color: #94a3b8; font-size: 12px; text-align: center;">

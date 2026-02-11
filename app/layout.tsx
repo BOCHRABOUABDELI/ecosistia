@@ -15,8 +15,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ecosistia - Aplicaciones con IA a medida para tu empresa",
-    template: "%s | Ecosistia",
+    default: "ValerIA - Aplicaciones con IA a medida para tu empresa",
+    template: "%s | ValerIA",
   },
   description:
     "Creamos aplicaciones con IA a medida para tu empresa por 899 EUR. Automatiza procesos, integra tus sistemas y gana eficiencia.",
