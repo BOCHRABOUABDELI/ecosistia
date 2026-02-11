@@ -18,6 +18,7 @@ export type AppIconName =
   | "TrendingUp"
   | "Scale"
   | "Wrench"
+  | "Bot"
 
 export interface AppItem {
   slug: string
@@ -295,6 +296,47 @@ export const apps: AppItem[] = [
         "Nuestra plataforma inteligente de gestion SAT digitaliza todo el ciclo de servicio tecnico: recepcion de avisos, clasificacion y priorizacion con IA, asignacion automatica de tecnicos segun disponibilidad y ubicacion, generacion de partes de trabajo digitales y cierre de intervenciones con firma electronica. Todo accesible desde oficina y desde el movil del tecnico en campo.",
         "La inteligencia artificial del sistema clasifica automaticamente las incidencias por tipo y urgencia, sugiere el tecnico mas adecuado para cada aviso y detecta patrones que permiten anticipar averias recurrentes (mantenimiento predictivo). El panel de control muestra en tiempo real el estado de todos los avisos, la carga de trabajo de cada tecnico y metricas de eficiencia del servicio.",
         "ValerIA desarrolla este software de gestion de servicio tecnico por un precio cerrado de 899 EUR, con entrega funcional en 2-6 semanas. Si tu empresa industrial necesita digitalizar la gestion del SAT, mejorar los tiempos de respuesta o dar herramientas moviles a tus tecnicos de campo, solicita una demostracion gratuita.",
+      ],
+    },
+  },
+  {
+    slug: "valeria-asistente-ia",
+    name: "ValerIA - Asistente Inteligente",
+    subtitle: "Asistente con inteligencia artificial para automatizar tu empresa",
+    description:
+      "ValerIA es una aplicacion de inteligencia artificial disenada para convertirse en el asistente digital de tu empresa. Permite automatizar tareas repetitivas, responder preguntas de clientes o empleados, analizar documentos, generar contenido y apoyar la toma de decisiones en el dia a dia del negocio.",
+    status: "demo-funcional",
+    demoUrl: "https://www.valer4ia.com/wp-content/ValeriaApp/1_0_1/index.html?1",
+    sector: "Automatizacion y Bots",
+    icon: "Bot",
+    iconColor: "bg-accent",
+    image: "/apps/valeria-asistente.jpg",
+    tags: ["Asistente IA", "Chatbot Empresarial", "NLP", "Automatizacion", "LLM"],
+    features: [
+      "Asistente conversacional con IA para empresa",
+      "Respuesta automatica a consultas de clientes o empleados",
+      "Generacion y resumen de textos y documentos",
+      "Busqueda inteligente de informacion interna",
+      "Apoyo a tareas administrativas y operativas",
+      "Analisis de informacion y ayuda en la toma de decisiones",
+      "Configuracion por roles y tipos de usuario",
+      "Personalizacion segun el negocio y el sector",
+      "Integracion con CRMs, ERPs, bases de datos y herramientas internas",
+      "Escalable desde chatbot simple hasta asistente avanzado conectado a procesos",
+    ],
+    problem:
+      "Las empresas pierden horas buscando informacion, respondiendo consultas repetitivas y realizando tareas administrativas manuales. Sin un asistente inteligente, el conocimiento queda disperso y los equipos no aprovechan el potencial de la IA en su operativa diaria.",
+    audience:
+      "Empresas que quieren un asistente con IA propio, equipos de atencion al cliente, departamentos administrativos y comerciales, y negocios con mucha documentacion o procesos repetitivos que buscan integrar IA sin proyectos complejos.",
+    allIntegrations: ["Asistente IA", "NLP", "LLM", "CRM Integration", "ERP Integration", "Knowledge Base", "Workflow Automation"],
+    seoContent: {
+      heading: "ValerIA: asistente virtual con inteligencia artificial para empresas",
+      paragraphs: [
+        "Las empresas modernas generan y consumen enormes cantidades de informacion cada dia. Los equipos pierden horas buscando datos en emails, documentos, CRMs y sistemas internos. Las consultas repetitivas de clientes y empleados saturan al personal de soporte. Las tareas administrativas manuales restan tiempo a lo que realmente importa: hacer crecer el negocio. Sin un sistema centralizado e inteligente, el conocimiento de la empresa queda fragmentado y desaprovechado.",
+        "ValerIA es un asistente con inteligencia artificial que centraliza y automatiza las interacciones mas frecuentes de tu empresa. Funciona como un chatbot inteligente que entiende el contexto de tu negocio, responde consultas de clientes y empleados de forma autonoma, genera y resume documentos, busca informacion en tus sistemas internos y apoya la toma de decisiones con datos en tiempo real. Todo desde una unica interfaz conversacional accesible para cualquier miembro del equipo.",
+        "La plataforma se adapta a cada caso de uso: atencion al cliente 24/7, soporte interno para empleados, gestion de informacion corporativa, ayuda comercial con propuestas automaticas, analisis de datos para direccion y automatizacion de procesos operativos. ValerIA aprende del contexto de tu negocio y se conecta con tus herramientas actuales: CRM, ERP, bases de datos, Google Workspace, Microsoft 365, Slack, WhatsApp y muchas mas.",
+        "Gracias a su arquitectura modular, ValerIA puede desplegarse como un simple chatbot de preguntas frecuentes o como un asistente empresarial avanzado conectado a flujos de trabajo, bases de conocimiento y sistemas de gestion. Las empresas que implementan asistentes con IA reportan una reduccion de hasta un 50% en el tiempo dedicado a consultas internas y una mejora significativa en la satisfaccion del cliente.",
+        "ValerIA es el producto insignia de nuestro grupo y esta disponible como plataforma lista para usar o como desarrollo a medida por 899 EUR. Si tu empresa quiere un asistente virtual inteligente que realmente entienda tu negocio y automatice lo que mas tiempo consume, solicita una demostracion gratuita y descubre como ValerIA puede transformar tu operativa.",
       ],
     },
   },
