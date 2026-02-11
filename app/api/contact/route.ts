@@ -23,8 +23,8 @@ export async function POST(request: Request) {
       )
     }
 
-    await resend.emails.send({
-      from: "Ecosistia <onboarding@resend.dev>",
+    const { data, error: resendError } = await resend.emails.send({
+      from: "Ecosistia <hola@softwareopium.com>",
       to: [toEmail],
       replyTo: email,
       subject: `Nuevo contacto: ${nombre}${empresa ? ` (${empresa})` : ""}`,
@@ -67,6 +67,15 @@ export async function POST(request: Request) {
       `,
     })
 
+    if (resendError) {
+      console.error("[v0] Resend error:", resendError)
+      return NextResponse.json(
+        { error: resendError.message || "Error al enviar el email." },
+        { status: 500 }
+      )
+    }
+
+    console.log("[v0] Email sent successfully:", data)
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Error sending email:", error)
