@@ -20,8 +20,13 @@ export async function generateMetadata({
   const app = apps.find((a) => a.slug === slug)
   if (!app) return { title: "Aplicacion no encontrada" }
   return {
-    title: `${app.name} - Aplicacion con IA para ${app.sector}`,
-    description: `${app.description} Descubre como la inteligencia artificial resuelve problemas reales en el sector ${app.sector}. Demo funcional disponible.`,
+    title: `${app.name} - Software con IA para ${app.sector} | 899 EUR | ValerIA`,
+    description: `${app.description} ${app.seoContent?.paragraphs[0]?.substring(0, 120) ?? ""} Desarrollo a medida por 899 EUR. Demo funcional disponible.`,
+    openGraph: {
+      title: `${app.name} - Aplicacion con inteligencia artificial para ${app.sector}`,
+      description: app.description,
+      images: app.image ? [{ url: app.image }] : undefined,
+    },
   }
 }
 
@@ -34,8 +39,33 @@ export default async function AppDetailPage({
   const app = apps.find((a) => a.slug === slug)
   if (!app) notFound()
 
+  const appJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: app.name,
+    description: app.description,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "899",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "ValerIA del grupo Ecosistia",
+      },
+    },
+    featureList: app.features.join(", "),
+    screenshot: app.image,
+  }
+
   return (
     <section className="py-20 lg:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+      />
       <div className="mx-auto max-w-4xl px-6">
         <Link
           href="/aplicaciones"
@@ -138,6 +168,20 @@ export default async function AppDetailPage({
                 Ver Demo en vivo
               </a>
             </Button>
+          </div>
+        )}
+
+        {/* SEO Content Section */}
+        {app.seoContent && (
+          <div className="mt-16">
+            <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground lg:text-3xl text-balance">
+              {app.seoContent.heading}
+            </h2>
+            <div className="mt-6 flex flex-col gap-5 text-muted-foreground leading-relaxed">
+              {app.seoContent.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         )}
 
