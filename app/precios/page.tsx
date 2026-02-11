@@ -11,9 +11,9 @@ import {
 import { ArrowRight, Check } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Precios",
+  title: "Precios de desarrollo de aplicaciones con IA | Desde 899 EUR",
   description:
-    "Desarrollo de aplicaciones con IA por 899 EUR y planes de mantenimiento desde 150 EUR/mes. Precios claros, sin sorpresas ni costes ocultos.",
+    "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial? Precio cerrado de 899 EUR con todo incluido. Mantenimiento desde 150 EUR/mes sin permanencia. Consulta gratuita.",
 }
 
 const developmentFeatures = [
@@ -61,11 +61,12 @@ export default function PreciosPage() {
         <div className="mx-auto max-w-6xl px-6 text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">Precios</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
-            Precios claros, sin letra pequena
+            {"Cuanto cuesta una aplicacion con inteligencia artificial"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Un pago unico para el desarrollo y un plan mensual de mantenimiento
-            adaptado a tu equipo. Sin permanencias ni costes ocultos.
+            Desarrollo completo de tu aplicacion con IA por un pago unico de 899{"\u00A0\u20AC"}.
+            Mantenimiento mensual desde 150{"\u00A0\u20AC"}/mes. Sin permanencias, sin costes ocultos
+            y sin letra pequena.
           </p>
         </div>
       </section>

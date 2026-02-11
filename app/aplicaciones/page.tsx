@@ -5,6 +5,8 @@ import { apps, type Sector } from "@/lib/data"
 import { AppCard } from "@/components/app-card"
 import { AppFilters } from "@/components/app-filters"
 
+// Metadata is set via generateMetadata in a separate file or layout for client components
+
 export default function AplicacionesPage() {
   const [sector, setSector] = useState<Sector | "all">("all")
   const [search, setSearch] = useState("")

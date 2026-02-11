@@ -10,9 +10,9 @@ import {
 import { ArrowRight, MessageCircle, Palette, Code, Rocket } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Como funciona",
+  title: "Como funciona el desarrollo de aplicaciones con IA | Proceso en 4 pasos",
   description:
-    "Descubre nuestro proceso de desarrollo de aplicaciones con IA a medida: desde la idea hasta la produccion en 2-6 semanas.",
+    "Asi desarrollamos tu aplicacion con inteligencia artificial: consulta gratuita, prototipo en 5 dias, desarrollo agil y despliegue en produccion. De tu idea a una app con IA en 2-6 semanas por 899 EUR.",
 }
 
 const steps = [
@@ -106,11 +106,11 @@ export default function ComoFuncionaPage() {
         <div className="mx-auto max-w-6xl px-6 text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">Proceso</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
-            {"De tu idea a una aplicacion con IA en produccion"}
+            {"Como desarrollamos aplicaciones con inteligencia artificial en 4 pasos"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Un proceso transparente y sin complicaciones. Te acompanamos en cada paso para que tengas
-            visibilidad completa del avance de tu proyecto, desde la primera llamada hasta el despliegue final.
+            Un proceso agil, transparente y sin complicaciones tecnicas. Te acompanamos desde la primera consulta gratuita
+            hasta el despliegue en produccion, con entregas parciales y visibilidad completa en cada fase del desarrollo.
           </p>
         </div>
       </section>

@@ -15,11 +15,50 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "ValerIA - Aplicaciones con IA a medida para tu empresa",
-    template: "%s | ValerIA",
+    default: "ValerIA - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 EUR",
+    template: "%s | ValerIA - Software con IA a medida",
   },
   description:
-    "Creamos aplicaciones con IA a medida para tu empresa por 899 EUR. Automatiza procesos, integra tus sistemas y gana eficiencia.",
+    "ValerIA desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, chatbots, lectura de documentos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
+  keywords: [
+    "desarrollo aplicaciones inteligencia artificial",
+    "software con IA a medida",
+    "automatizacion de procesos con IA",
+    "aplicaciones IA para empresas",
+    "chatbot IA empresas",
+    "desarrollo software IA Espana",
+    "inteligencia artificial para pymes",
+    "app con IA precio",
+    "ValerIA",
+    "Ecosistia",
+  ],
+  authors: [{ name: "ValerIA del grupo Ecosistia" }],
+  creator: "ValerIA del grupo Ecosistia",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "ValerIA",
+    title: "ValerIA - Aplicaciones con inteligencia artificial a medida por 899 EUR",
+    description:
+      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-6 semanas.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ValerIA - Aplicaciones con IA a medida | 899 EUR",
+    description:
+      "Software con inteligencia artificial para empresas. Automatiza procesos, crea chatbots y lee documentos con IA. Desde 899 EUR.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 
 export const viewport: Viewport = {

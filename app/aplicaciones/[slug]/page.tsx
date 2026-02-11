@@ -20,8 +20,8 @@ export async function generateMetadata({
   const app = apps.find((a) => a.slug === slug)
   if (!app) return { title: "Aplicacion no encontrada" }
   return {
-    title: app.name,
-    description: app.description,
+    title: `${app.name} - Aplicacion con IA para ${app.sector}`,
+    description: `${app.description} Descubre como la inteligencia artificial resuelve problemas reales en el sector ${app.sector}. Demo funcional disponible.`,
   }
 }
 

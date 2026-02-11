@@ -115,9 +115,94 @@ const sectors = [
   "Logistica y distribucion",
 ]
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ValerIA",
+  alternateName: "ValerIA del grupo Ecosistia",
+  description:
+    "ValerIA es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, chatbots con IA, lectura inteligente de documentos y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
+  url: "https://valeria.ecosistia.com",
+  foundingDate: "2024",
+  areaServed: "ES",
+  knowsLanguage: "es",
+  serviceType: "Desarrollo de software con inteligencia artificial",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de desarrollo con IA",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Desarrollo de aplicacion con IA a medida",
+        description:
+          "Desarrollo completo de una aplicacion personalizada con inteligencia artificial, incluyendo analisis, prototipo, desarrollo, integraciones, testing y despliegue en produccion.",
+        price: "899",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+      },
+      {
+        "@type": "Offer",
+        name: "Mantenimiento mensual",
+        description:
+          "Plan de mantenimiento con hosting, soporte tecnico, actualizaciones y mejoras continuas. Desde 150 EUR/mes sin permanencia.",
+        price: "150",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+      },
+    ],
+  },
+}
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En ValerIA, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 EUR. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 EUR/mes sin permanencia.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Cuanto tiempo tarda en desarrollarse una aplicacion con IA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La mayoria de proyectos se completan entre 2 y 6 semanas. Entregamos un prototipo funcional en los primeros 5 dias laborables para validar la idea antes del desarrollo completo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Que tipo de aplicaciones con IA desarrolla ValerIA?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Desarrollamos aplicaciones de automatizacion de procesos, chatbots con IA para atencion al cliente, sistemas de lectura inteligente de documentos (OCR con IA), asistentes internos, paneles de datos con predicciones, y sincronizacion entre sistemas empresariales como CRM, ERP y herramientas de gestion.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "ValerIA trabaja con empresas de cualquier sector?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Si. Hemos desarrollado proyectos para clinicas, despachos de abogados, inmobiliarias, fabricantes, administraciones publicas, consultoras, comercio electronico y empresas de logistica, entre otros sectores.",
+      },
+    },
+  ],
+}
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pb-20 pt-24 lg:pb-32 lg:pt-36 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.06),transparent)]" />
@@ -129,13 +214,15 @@ export default function HomePage() {
               Desarrollo de software con IA
             </div>
             <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance leading-[1.1]">
-              Creamos aplicaciones inteligentes que hacen crecer tu empresa
+              Desarrollo de aplicaciones con inteligencia artificial a medida para tu empresa
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
-              Desarrollamos software con inteligencia artificial que automatiza tus procesos,
-              conecta tus sistemas y elimina tareas manuales. Desde la idea hasta produccion,
-              con un equipo senior dedicado y por un{" "}
-              <span className="font-semibold text-foreground">precio cerrado de 899{"\u00A0\u20AC"}</span>.
+              Desarrollamos software a medida con inteligencia artificial para pymes y grandes empresas.
+              Automatiza procesos, conecta tus sistemas y elimina tareas manuales.
+            </p>
+            <p className="mt-5 flex items-baseline justify-center gap-2">
+              <span className="font-heading text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">899{"\u00A0\u20AC"}</span>
+              <span className="text-lg text-muted-foreground font-medium">precio cerrado por proyecto</span>
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
@@ -198,12 +285,12 @@ export default function HomePage() {
               Casos de exito
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              Aplicaciones que ya estan en produccion
+              Aplicaciones con IA en produccion: casos de exito reales
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-              Cada proyecto resuelve un problema real de negocio con inteligencia artificial.
-              Explora demos funcionales que puedes probar ahora mismo, y usarlas como inspiracion
-              para tu propio proyecto personalizado.
+              Cada proyecto resuelve un problema real de negocio con inteligencia artificial aplicada.
+              Explora demos funcionales de aplicaciones con IA que puedes probar ahora mismo,
+              y usarlas como punto de partida para tu propio software personalizado.
             </p>
           </div>
           <AppsCarousel />
@@ -226,12 +313,12 @@ export default function HomePage() {
               Soluciones
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              {"Que problemas resolvemos con inteligencia artificial"}
+              Soluciones de inteligencia artificial para automatizar tu negocio
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              La inteligencia artificial bien aplicada transforma la operativa de cualquier empresa.
-              Estas son las areas donde generamos mayor impacto en los negocios de nuestros clientes,
-              reduciendo costes operativos y multiplicando la productividad de los equipos.
+              La inteligencia artificial aplicada a empresas transforma la operativa diaria y reduce costes hasta un 60%.
+              Desde la automatizacion de procesos repetitivos hasta chatbots que atienden clientes 24/7,
+              estas son las soluciones de IA que mas impacto generan en los negocios de nuestros clientes.
             </p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -264,13 +351,13 @@ export default function HomePage() {
                 {"Por que elegirnos"}
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-                Tecnologia de primer nivel aplicada a tu negocio
+                {"Por que elegir ValerIA para desarrollar software con IA"}
               </h2>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                No somos una consultora que promete y subcontrata. Somos un equipo tecnico especializado
-                en inteligencia artificial aplicada a negocios reales. Trabajamos directamente contigo
-                para entender tu operativa, identificar donde la IA aporta mas valor y construir
-                soluciones que funcionan desde el primer dia de despliegue.
+                No somos una consultora generica que promete y subcontrata. Somos un equipo de desarrolladores
+                senior especializados en inteligencia artificial aplicada a empresas. Trabajamos directamente contigo
+                para entender tu operativa, identificar donde la IA genera mayor retorno y construir
+                aplicaciones que funcionan desde el primer dia en produccion.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 Cada proyecto arranca con un prototipo funcional que puedes probar antes de comprometerte
@@ -318,11 +405,11 @@ export default function HomePage() {
               Proceso
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
-              De tu idea a una aplicacion en produccion
+              {"Como desarrollamos tu aplicacion con IA en 4 pasos"}
             </h2>
             <p className="mt-4 text-primary-foreground/60 text-lg leading-relaxed">
-              Un proceso transparente en 4 fases. Tu decides en cada paso y tienes visibilidad
-              completa del avance. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
+              Un proceso agil y transparente: de tu idea a una aplicacion con inteligencia artificial
+              en produccion en 2-6 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
             </p>
           </div>
           <div className="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
@@ -359,12 +446,12 @@ export default function HomePage() {
               Precios transparentes
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              Sin sorpresas ni costes ocultos
+              {"Precio de desarrollo de software con IA: 899\u00A0\u20AC"}
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              {"Desarrollo completo de tu aplicacion con IA por un pago unico de "}
+              {"Desarrollo completo de tu aplicacion con inteligencia artificial por un pago unico de "}
               <span className="font-semibold text-foreground">{"899\u00A0\u20AC"}</span>
-              {". Despues, un plan de mantenimiento mensual adaptado al tamano de tu equipo. Sin permanencias, cancelacion en cualquier momento."}
+              {". Despues, planes de mantenimiento desde 150\u00A0\u20AC/mes adaptados al tamano de tu equipo. Sin permanencias, cancelas cuando quieras."}
             </p>
           </div>
           <PricingCards compact />
@@ -390,27 +477,28 @@ export default function HomePage() {
               Sectores
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              Inteligencia artificial aplicada a cada sector
+              Desarrollo de aplicaciones con IA para cada sector empresarial
             </h2>
           </div>
           <div className="mt-10 flex flex-col gap-6 text-muted-foreground leading-relaxed">
             <p>
-              En ValerIA desarrollamos aplicaciones con inteligencia artificial adaptadas a las necesidades
-              reales de cada industria. Ya sea en el sector salud, legal, inmobiliario, industrial,
-              administracion publica o servicios profesionales, nuestras soluciones se integran con los
-              sistemas que ya utilizas y automatizan los procesos que mas tiempo consumen a tu equipo.
+              <strong className="text-foreground">ValerIA es una empresa de desarrollo de software con inteligencia artificial</strong> del grupo Ecosistia,
+              especializada en crear aplicaciones a medida para empresas de cualquier sector y tamano.
+              Nuestras soluciones de IA se integran con los sistemas que ya utilizas (CRM, ERP, email, bases de datos)
+              y automatizan los procesos que mas tiempo consumen a tu equipo, desde la primera semana de uso.
             </p>
             <p>
-              Desde asistentes virtuales que atienden consultas de clientes de forma autonoma hasta
-              sistemas de extraccion automatica de datos de documentos complejos, pasando por paneles
-              de control inteligentes que analizan metricas en tiempo real, cada aplicacion que
-              construimos esta pensada para generar un retorno tangible desde el primer mes de uso.
+              Ofrecemos <strong className="text-foreground">desarrollo de chatbots con IA para atencion al cliente</strong>,
+              sistemas de <strong className="text-foreground">lectura inteligente de documentos (OCR con inteligencia artificial)</strong>,
+              asistentes virtuales internos, paneles de datos con predicciones en tiempo real
+              y automatizacion de flujos de trabajo complejos. Cada aplicacion se desarrolla por un
+              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 6 semanas.
             </p>
             <p>
-              Trabajamos con tecnologias lider en inteligencia artificial: procesamiento de lenguaje
-              natural (NLP), vision por computador, modelos predictivos, reconocimiento de patrones
-              y automatizacion de flujos de trabajo. Todo integrado con plataformas como Google Workspace,
-              Microsoft 365, Salesforce, HubSpot, Slack, WhatsApp y mas de 60 herramientas adicionales.
+              Trabajamos con tecnologias lider: procesamiento de lenguaje natural (NLP), modelos de lenguaje (LLM),
+              vision por computador, modelos predictivos y automatizacion con IA. Integramos con
+              Google Workspace, Microsoft 365, Salesforce, HubSpot, Slack, WhatsApp, SAP,
+              Notion y mas de 60 herramientas empresariales adicionales.
             </p>
           </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -3,9 +3,9 @@ import { ContactForm } from "@/components/contact-form"
 import { Clock, Shield, MessageSquare } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: "Contacto | Consulta gratuita para tu proyecto con IA",
   description:
-    "Cuentanos tu idea y te ayudamos a convertirla en una aplicacion con IA. Consulta gratuita y respuesta en menos de 24 horas.",
+    "Solicita una consulta gratuita para tu proyecto de inteligencia artificial. Te respondemos en menos de 24 horas con una propuesta personalizada. Desarrollo de apps con IA por 899 EUR.",
 }
 
 const trustPoints = [
@@ -33,10 +33,11 @@ export default function ContactoPage() {
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Contacto'}</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
-            Empezar mi proyecto
+            Solicita tu consulta gratuita para desarrollo con IA
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Cuentanos que problema quieres resolver. Te respondemos en menos de 24 horas con una propuesta clara y sin compromiso.
+            Cuentanos que proceso quieres automatizar o mejorar con inteligencia artificial.
+            Te respondemos en menos de 24 horas con una propuesta personalizada, clara y sin compromiso.
           </p>
         </div>
 
