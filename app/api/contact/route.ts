@@ -68,14 +68,54 @@ export async function POST(request: Request) {
     })
 
     if (resendError) {
-      console.error("[v0] Resend error:", resendError)
       return NextResponse.json(
         { error: resendError.message || "Error al enviar el email." },
         { status: 500 }
       )
     }
 
-    console.log("[v0] Email sent successfully:", data)
+    const { error: confirmError } = await resend.emails.send({
+      from: "Ecosistia <hola@softwareopium.com>",
+      to: [email],
+      subject: "Hemos recibido tu mensaje - Ecosistia",
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #0f172a;">
+          <div style="text-align: center; padding: 32px 0 24px;">
+            <h1 style="color: #1E1B4B; font-size: 24px; margin: 0;">Ecosistia</h1>
+          </div>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 0 0 24px;" />
+          <p style="font-size: 16px; line-height: 1.6;">Hola <strong>${nombre}</strong>,</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #334155;">
+            Gracias por ponerte en contacto con nosotros. Hemos recibido tu mensaje correctamente 
+            y nuestro equipo lo esta revisando.
+          </p>
+          <p style="font-size: 15px; line-height: 1.6; color: #334155;">
+            Nos pondremos en contacto contigo en un plazo maximo de <strong>24 horas laborables</strong> 
+            para hablar sobre tu proyecto.
+          </p>
+          <div style="background: #f8fafc; border-radius: 12px; padding: 20px; margin: 24px 0;">
+            <p style="font-size: 13px; color: #64748b; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Resumen de tu mensaje</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #334155; margin: 0;">${idea.length > 200 ? idea.substring(0, 200).replace(/\n/g, "<br />") + "..." : idea.replace(/\n/g, "<br />")}</p>
+          </div>
+          <p style="font-size: 15px; line-height: 1.6; color: #334155;">
+            Mientras tanto, si tienes alguna duda adicional, puedes responder directamente a este correo.
+          </p>
+          <p style="font-size: 15px; line-height: 1.6; color: #334155; margin-top: 24px;">
+            Un saludo,<br />
+            <strong style="color: #1E1B4B;">El equipo de Ecosistia</strong>
+          </p>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 32px 0 16px;" />
+          <p style="color: #94a3b8; font-size: 12px; text-align: center;">
+            Este es un mensaje automatico. Si no has enviado ninguna solicitud, puedes ignorar este correo.
+          </p>
+        </div>
+      `,
+    })
+
+    if (confirmError) {
+      console.error("Error sending confirmation email:", confirmError)
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Error sending email:", error)
