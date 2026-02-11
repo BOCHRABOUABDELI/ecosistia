@@ -8,6 +8,7 @@ import {
   Wrench,
   Bot,
   FileSearch,
+  HardHat,
 } from "lucide-react"
 import type { AppIconName } from "@/lib/data"
 import { cn } from "@/lib/utils"
@@ -23,6 +24,7 @@ const iconMap: Record<AppIconName, ElementType> = {
   Wrench,
   Bot,
   FileSearch,
+  HardHat,
 }
 
 export function AppIcon({

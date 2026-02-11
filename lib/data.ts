@@ -10,6 +10,7 @@ export type Sector =
   | "Automatizacion y Bots"
   | "Industria y Mantenimiento"
   | "Forense y Pericial"
+  | "Reformas y Construccion"
 
 export type AppIconName =
   | "ClipboardList"
@@ -21,6 +22,7 @@ export type AppIconName =
   | "Wrench"
   | "Bot"
   | "FileSearch"
+  | "HardHat"
 
 export interface AppItem {
   slug: string
@@ -54,6 +56,7 @@ export const sectors: Sector[] = [
   "Automatizacion y Bots",
   "Industria y Mantenimiento",
   "Forense y Pericial",
+  "Reformas y Construccion",
 ]
 
 export const apps: AppItem[] = [
@@ -383,6 +386,49 @@ export const apps: AppItem[] = [
         "La plataforma se adapta a multiples tipos de uso profesional: peritajes judiciales, auditorias financieras y corporativas, investigaciones internas de compliance, preparacion de demandas y defensas legales, analisis forense digital y due diligence. Cada caso mantiene trazabilidad completa de fuentes, versiones de documentos, notas y observaciones, garantizando la integridad probatoria y la cadena de custodia documental.",
         "El motor de busqueda inteligente del sistema va mas alla de las coincidencias por palabras clave: utiliza comprension semantica para encontrar informacion relevante incluso cuando se utilizan terminos diferentes. La funcion de deteccion de patrones identifica incoherencias, duplicidades y relaciones no evidentes entre documentos, lo que acelera significativamente el analisis y mejora la calidad de las conclusiones del profesional.",
         "ValerIA desarrolla este software de analisis forense con IA por un precio cerrado de 899 EUR, con entrega funcional en 2-6 semanas. Si eres perito, abogado, auditor o investigador y necesitas una herramienta que te permita gestionar casos complejos con mayor velocidad, organizacion y precision, solicita una demostracion gratuita y descubre como la inteligencia artificial puede revolucionar tu practica profesional.",
+      ],
+    },
+  },
+  {
+    slug: "reformaslux-gestion-comercial",
+    name: "ReformasLux - Gestion Comercial",
+    subtitle: "Plataforma inteligente de gestion comercial para empresas de reformas",
+    description:
+      "ReformasLux es una plataforma todo-en-uno disenada para empresas de reformas que necesitan profesionalizar y escalar su gestion comercial. Centraliza el ciclo de vida del cliente: desde la captacion del lead hasta el cobro final y la liquidacion de comisiones a partners. La inteligencia artificial apoya con scoring de leads, deteccion de riesgos en cobros, priorizacion de oportunidades y auditoria de oportunidades perdidas.",
+    status: "demo-funcional",
+    demoUrl: "https://aplicaci-n-de-gesti-bwwg.bolt.host/",
+    sector: "Reformas y Construccion",
+    icon: "HardHat",
+    iconColor: "bg-amber-500",
+    image: "/apps/reformaslux.jpg",
+    tags: ["CRM con IA", "Lead Scoring", "Pipeline Kanban", "Comisiones", "Cobros", "Auditoria IA"],
+    features: [
+      "Gestion de leads con scoring e IA para priorizar oportunidades",
+      "Pipeline tipo Kanban con seguimiento de oportunidades",
+      "Creacion, envio y seguimiento de presupuestos",
+      "Control de cobros: senales, hitos y pagos finales",
+      "Deteccion de riesgo de impago con IA",
+      "Gestion de partners y empresas colaboradoras",
+      "Calculo automatico y liquidacion de comisiones por proyecto y periodo",
+      "Auditoria con IA: revision de oportunidades perdidas y deteccion de incoherencias",
+      "Scripts de auditoria para llamadas de seguimiento comercial",
+      "Dashboard con metricas de ventas, cobros, comisiones y rendimiento",
+      "Gestion de usuarios y roles: administrador, comercial, auditor, partner",
+      "Configuracion de empresa, plantillas, identidad visual y ajustes de IA",
+    ],
+    problem:
+      "Las empresas de reformas pierden negocio por desorganizacion en la gestion de leads y clientes, falta de control sobre presupuestos y oportunidades, errores en el calculo de comisiones a partners, dificultad para hacer seguimiento de cobros y riesgo de impagos, y nula visibilidad real sobre el estado del negocio.",
+    audience:
+      "Empresas de reformas y construccion, empresas de rehabilitacion y obra nueva, negocios que trabajan con partners o colaboradores, equipos comerciales del sector reformas y empresas que quieren profesionalizar su gestion comercial con tecnologia e IA.",
+    allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Commission Automation", "Risk Detection", "Audit AI"],
+    seoContent: {
+      heading: "CRM con inteligencia artificial para empresas de reformas y construccion",
+      paragraphs: [
+        "El sector de las reformas y la construccion tiene un problema estructural: la gestion comercial se hace a mano, con hojas de calculo, notas en el movil y WhatsApp. Los leads se pierden, los presupuestos no se hacen seguimiento, los cobros se retrasan y las comisiones a partners se calculan con errores. El resultado es perdida de negocio, baja rentabilidad y falta total de control sobre lo que realmente esta pasando en la empresa.",
+        "ReformasLux es una plataforma de gestion comercial con inteligencia artificial disenada especificamente para empresas de reformas. Centraliza todo el ciclo de vida del cliente en una unica herramienta: captacion y cualificacion de leads con scoring por IA, seguimiento de oportunidades en un pipeline visual tipo Kanban, creacion y envio de presupuestos, control de cobros por hitos, calculo automatico de comisiones a partners y liquidaciones por periodos. Todo con dashboards en tiempo real que muestran exactamente como va el negocio.",
+        "La inteligencia artificial de ReformasLux no es decorativa: el sistema analiza cada lead y le asigna una puntuacion de probabilidad de cierre, prioriza las oportunidades con mayor valor, detecta riesgos de impago en los proyectos en curso y audita automaticamente las oportunidades perdidas buscando contradicciones, errores de gestion y patrones de mejora. Incluso genera scripts de auditoria para que los comerciales realicen llamadas de seguimiento mas efectivas.",
+        "La plataforma incluye gestion completa de partners y colaboradores, con configuracion de porcentajes de comision por partner, calculo automatico por proyecto y liquidaciones por periodos. El sistema de roles permite que administradores, comerciales, auditores y los propios partners accedan solo a la informacion que les corresponde. Las empresas de reformas que implementan CRMs con IA reportan un aumento de hasta un 45% en la tasa de conversion de leads a proyectos cerrados.",
+        "ValerIA ha desarrollado ReformasLux como una solucion llave en mano por un precio cerrado de 899 EUR, totalmente personalizable por empresa y sector. Si tu empresa de reformas quiere dejar de perder negocio, profesionalizar su gestion comercial y tener visibilidad real sobre ventas, cobros y comisiones, solicita una demostracion gratuita y descubre como la inteligencia artificial puede transformar tu forma de trabajar.",
       ],
     },
   },
