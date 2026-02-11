@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const footerLinks = {
   Producto: [
@@ -27,7 +28,7 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2.5 font-heading text-xl font-bold text-primary-foreground"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground text-sm font-black">V</span>
+              <Image src="/logo.png" alt="ValerIA logo" width={36} height={36} className="h-9 w-9 object-contain" />
               ValerIA
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">

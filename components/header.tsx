@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -41,7 +42,7 @@ export function Header() {
           href="/"
           className="flex items-center gap-2.5 font-heading text-xl font-bold tracking-tight text-foreground"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground text-sm font-black">V</span>
+          <Image src="/logo.png" alt="ValerIA logo" width={36} height={36} className="h-9 w-9 object-contain" />
           ValerIA
         </Link>
 
