@@ -141,11 +141,11 @@ export default async function AppDetailPage({
           </div>
         )}
 
-        <div className="mt-12 rounded-2xl bg-foreground p-8 text-center">
-          <h2 className="font-heading text-2xl font-bold text-background">
+        <div className="mt-12 rounded-2xl bg-primary p-8 text-center">
+          <h2 className="font-heading text-2xl font-bold text-primary-foreground">
             {"Quiero algo asi"}
           </h2>
-          <p className="mt-2 text-background/60">
+          <p className="mt-2 text-primary-foreground/60">
             Cuentanos tu caso y te preparamos una solucion a medida.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -155,7 +155,7 @@ export default async function AppDetailPage({
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-background/20 text-background bg-transparent hover:bg-background/10">
+            <Button asChild variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground/10">
               <Link href="/aplicaciones">
                 Ver mas aplicaciones
               </Link>
