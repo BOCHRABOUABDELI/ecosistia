@@ -9,6 +9,7 @@ export type Sector =
   | "Administracion Publica"
   | "Automatizacion y Bots"
   | "Industria y Mantenimiento"
+  | "Forense y Pericial"
 
 export type AppIconName =
   | "ClipboardList"
@@ -19,6 +20,7 @@ export type AppIconName =
   | "Scale"
   | "Wrench"
   | "Bot"
+  | "FileSearch"
 
 export interface AppItem {
   slug: string
@@ -51,6 +53,7 @@ export const sectors: Sector[] = [
   "Administracion Publica",
   "Automatizacion y Bots",
   "Industria y Mantenimiento",
+  "Forense y Pericial",
 ]
 
 export const apps: AppItem[] = [
@@ -337,6 +340,49 @@ export const apps: AppItem[] = [
         "La plataforma se adapta a cada caso de uso: atencion al cliente 24/7, soporte interno para empleados, gestion de informacion corporativa, ayuda comercial con propuestas automaticas, analisis de datos para direccion y automatizacion de procesos operativos. ValerIA aprende del contexto de tu negocio y se conecta con tus herramientas actuales: CRM, ERP, bases de datos, Google Workspace, Microsoft 365, Slack, WhatsApp y muchas mas.",
         "Gracias a su arquitectura modular, ValerIA puede desplegarse como un simple chatbot de preguntas frecuentes o como un asistente empresarial avanzado conectado a flujos de trabajo, bases de conocimiento y sistemas de gestion. Las empresas que implementan asistentes con IA reportan una reduccion de hasta un 50% en el tiempo dedicado a consultas internas y una mejora significativa en la satisfaccion del cliente.",
         "ValerIA es el producto insignia de nuestro grupo y esta disponible como plataforma lista para usar o como desarrollo a medida por 899 EUR. Si tu empresa quiere un asistente virtual inteligente que realmente entienda tu negocio y automatice lo que mas tiempo consume, solicita una demostracion gratuita y descubre como ValerIA puede transformar tu operativa.",
+      ],
+    },
+  },
+  {
+    slug: "asistente-forense-ia",
+    name: "Asistente Forense con IA",
+    subtitle: "Analisis y documentacion de casos forenses, legales y periciales con inteligencia artificial",
+    description:
+      "Plataforma con inteligencia artificial para analizar documentacion, organizar evidencias y apoyar la elaboracion de informes forenses, legales y periciales. Permite centralizar toda la informacion de un caso y utilizar IA para busqueda de datos clave, deteccion de patrones y generacion de borradores de informes.",
+    status: "demo-funcional",
+    demoUrl: "https://jolly-daifuku-ee7612.netlify.app/",
+    sector: "Forense y Pericial",
+    icon: "FileSearch",
+    iconColor: "bg-primary",
+    image: "/apps/asistente-forense.jpg",
+    tags: ["Forensic AI", "Document Analysis", "Evidence Management", "NLP", "Report Generation"],
+    features: [
+      "Gestion integral de casos y expedientes forenses",
+      "Carga y organizacion de documentos y evidencias",
+      "Clasificacion automatica por tipo, fecha, relevancia o fuente",
+      "Busqueda inteligente dentro de toda la documentacion del caso",
+      "Resumen automatico de documentos largos con IA",
+      "Extraccion de informacion clave de grandes volumenes de datos",
+      "Deteccion de patrones e incoherencias en la documentacion",
+      "Generacion de borradores de informes forenses y periciales",
+      "Historial y trazabilidad completa de cambios y fuentes",
+      "Gestion de notas, observaciones y comentarios por caso",
+      "Control de acceso por roles: peritos, abogados, auditores",
+      "Integracion con sistemas de gestion documental y repositorios",
+    ],
+    problem:
+      "Los profesionales forenses, peritos y equipos legales dedican cientos de horas a revisar documentacion, organizar evidencias y redactar informes de forma manual. La informacion queda dispersa en multiples sistemas, se pierde trazabilidad de las fuentes y la calidad de los informes depende de procesos repetitivos y propensos a errores.",
+    audience:
+      "Peritos y consultores forenses, despachos de abogados, departamentos legales y de compliance, auditorias y consultoras, equipos de investigacion interna y empresas que realizan analisis documentales complejos.",
+    allIntegrations: ["Forensic AI", "Document Analysis", "NLP", "Evidence Management", "Report Generation", "Knowledge Base"],
+    seoContent: {
+      heading: "Software de analisis forense con inteligencia artificial para peritos, abogados y auditores",
+      paragraphs: [
+        "El trabajo forense, pericial y de investigacion legal implica gestionar enormes volumenes de documentacion bajo presion de tiempo y con exigencia de maxima precision. Los profesionales del ambito forense y legal dedican entre el 40% y el 60% de su tiempo a tareas de revision manual de documentos, organizacion de evidencias, busqueda de informacion relevante y redaccion de informes. Estos procesos, realizados sin herramientas adecuadas, son lentos, propensos a errores y dificilmente escalables.",
+        "El Asistente Forense con IA de ValerIA es una plataforma disenada para transformar la forma en que se gestionan los casos forenses, periciales y de investigacion. El sistema permite centralizar toda la documentacion de un caso en un unico entorno seguro y utilizar inteligencia artificial para analizar contenidos, clasificar evidencias automaticamente, detectar patrones y relaciones entre documentos, resumir textos largos y generar borradores de informes periciales y forenses con estructura profesional.",
+        "La plataforma se adapta a multiples tipos de uso profesional: peritajes judiciales, auditorias financieras y corporativas, investigaciones internas de compliance, preparacion de demandas y defensas legales, analisis forense digital y due diligence. Cada caso mantiene trazabilidad completa de fuentes, versiones de documentos, notas y observaciones, garantizando la integridad probatoria y la cadena de custodia documental.",
+        "El motor de busqueda inteligente del sistema va mas alla de las coincidencias por palabras clave: utiliza comprension semantica para encontrar informacion relevante incluso cuando se utilizan terminos diferentes. La funcion de deteccion de patrones identifica incoherencias, duplicidades y relaciones no evidentes entre documentos, lo que acelera significativamente el analisis y mejora la calidad de las conclusiones del profesional.",
+        "ValerIA desarrolla este software de analisis forense con IA por un precio cerrado de 899 EUR, con entrega funcional en 2-6 semanas. Si eres perito, abogado, auditor o investigador y necesitas una herramienta que te permita gestionar casos complejos con mayor velocidad, organizacion y precision, solicita una demostracion gratuita y descubre como la inteligencia artificial puede revolucionar tu practica profesional.",
       ],
     },
   },
