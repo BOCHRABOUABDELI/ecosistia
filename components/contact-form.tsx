@@ -12,10 +12,52 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Send, CheckCircle } from "lucide-react"
+import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [usuarios, setUsuarios] = useState("")
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const body = {
+      nombre: formData.get("nombre") as string,
+      empresa: formData.get("empresa") as string,
+      email: formData.get("email") as string,
+      telefono: formData.get("telefono") as string,
+      idea: formData.get("idea") as string,
+      usuarios,
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      })
+
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.error || "Error al enviar el mensaje.")
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Error al enviar el mensaje."
+      )
+    } finally {
+      setLoading(false)
+    }
+  }
 
   if (submitted) {
     return (
@@ -35,33 +77,38 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault()
-        setSubmitted(true)
-      }}
-      className="flex flex-col gap-5"
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <Label htmlFor="nombre">Nombre *</Label>
-          <Input id="nombre" placeholder="Tu nombre" required />
+          <Input id="nombre" name="nombre" placeholder="Tu nombre" required />
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="empresa">Empresa</Label>
-          <Input id="empresa" placeholder="Nombre de tu empresa" />
+          <Input
+            id="empresa"
+            name="empresa"
+            placeholder="Nombre de tu empresa"
+          />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <Label htmlFor="email">Email *</Label>
-          <Input id="email" type="email" placeholder="tu@email.com" required />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="tu@email.com"
+            required
+          />
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="telefono">Telefono *</Label>
           <Input
             id="telefono"
+            name="telefono"
             type="tel"
             placeholder="+34 600 000 000"
             required
@@ -78,6 +125,7 @@ export function ContactForm() {
         </Label>
         <Textarea
           id="idea"
+          name="idea"
           placeholder="Cuentanos que proceso quieres automatizar, que problema quieres resolver o que aplicacion necesitas. No hace falta que tengas todo claro, te ayudamos a definirlo."
           rows={5}
           required
@@ -86,7 +134,7 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="usuarios">Numero de usuarios estimado</Label>
-        <Select>
+        <Select value={usuarios} onValueChange={setUsuarios}>
           <SelectTrigger id="usuarios">
             <SelectValue placeholder="Selecciona un rango" />
           </SelectTrigger>
@@ -99,9 +147,31 @@ export function ContactForm() {
         </Select>
       </div>
 
-      <Button type="submit" variant="success" size="lg" className="mt-2 shadow-sm shadow-success/20">
-        Enviar mensaje
-        <Send className="ml-2 h-4 w-4" />
+      {error && (
+        <div className="flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          {error}
+        </div>
+      )}
+
+      <Button
+        type="submit"
+        variant="success"
+        size="lg"
+        className="mt-2 shadow-sm shadow-success/20"
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Enviando...
+          </>
+        ) : (
+          <>
+            Enviar mensaje
+            <Send className="ml-2 h-4 w-4" />
+          </>
+        )}
       </Button>
     </form>
   )
