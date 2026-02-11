@@ -6,6 +6,7 @@ import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ChatbotFab } from "@/components/chatbot-fab"
+import { CookieBanner } from "@/components/cookie-banner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const spaceGrotesk = Space_Grotesk({
@@ -81,6 +82,7 @@ export default function RootLayout({
         <main className="pt-14">{children}</main>
         <Footer />
         <ChatbotFab />
+        <CookieBanner />
       </body>
     </html>
   )

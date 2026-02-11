@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,6 +20,7 @@ export function ContactForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [usuarios, setUsuarios] = useState("")
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -147,6 +149,24 @@ export function ContactForm() {
         </Select>
       </div>
 
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="privacy"
+          checked={privacyAccepted}
+          onChange={(e) => setPrivacyAccepted(e.target.checked)}
+          className="mt-1 h-4 w-4 shrink-0 rounded border-border accent-accent cursor-pointer"
+          required
+        />
+        <label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+          He leido y acepto la{" "}
+          <Link href="/politica-privacidad" target="_blank" className="text-accent font-medium hover:underline">
+            Politica de Privacidad
+          </Link>
+          {" "}y consiento el tratamiento de mis datos para gestionar mi consulta. *
+        </label>
+      </div>
+
       {error && (
         <div className="flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">
           <AlertCircle className="h-4 w-4 shrink-0" />
@@ -159,7 +179,7 @@ export function ContactForm() {
         variant="success"
         size="lg"
         className="mt-2 shadow-sm shadow-success/20"
-        disabled={loading}
+        disabled={loading || !privacyAccepted}
       >
         {loading ? (
           <>
