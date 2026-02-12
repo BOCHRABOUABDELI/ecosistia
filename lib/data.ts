@@ -42,6 +42,8 @@ export interface AppItem {
   audience: string
   allIntegrations: string[]
   demoUrl?: string
+  targetSectors: string[]
+  keyBenefits: { metric: string; label: string }[]
   seoContent: {
     heading: string
     paragraphs: string[]
@@ -88,6 +90,13 @@ export const apps: AppItem[] = [
       "Los archivos históricos sufren deterioro físico de los documentos, dificultades de acceso y riesgo de pérdida de información valiosa. Además, muchos carecen de una organización digital que refleje la estructura real del archivo físico, lo que impide saber de forma rápida y precisa dónde se encuentra cada documento en el edificio. Esta desconexión entre el archivo físico y el virtual provoca búsquedas lentas, errores y una gestión ineficiente del patrimonio documental.",
     audience: "Esta solución está dirigida a instituciones públicas, universidades, museos, bibliotecas y a todas las entidades que gestionan fondos documentales históricos y patrimoniales. Está pensada para organizaciones que necesitan preservar, organizar y digitalizar grandes volúmenes de documentación, mejorar el acceso a la información y garantizar una gestión eficiente, segura y trazable de su archivo físico y digital, independientemente del tamaño del fondo o de la complejidad de su estructura.",
     allIntegrations: ["OCR Avanzado", "Machine Learning", "ERP y sistemas de gestión interna de la institución", "Procesamiento de Lenguaje Natural", "Almacenamiento en la nube (S3, Azure, Google Cloud, etc.)", "Sistemas de autenticación corporativa (LDAP, SSO, etc.)", "Repositorios institucionales y bibliotecas digitales", "APIs externas y sistemas propios de la institución", "Document AI"],
+    targetSectors: ["Museos y Bibliotecas", "Universidades", "Administracion Publica", "Archivos Nacionales", "Fundaciones Culturales", "Centros de Investigacion", "Editoriales", "Medios de Comunicacion"],
+    keyBenefits: [
+      { metric: "95%", label: "Precision en OCR de manuscritos" },
+      { metric: "80%", label: "Reduccion del tiempo de catalogacion" },
+      { metric: "5 dias", label: "Prototipo funcional listo" },
+      { metric: "24/7", label: "Acceso digital al archivo" },
+    ],
     seoContent: {
       heading: "Software de digitalizacion de archivos historicos con inteligencia artificial",
       paragraphs: [
@@ -102,7 +111,7 @@ export const apps: AppItem[] = [
     description:
       "Plataforma para consultoras de PRL y empresas multisede que necesitan organizar documentacion y cumplir requerimientos legales.",
     status: "demo-funcional",
-    demoUrl: "https://rad-souffle-ddfc8b.netlify.app/",
+    demoUrl: "https://gestionprl.ecosistia.com/",
     sector: "Prevencion y Seguridad",
     icon: "ShieldCheck",
     iconColor: "bg-emerald-500",
@@ -120,6 +129,13 @@ export const apps: AppItem[] = [
     audience:
       "Consultoras de prevencion de riesgos laborales, empresas multisede, departamentos de RRHH y seguridad laboral.",
     allIntegrations: ["Document AI", "Automated Compliance", "Alert Systems", "Risk Assessment"],
+    targetSectors: ["Consultoras de PRL", "Construccion", "Industria", "Logistica", "Hosteleria", "Retail", "Sanidad", "Administracion Publica", "Energia", "Transporte"],
+    keyBenefits: [
+      { metric: "70%", label: "Menos tiempo en tareas administrativas" },
+      { metric: "0", label: "Sanciones por documentacion caducada" },
+      { metric: "100%", label: "Control de caducidades automatizado" },
+      { metric: "Multi-sede", label: "Gestion centralizada" },
+    ],
     seoContent: {
       heading: "Software de prevencion de riesgos laborales con inteligencia artificial",
       paragraphs: [
@@ -155,6 +171,13 @@ export const apps: AppItem[] = [
     audience:
       "Hospitales, clinicas de urgencias, centros de salud y servicios de emergencia sanitaria.",
     allIntegrations: ["Medical AI", "Speech Recognition", "Predictive Analytics", "Clinical NLP"],
+    targetSectors: ["Hospitales", "Clinicas Privadas", "Centros de Salud", "Servicios de Emergencia", "Residencias", "Centros de Atencion Primaria", "Laboratorios Clinicos", "Aseguradoras de Salud"],
+    keyBenefits: [
+      { metric: "35%", label: "Mejora en tiempos de clasificacion" },
+      { metric: "Real-time", label: "Monitorizacion de la sala" },
+      { metric: "99.2%", label: "Precision en la clasificacion" },
+      { metric: "4 roles", label: "Paneles diferenciados" },
+    ],
     seoContent: {
       heading: "Sistema de triaje inteligente para urgencias hospitalarias con IA",
       paragraphs: [
@@ -190,6 +213,13 @@ export const apps: AppItem[] = [
     audience:
       "Instituciones penitenciarias, administraciones publicas de justicia y organismos de reinsercion social.",
     allIntegrations: ["Predictive Analytics", "Risk Assessment", "Behavioral Analysis", "Security AI"],
+    targetSectors: ["Instituciones Penitenciarias", "Ministerio de Justicia", "Centros de Menores", "Centros de Reinsercion", "Administracion Publica", "Seguridad del Estado", "ONGs de Reinsercion", "Universidades de Criminologia"],
+    keyBenefits: [
+      { metric: "Predictivo", label: "Evaluacion de riesgo por IA" },
+      { metric: "60%", label: "Menos tiempo en informes" },
+      { metric: "360", label: "Vision integral del interno" },
+      { metric: "Automatico", label: "Generacion de informes" },
+    ],
     seoContent: {
       heading: "Software de gestion penitenciaria con inteligencia artificial",
       paragraphs: [
@@ -225,6 +255,13 @@ export const apps: AppItem[] = [
     audience:
       "Intermediarios financieros, brokers hipotecarios, asesores bancarios y entidades financieras.",
     allIntegrations: ["Financial AI", "Risk Analysis", "Automated Calculations", "Document Processing"],
+    targetSectors: ["Brokers Hipotecarios", "Asesores Financieros", "Bancos", "Cooperativas de Credito", "Inmobiliarias", "Notarias", "Gestoras", "Agencias de Seguros", "Fintech"],
+    keyBenefits: [
+      { metric: "40%", label: "Mas operaciones cerradas al mes" },
+      { metric: "Instant", label: "Analisis de viabilidad" },
+      { metric: "Multi-banco", label: "Comparativa automatica" },
+      { metric: "100%", label: "Trazabilidad del expediente" },
+    ],
     seoContent: {
       heading: "Plataforma de gestion hipotecaria con inteligencia artificial para brokers y asesores",
       paragraphs: [
