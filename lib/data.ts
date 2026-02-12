@@ -297,6 +297,13 @@ export const apps: AppItem[] = [
     audience:
       "Despachos de abogados, asesorias juridicas, departamentos legales de empresas y notarias.",
     allIntegrations: ["Legal AI", "Document Classification", "Contract Analysis", "NLP"],
+    targetSectors: ["Despachos de Abogados", "Asesorias Juridicas", "Notarias", "Departamentos Legales", "Procuradores", "Administracion de Fincas", "Gestoras Administrativas", "Compliance Corporativo", "Auditoras"],
+    keyBenefits: [
+      { metric: "60%", label: "Menos tiempo en tareas admin" },
+      { metric: "Semantica", label: "Busqueda jurisprudencial" },
+      { metric: "Auto", label: "Generacion de escritos" },
+      { metric: "0 errores", label: "Control de plazos" },
+    ],
     seoContent: {
       heading: "Software de gestion de despachos de abogados con inteligencia artificial",
       paragraphs: [
