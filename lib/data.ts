@@ -74,7 +74,7 @@ export const apps: AppItem[] = [
     sector: "Archivos y Documentacion",
     icon: "ClipboardList",
     iconColor: "bg-emerald-500",
-    image: "/apps/archivo-historico.jpg",
+    image: "/apps/archivo-historico.png",
     tags: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
     features: [
       "OCR avanzado para texto manuscrito y lenguas antiguas",
