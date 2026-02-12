@@ -344,7 +344,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-primary-foreground/60 text-lg leading-relaxed">
               Un proceso agil y transparente: de tu idea a una aplicacion con inteligencia artificial
-              en produccion en 2-6 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
+              en produccion en 2-12 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
             </p>
           </div>
           <div className="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
