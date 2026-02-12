@@ -22,9 +22,9 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="text-lg font-semibold text-foreground">1. Responsable del tratamiento</h2>
             <p className="mt-2">
-              El responsable del tratamiento de tus datos personales es Ecosistia
-              (en adelante, &quot;Ecosistia&quot;), con domicilio social en Espana.
-              Puedes contactarnos en <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">hola@softwareopium.com</a>.
+              El responsable del tratamiento de tus datos personales es LOGICA HISPALIS 2020 SL
+              (en adelante, &quot;Ecosistia&quot;), con domicilio social en CALLE GIRALDA, 22 , LA PUEBLA DEL RIO SEVILLA, España.
+              Puedes contactarnos en <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
             </p>
           </div>
 
@@ -66,7 +66,6 @@ export default function PoliticaPrivacidadPage() {
             </p>
             <ul className="mt-2 flex flex-col gap-1 list-disc pl-6">
               <li><strong className="text-foreground">Resend:</strong> proveedor de envio de email transaccional, para enviarte la confirmacion de tu consulta.</li>
-              <li><strong className="text-foreground">Vercel:</strong> proveedor de alojamiento web donde se ejecuta nuestro sitio.</li>
             </ul>
             <p className="mt-2">
               No vendemos, alquilamos ni compartimos tus datos personales con terceros con fines comerciales.
@@ -97,7 +96,7 @@ export default function PoliticaPrivacidadPage() {
             </ul>
             <p className="mt-2">
               Para ejercer tus derechos, puedes escribirnos a{" "}
-              <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">hola@softwareopium.com</a>.
+              <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
               Tambien puedes presentar una reclamacion ante la Agencia Espanola de Proteccion de Datos (AEPD).
             </p>
           </div>
