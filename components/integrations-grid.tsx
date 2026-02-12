@@ -28,10 +28,10 @@ const integrations = [
 
 export function IntegrationsGrid() {
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="py-20 lg:py-28 bg-muted/50">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
             Ecosistema
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
@@ -47,7 +47,7 @@ export function IntegrationsGrid() {
           {integrations.map((item) => (
             <div
               key={item.name}
-              className="flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-background px-3 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+              className="flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-card px-3 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-accent/20"
             >
               <img
                 src={`/integrations/${item.file}`}
@@ -64,7 +64,7 @@ export function IntegrationsGrid() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button asChild variant="outline" className="bg-transparent">
+          <Button asChild variant="outline">
             <Link href="/integraciones">
               Ver todas las integraciones
               <ArrowRight className="ml-2 h-4 w-4" />

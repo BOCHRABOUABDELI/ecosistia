@@ -5,7 +5,7 @@ import { Inter, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ChatbotFab } from "@/components/chatbot-fab"
+import { CookieBanner } from "@/components/cookie-banner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const spaceGrotesk = Space_Grotesk({
@@ -15,15 +15,53 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ecosistia - Aplicaciones con IA a medida para tu empresa",
-    template: "%s | Ecosistia",
+    default: "Ecosistia - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 EUR",
+    template: "%s | Ecosistia - Software con IA a medida",
   },
   description:
-    "Creamos aplicaciones con IA a medida para tu empresa por 899 EUR. Automatiza procesos, integra tus sistemas y gana eficiencia.",
+    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
+  keywords: [
+    "desarrollo aplicaciones inteligencia artificial",
+    "software con IA a medida",
+    "automatizacion de procesos con IA",
+    "aplicaciones IA para empresas",
+    "software IA empresas",
+    "desarrollo software IA Espana",
+    "inteligencia artificial para pymes",
+    "app con IA precio",
+    "Ecosistia",
+  ],
+  authors: [{ name: "Ecosistia" }],
+  creator: "Ecosistia",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "Ecosistia",
+    title: "Ecosistia - Aplicaciones con inteligencia artificial a medida por 899 EUR",
+    description:
+      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-6 semanas.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ecosistia - Aplicaciones con IA a medida | 899 EUR",
+    description:
+      "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 EUR.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#e63462",
+  themeColor: "#1E1B4B",
   width: "device-width",
   initialScale: 1,
 }
@@ -41,7 +79,7 @@ export default function RootLayout({
         <Header />
         <main className="pt-14">{children}</main>
         <Footer />
-        <ChatbotFab />
+        <CookieBanner />
       </body>
     </html>
   )

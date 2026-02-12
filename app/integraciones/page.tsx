@@ -96,7 +96,7 @@ export default function IntegracionesPage() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Ecosistema</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Ecosistema'}</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
             Integraciones
           </h1>
@@ -228,7 +228,7 @@ export default function IntegracionesPage() {
                 {filtered.map((item) => (
                   <div
                     key={item.slug}
-                    className="group flex flex-col rounded-xl border border-border bg-background p-5 transition-all hover:shadow-lg hover:border-primary/30"
+                    className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:shadow-lg hover:border-accent/20"
                   >
                     <div className="flex items-start gap-3">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-muted p-2">
@@ -268,7 +268,7 @@ export default function IntegracionesPage() {
                             </Badge>
                           )}
                           {item.recentlyLaunched && (
-                            <Badge className="shrink-0 text-[10px] px-1.5 py-0 bg-accent/10 text-accent hover:bg-accent/20 border-0">
+                            <Badge className="shrink-0 text-[10px] px-1.5 py-0 bg-success/10 text-success hover:bg-success/20 border-0">
                               Nuevo
                             </Badge>
                           )}
@@ -289,7 +289,7 @@ export default function IntegracionesPage() {
                 {filtered.map((item) => (
                   <div
                     key={item.slug}
-                    className="group flex items-center gap-4 rounded-lg border border-border bg-background px-4 py-3 transition-all hover:shadow-md hover:border-primary/30"
+                    className="group flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 transition-all hover:shadow-md hover:border-accent/20"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted p-2">
                       <img
@@ -350,7 +350,7 @@ export default function IntegracionesPage() {
                 Cuentanos tu caso y lo resolvemos.
               </p>
               <div className="mt-6">
-                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button asChild variant="success">
                   <Link href="/contacto">
                     Contactar
                     <ArrowRight className="ml-2 h-4 w-4" />

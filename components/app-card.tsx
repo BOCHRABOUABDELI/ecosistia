@@ -13,7 +13,7 @@ export function AppCard({ app }: { app: AppItem }) {
   const extraCount = app.tags.length - MAX_VISIBLE_TAGS
 
   return (
-    <div className="group flex flex-col rounded-xl border border-border bg-background shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 overflow-hidden">
+    <div className="group flex flex-col rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/20 overflow-hidden">
       {/* Image header */}
       <div className="relative h-48 w-full overflow-hidden bg-muted">
         <img
@@ -87,7 +87,7 @@ export function AppCard({ app }: { app: AppItem }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex flex-1 items-center justify-center rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex flex-1 items-center justify-center rounded-lg bg-success px-3 py-2 text-sm font-medium text-success-foreground transition-colors hover:bg-[#2563EB]"
             >
               <ExternalLink className="mr-2 h-3.5 w-3.5" />
               Ver Demo
@@ -95,7 +95,7 @@ export function AppCard({ app }: { app: AppItem }) {
           )}
           <Link
             href={`/aplicaciones/${app.slug}`}
-            className="inline-flex flex-1 items-center justify-center rounded-lg border border-border bg-transparent px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-card"
+            className="inline-flex flex-1 items-center justify-center rounded-lg border border-border bg-transparent px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             {"Mas Info"}
           </Link>

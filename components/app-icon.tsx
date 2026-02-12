@@ -6,6 +6,10 @@ import {
   TrendingUp,
   Scale,
   Wrench,
+  Bot,
+  FileSearch,
+  HardHat,
+  Users,
 } from "lucide-react"
 import type { AppIconName } from "@/lib/data"
 import { cn } from "@/lib/utils"
@@ -19,6 +23,10 @@ const iconMap: Record<AppIconName, ElementType> = {
   TrendingUp,
   Scale,
   Wrench,
+  Bot,
+  FileSearch,
+  HardHat,
+  Users,
 }
 
 export function AppIcon({

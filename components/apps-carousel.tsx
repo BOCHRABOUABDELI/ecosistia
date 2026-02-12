@@ -98,7 +98,7 @@ export function AppsCarousel() {
               href={`/aplicaciones/${app.slug}`}
               className="w-1/3 shrink-0 px-2"
             >
-              <div className="group rounded-xl border border-border bg-background overflow-hidden transition-all hover:shadow-md hover:border-primary/30">
+              <div className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-lg hover:border-accent/20">
                 <div className="relative h-32 w-full overflow-hidden bg-muted">
                   <img
                     src={app.image || "/placeholder.svg"}
@@ -107,7 +107,7 @@ export function AppsCarousel() {
                     loading="lazy"
                   />
                   <div className="absolute top-2 left-2 flex gap-1.5">
-                    <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow">
+                    <span className="rounded-full bg-success px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-success-foreground shadow">
                       Demo
                     </span>
                     <span className="rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-medium text-foreground backdrop-blur-sm shadow">

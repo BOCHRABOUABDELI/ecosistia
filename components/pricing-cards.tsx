@@ -68,15 +68,15 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
         <div
           key={plan.name}
           className={cn(
-            "relative flex flex-col rounded-xl border bg-background p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5",
+            "relative flex flex-col rounded-2xl border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
             plan.popular
-              ? "border-primary ring-1 ring-primary/20"
+              ? "border-accent ring-1 ring-accent/20 shadow-accent/5"
               : "border-border"
           )}
         >
           {plan.popular && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="rounded-full bg-primary px-4 py-1 text-xs font-bold text-primary-foreground shadow-sm">
+              <span className="rounded-full bg-accent px-4 py-1 text-xs font-bold text-accent-foreground shadow-sm">
                 Popular
               </span>
             </div>
@@ -113,11 +113,12 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
           </ul>
           <Button
             asChild
+            variant={plan.popular ? "success" : "default"}
             className={cn(
               "mt-6 w-full",
               plan.popular
-                ? "shadow-sm shadow-primary/20"
-                : "bg-foreground text-background hover:bg-foreground/90"
+                ? "shadow-sm shadow-success/20"
+                : ""
             )}
           >
             <Link href="/contacto">
