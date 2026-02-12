@@ -179,7 +179,7 @@ export const apps: AppItem[] = [
     sector: "Administracion Publica",
     icon: "Building2",
     iconColor: "bg-foreground",
-    image: "/apps/gestion-penitenciaria.jpg",
+    image: "/apps/gestion-penitenciaria.png",
     tags: ["Predictive Analytics", "Risk Assessment", "Behavioral Analysis", "Security AI"],
     features: [
       "Analisis predictivo y recomendaciones IA",
