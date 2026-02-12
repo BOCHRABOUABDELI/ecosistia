@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Cuanto tiempo tarda el desarrollo de una aplicacion?",
     answer:
-      "Depende de la complejidad, pero la mayoria de proyectos se completan entre 2 y 6 semanas. El mock/demo lo tienes en 5 dias laborables para que valides la idea rapidamente.",
+      "Depende de la complejidad, pero la mayoria de proyectos se completan entre 2 y 12 semanas. El mock/demo lo tienes en 5 dias laborables para que valides la idea rapidamente.",
   },
   {
     question: "Necesito conocimientos tecnicos para trabajar con vosotros?",

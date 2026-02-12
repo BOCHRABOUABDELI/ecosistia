@@ -384,7 +384,7 @@ export default async function AppDetailPage({
                 Tanto si eres una <strong className="text-foreground">pyme</strong>, una <strong className="text-foreground">startup</strong> o una <strong className="text-foreground">empresa consolidada</strong>,
                 el sistema se configura para adaptarse a tus procesos, tu equipo y tus objetivos de negocio.
                 Ecosistia desarrolla cada proyecto por un <strong className="text-foreground">precio cerrado de 899 €</strong> con
-                entrega funcional en <strong className="text-foreground">2 a 6 semanas</strong>.
+                entrega funcional en <strong className="text-foreground">2 a 12 semanas</strong>.
               </p>
             </div>
           </section>
@@ -558,7 +558,7 @@ export default async function AppDetailPage({
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-primary-foreground/60 leading-relaxed">
               Cuentanos tu caso y te preparamos una <strong className="text-primary-foreground">solucion a medida con inteligencia artificial</strong> por un precio cerrado de 899{"\u00A0\u20AC"}.
-              Prototipo funcional en 5 dias. Entrega completa en 2-6 semanas.
+              Prototipo funcional en 5 dias. Entrega completa en 2-12 semanas.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
