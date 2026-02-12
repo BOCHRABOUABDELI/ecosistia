@@ -442,7 +442,7 @@ export const apps: AppItem[] = [
     description:
       "SmartCRM es una plataforma CRM completa con inteligencia artificial integrada nativamente en cada componente: gestion de contactos, cuentas, leads con scoring, pipeline Kanban, inbox omnicanal, automatizaciones sin codigo, forecast avanzado y analítica predictiva. Arquitectura multi-tenant con aislamiento de datos por empresa.",
     status: "demo-funcional",
-    demoUrl: "https://crm-saas-con-ia-nati-lrdh.bolt.host/",
+    demoUrl: "https://smartcrm.ecosistia.com/",
     sector: "CRM y Ventas",
     icon: "Users",
     iconColor: "bg-sky-600",
