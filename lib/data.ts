@@ -70,7 +70,7 @@ export const apps: AppItem[] = [
     description:
       "Plataforma a medida para modernizar la gestion del archivo historico, con enfoque en automatizacion y preservacion digital.",
     status: "demo-funcional",
-    demoUrl: "https://courageous-lokum-e2303c.netlify.app/",
+    demoUrl: "https://historico.ecosistia.com/",
     sector: "Archivos y Documentacion",
     icon: "ClipboardList",
     iconColor: "bg-emerald-500",
