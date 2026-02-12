@@ -144,7 +144,7 @@ export const apps: AppItem[] = [
     sector: "Salud y Medicina",
     icon: "HeartPulse",
     iconColor: "bg-rose-500",
-    image: "/apps/triaje-urgencias.jpg",
+    image: "/apps/triaje-urgencias.png",
     tags: ["Medical AI", "Speech Recognition", "Predictive Analytics", "Clinical NLP"],
     features: [
       "Transcripcion automatica de entrevistas",
