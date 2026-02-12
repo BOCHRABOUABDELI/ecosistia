@@ -181,7 +181,7 @@ export default async function AppDetailPage({
                   {app.sector}
                 </Badge>
                 <Badge variant="secondary" className="bg-primary-foreground/10 text-primary-foreground border-0 text-xs">
-                  899 EUR
+                  899 €
                 </Badge>
               </div>
 
@@ -383,7 +383,7 @@ export default async function AppDetailPage({
                 a cualquier tipo de empresa dentro del sector <strong className="text-foreground">{app.sector}</strong>.
                 Tanto si eres una <strong className="text-foreground">pyme</strong>, una <strong className="text-foreground">startup</strong> o una <strong className="text-foreground">empresa consolidada</strong>,
                 el sistema se configura para adaptarse a tus procesos, tu equipo y tus objetivos de negocio.
-                Ecosistia desarrolla cada proyecto por un <strong className="text-foreground">precio cerrado de 899 EUR</strong> con
+                Ecosistia desarrolla cada proyecto por un <strong className="text-foreground">precio cerrado de 899 €</strong> con
                 entrega funcional en <strong className="text-foreground">2 a 6 semanas</strong>.
               </p>
             </div>
@@ -520,7 +520,7 @@ export default async function AppDetailPage({
               },
               {
                 q: `Cuanto cuesta el desarrollo de ${app.name}?`,
-                a: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 EUR. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 EUR/mes sin permanencia.`,
+                a: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 €/mes sin permanencia.`,
               },
               {
                 q: `Para que tipos de empresa es util ${app.name}?`,
