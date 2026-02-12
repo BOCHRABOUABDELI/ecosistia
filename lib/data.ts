@@ -75,7 +75,9 @@ export const apps: AppItem[] = [
     icon: "ClipboardList",
     iconColor: "bg-emerald-500",
     image: "/apps/archivo-historico.png",
-    tags: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
+    tags: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI", "Sistemas de gestión archivística y documental", "Repositorios institucionales y bibliotecas digitales",
+      "ERP y sistemas de gestión interna de la institución", "Gestores documentales (DMS) existentes",
+      "Almacenamiento en la nube (S3, Azure, Google Cloud, etc.)", "Catálogos bibliográficos y sistemas de descripción archivística", "Buscadores internos y portales de consulta pública", "Sistemas de digitalización y escáneres profesionales", "Sistemas de autenticación corporativa (LDAP, SSO, etc.)", "APIs externas y sistemas propios de la institución"],
     features: [
       "OCR avanzado para texto manuscrito y lenguas antiguas",
       "Clasificacion automatica y deteccion de duplicados",
