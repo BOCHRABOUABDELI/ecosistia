@@ -15,11 +15,11 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ecosistia - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 EUR",
+    default: "Ecosistia - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 €",
     template: "%s | Ecosistia - Software con IA a medida",
   },
   description:
-    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-12 semanas. Consulta gratuita.",
+    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 €. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-12 semanas. Consulta gratuita.",
   keywords: [
     "desarrollo aplicaciones inteligencia artificial",
     "software con IA a medida",
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     siteName: "Ecosistia",
-    title: "Ecosistia - Aplicaciones con inteligencia artificial a medida por 899 EUR",
+    title: "Ecosistia - Aplicaciones con inteligencia artificial a medida por 899 €",
     description:
-      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-12 semanas.",
+      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 €. Entrega en 2-12 semanas.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ecosistia - Aplicaciones con IA a medida | 899 EUR",
+    title: "Ecosistia - Aplicaciones con IA a medida | 899 €",
     description:
-      "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 EUR.",
+      "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 €.",
   },
   robots: {
     index: true,
