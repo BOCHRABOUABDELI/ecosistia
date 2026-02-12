@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 const benefits = [
   "Sin coste inicial",
   "Prototipo en 5 dias",
-  "Codigo 100% tuyo",
+  "Acompañamiento completo",
 ]
 
 const rotatingWords = [
