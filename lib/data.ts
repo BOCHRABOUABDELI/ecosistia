@@ -249,7 +249,7 @@ export const apps: AppItem[] = [
     sector: "Legal y Juridico",
     icon: "Scale",
     iconColor: "bg-foreground",
-    image: "/apps/gestion-despachos.jpg",
+    image: "/apps/gestion-despachos.png",
     tags: ["Legal AI", "Document Classification", "Contract Analysis", "NLP"],
     features: [
       "Clasificador automatico de documentos",
