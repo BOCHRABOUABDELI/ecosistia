@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
-import { Clock, Shield, MessageSquare } from "lucide-react"
+import { Clock, Shield, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contacto | Consulta gratuita para tu proyecto con IA",
@@ -20,7 +20,7 @@ const trustPoints = [
     description: "La consulta es gratuita. Solo pagas si decides avanzar con el proyecto.",
   },
   {
-    icon: MessageSquare,
+    icon: Sparkles,
     title: "Te ayudamos a definir",
     description: "No necesitas tener todo claro. Te guiamos para concretar la solucion ideal.",
   },
@@ -49,17 +49,6 @@ export default function ContactoPage() {
           </div>
 
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6">
-              <h3 className="font-heading text-lg font-semibold text-foreground">
-                {"Prefieres hablar con el asistente?"}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Nuestro chatbot de IA te ayuda a definir los requisitos de tu
-                proyecto de forma guiada. Haz clic en el boton flotante de la
-                esquina inferior derecha.
-              </p>
-            </div>
-
             <div className="flex flex-col gap-5">
               {trustPoints.map((point) => (
                 <div key={point.title} className="flex gap-4">

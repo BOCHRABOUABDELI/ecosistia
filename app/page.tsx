@@ -7,8 +7,6 @@ import {
   ArrowRight,
   Cog,
   FileText,
-  MessageSquare,
-  Bot,
   RefreshCw,
   BarChart3,
   Shield,
@@ -29,18 +27,6 @@ const problems = [
     title: "Lectura inteligente de documentos",
     description:
       "Extrae datos de facturas, contratos, albaranes y formularios de forma automatica. Nuestra IA reconoce patrones, clasifica documentos y vuelca la informacion directamente en tus sistemas sin intervencion manual.",
-  },
-  {
-    icon: Bot,
-    title: "Asistentes internos con IA",
-    description:
-      "Crea asistentes que responden preguntas frecuentes de tu equipo al instante, consultan bases de datos internas y generan resumenes de documentacion tecnica. Menos interrupciones, mas productividad.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Chatbots para atencion al cliente",
-    description:
-      "Atiende a tus clientes las 24 horas del dia con chatbots que entienden contexto, resuelven incidencias comunes y escalan al equipo humano cuando es necesario. Mejora la satisfaccion sin aumentar costes.",
   },
   {
     icon: RefreshCw,
@@ -121,7 +107,7 @@ const jsonLd = {
   name: "ValerIA",
   alternateName: "ValerIA del grupo Ecosistia",
   description:
-    "ValerIA es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, chatbots con IA, lectura inteligente de documentos y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
+    "ValerIA es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
   url: "https://valeria.ecosistia.com",
   foundingDate: "2024",
   areaServed: "ES",
@@ -178,7 +164,7 @@ const faqJsonLd = {
       name: "Que tipo de aplicaciones con IA desarrolla ValerIA?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Desarrollamos aplicaciones de automatizacion de procesos, chatbots con IA para atencion al cliente, sistemas de lectura inteligente de documentos (OCR con IA), asistentes internos, paneles de datos con predicciones, y sincronizacion entre sistemas empresariales como CRM, ERP y herramientas de gestion.",
+        text: "Desarrollamos aplicaciones de automatizacion de procesos, sistemas de lectura inteligente de documentos (OCR con IA), paneles de datos con predicciones, gestion comercial con IA, plataformas de analisis forense y sincronizacion entre sistemas empresariales como CRM, ERP y herramientas de gestion.",
       },
     },
     {
@@ -317,7 +303,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
               La inteligencia artificial aplicada a empresas transforma la operativa diaria y reduce costes hasta un 60%.
-              Desde la automatizacion de procesos repetitivos hasta chatbots que atienden clientes 24/7,
+              Desde la automatizacion de procesos repetitivos hasta paneles de datos inteligentes,
               estas son las soluciones de IA que mas impacto generan en los negocios de nuestros clientes.
             </p>
           </div>
@@ -488,10 +474,10 @@ export default function HomePage() {
               y automatizan los procesos que mas tiempo consumen a tu equipo, desde la primera semana de uso.
             </p>
             <p>
-              Ofrecemos <strong className="text-foreground">desarrollo de chatbots con IA para atencion al cliente</strong>,
+              Ofrecemos <strong className="text-foreground">automatizacion de procesos empresariales con IA</strong>,
               sistemas de <strong className="text-foreground">lectura inteligente de documentos (OCR con inteligencia artificial)</strong>,
-              asistentes virtuales internos, paneles de datos con predicciones en tiempo real
-              y automatizacion de flujos de trabajo complejos. Cada aplicacion se desarrolla por un
+              plataformas de gestion comercial con IA, paneles de datos con predicciones en tiempo real
+              y sincronizacion entre sistemas de negocio. Cada aplicacion se desarrolla por un
               precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 6 semanas.
             </p>
             <p>

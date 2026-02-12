@@ -5,7 +5,6 @@ import { Inter, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ChatbotFab } from "@/components/chatbot-fab"
 import { CookieBanner } from "@/components/cookie-banner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -20,13 +19,13 @@ export const metadata: Metadata = {
     template: "%s | ValerIA - Software con IA a medida",
   },
   description:
-    "ValerIA desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, chatbots, lectura de documentos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
+    "ValerIA desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
   keywords: [
     "desarrollo aplicaciones inteligencia artificial",
     "software con IA a medida",
     "automatizacion de procesos con IA",
     "aplicaciones IA para empresas",
-    "chatbot IA empresas",
+    "software IA empresas",
     "desarrollo software IA Espana",
     "inteligencia artificial para pymes",
     "app con IA precio",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ValerIA - Aplicaciones con IA a medida | 899 EUR",
     description:
-      "Software con inteligencia artificial para empresas. Automatiza procesos, crea chatbots y lee documentos con IA. Desde 899 EUR.",
+      "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 EUR.",
   },
   robots: {
     index: true,
@@ -81,7 +80,6 @@ export default function RootLayout({
         <Header />
         <main className="pt-14">{children}</main>
         <Footer />
-        <ChatbotFab />
         <CookieBanner />
       </body>
     </html>
