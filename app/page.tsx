@@ -200,7 +200,7 @@ export default function HomePage() {
             {[
               { value: "899\u00A0\u20AC", label: "Precio cerrado" },
               { value: "2-12 sem.", label: "Tiempo de entrega" },
-              { value: "100%", label: "Tu propiedad" },
+              { value: "100%", label: "Acompañamiento completo" },
               { value: "24h", label: "Tiempo de respuesta" },
             ].map((metric) => (
               <div key={metric.label} className="py-8 text-center lg:py-10">
