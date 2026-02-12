@@ -129,7 +129,7 @@ export default function PoliticaCookiesPage() {
             <h2 className="text-lg font-semibold text-foreground">6. Contacto</h2>
             <p className="mt-2">
               Si tienes alguna pregunta sobre nuestra politica de cookies, puedes contactarnos en{" "}
-              <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">hola@softwareopium.com</a>.
+              <a href="mailto:admin@ecosistia.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
             </p>
           </div>
         </div>
