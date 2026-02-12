@@ -42,7 +42,7 @@ export function Header() {
           href="/"
           className="flex items-center gap-2.5 font-heading text-xl font-bold tracking-tight text-foreground"
         >
-          <Image src="/logo.png" alt="Ecosistia logo" width={36} height={36} className="h-9 w-9 object-contain" />
+          <Image src="/logo.jpg" alt="Ecosistia logo" width={36} height={36} className="h-9 w-9 rounded-md object-contain" />
           Ecosistia
         </Link>
 
