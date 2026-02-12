@@ -339,6 +339,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas industriales con servicio tecnico propio, fabricantes de maquinaria, empresas de mantenimiento industrial e instalaciones tecnicas.",
     allIntegrations: ["Predictive Maintenance", "IoT Integration", "Workflow Automation", "Field Service AI"],
+    targetSectors: ["Fabricantes de Maquinaria", "Mantenimiento Industrial", "Climatizacion y HVAC", "Telecomunicaciones", "Ascensores", "Energia y Utilities", "Electrica e Instalaciones", "Fontaneria y Gas", "Facility Management"],
+    keyBenefits: [
+      { metric: "50%", label: "Menos tiempo de respuesta" },
+      { metric: "Predictivo", label: "Mantenimiento anticipado" },
+      { metric: "Movil", label: "Acceso en campo" },
+      { metric: "Auto", label: "Asignacion de tecnicos" },
+    ],
     seoContent: {
       heading: "Software de gestion SAT y mantenimiento industrial con inteligencia artificial",
       paragraphs: [
