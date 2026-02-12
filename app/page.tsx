@@ -157,7 +157,7 @@ const faqJsonLd = {
       name: "Cuanto tiempo tarda en desarrollarse una aplicacion con IA?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "La mayoria de proyectos se completan entre 2 y 6 semanas. Entregamos un prototipo funcional en los primeros 5 dias laborables para validar la idea antes del desarrollo completo.",
+        text: "La mayoria de proyectos se completan entre 2 y 12 semanas. Entregamos un prototipo funcional en los primeros 5 dias laborables para validar la idea antes del desarrollo completo.",
       },
     },
     {
