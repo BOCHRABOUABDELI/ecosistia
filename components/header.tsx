@@ -42,8 +42,8 @@ export function Header() {
           href="/"
           className="flex items-center gap-2.5 font-heading text-xl font-bold tracking-tight text-foreground"
         >
-          <Image src="/logo.png" alt="ValerIA logo" width={36} height={36} className="h-9 w-9 object-contain" />
-          ValerIA
+          <Image src="/logo.png" alt="Ecosistia logo" width={36} height={36} className="h-9 w-9 object-contain" />
+          Ecosistia
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegacion principal">

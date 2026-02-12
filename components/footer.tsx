@@ -28,8 +28,8 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2.5 font-heading text-xl font-bold text-primary-foreground"
             >
-              <Image src="/logo.png" alt="ValerIA logo" width={36} height={36} className="h-9 w-9 object-contain" />
-              ValerIA
+              <Image src="/logo.png" alt="Ecosistia logo" width={36} height={36} className="h-9 w-9 object-contain" />
+              Ecosistia
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">
               Creamos aplicaciones con inteligencia artificial a medida para empresas que quieren automatizar
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
         <div className="mt-10 border-t border-primary-foreground/10 pt-6">
           <p className="text-center text-xs text-primary-foreground/30">
-            {"\u00A9"} {new Date().getFullYear()} ValerIA del grupo Ecosistia. Todos los derechos reservados.
+            {"\u00A9"} {new Date().getFullYear()} Ecosistia. Todos los derechos reservados.
           </p>
         </div>
       </div>

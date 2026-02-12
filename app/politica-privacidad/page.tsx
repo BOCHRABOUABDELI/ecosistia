@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Politica de Privacidad",
   description:
-    "Politica de privacidad de ValerIA del grupo Ecosistia. Informacion sobre como tratamos tus datos personales conforme al RGPD.",
+    "Politica de privacidad de Ecosistia. Informacion sobre como tratamos tus datos personales conforme al RGPD.",
 }
 
 export default function PoliticaPrivacidadPage() {
@@ -22,8 +22,8 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="text-lg font-semibold text-foreground">1. Responsable del tratamiento</h2>
             <p className="mt-2">
-              El responsable del tratamiento de tus datos personales es ValerIA del grupo Ecosistia
-              (en adelante, &quot;ValerIA&quot;), con domicilio social en Espana.
+              El responsable del tratamiento de tus datos personales es Ecosistia
+              (en adelante, &quot;Ecosistia&quot;), con domicilio social en Espana.
               Puedes contactarnos en <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">hola@softwareopium.com</a>.
             </p>
           </div>

@@ -15,11 +15,11 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "ValerIA - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 EUR",
-    template: "%s | ValerIA - Software con IA a medida",
+    default: "Ecosistia - Desarrollo de aplicaciones con inteligencia artificial a medida | 899 EUR",
+    template: "%s | Ecosistia - Software con IA a medida",
   },
   description:
-    "ValerIA desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
+    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
   keywords: [
     "desarrollo aplicaciones inteligencia artificial",
     "software con IA a medida",
@@ -29,22 +29,21 @@ export const metadata: Metadata = {
     "desarrollo software IA Espana",
     "inteligencia artificial para pymes",
     "app con IA precio",
-    "ValerIA",
     "Ecosistia",
   ],
-  authors: [{ name: "ValerIA del grupo Ecosistia" }],
-  creator: "ValerIA del grupo Ecosistia",
+  authors: [{ name: "Ecosistia" }],
+  creator: "Ecosistia",
   openGraph: {
     type: "website",
     locale: "es_ES",
-    siteName: "ValerIA",
-    title: "ValerIA - Aplicaciones con inteligencia artificial a medida por 899 EUR",
+    siteName: "Ecosistia",
+    title: "Ecosistia - Aplicaciones con inteligencia artificial a medida por 899 EUR",
     description:
       "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-6 semanas.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ValerIA - Aplicaciones con IA a medida | 899 EUR",
+    title: "Ecosistia - Aplicaciones con IA a medida | 899 EUR",
     description:
       "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 EUR.",
   },

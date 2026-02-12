@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Politica de Cookies",
   description:
-    "Politica de cookies de ValerIA del grupo Ecosistia. Informacion sobre las cookies que utilizamos y como gestionarlas.",
+    "Politica de cookies de Ecosistia. Informacion sobre las cookies que utilizamos y como gestionarlas.",
 }
 
 export default function PoliticaCookiesPage() {

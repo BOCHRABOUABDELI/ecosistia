@@ -20,7 +20,7 @@ export async function generateMetadata({
   const app = apps.find((a) => a.slug === slug)
   if (!app) return { title: "Aplicacion no encontrada" }
   return {
-    title: `${app.name} - Software con IA para ${app.sector} | 899 EUR | ValerIA`,
+    title: `${app.name} - Software con IA para ${app.sector} | 899 EUR | Ecosistia`,
     description: `${app.description} ${app.seoContent?.paragraphs[0]?.substring(0, 120) ?? ""} Desarrollo a medida por 899 EUR. Demo funcional disponible.`,
     openGraph: {
       title: `${app.name} - Aplicacion con inteligencia artificial para ${app.sector}`,
@@ -53,7 +53,7 @@ export default async function AppDetailPage({
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "Organization",
-        name: "ValerIA del grupo Ecosistia",
+        name: "Ecosistia",
       },
     },
     featureList: app.features.join(", "),

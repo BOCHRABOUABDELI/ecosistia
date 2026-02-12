@@ -104,11 +104,11 @@ const sectors = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "ValerIA",
-  alternateName: "ValerIA del grupo Ecosistia",
+  name: "Ecosistia",
+  alternateName: "Ecosistia",
   description:
-    "ValerIA es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
-  url: "https://valeria.ecosistia.com",
+    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
+  url: "https://ecosistia.com",
   foundingDate: "2024",
   areaServed: "ES",
   knowsLanguage: "es",
@@ -148,7 +148,7 @@ const faqJsonLd = {
       name: "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En ValerIA, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 EUR. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 EUR/mes sin permanencia.",
+        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 EUR. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 EUR/mes sin permanencia.",
       },
     },
     {
@@ -161,7 +161,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      name: "Que tipo de aplicaciones con IA desarrolla ValerIA?",
+      name: "Que tipo de aplicaciones con IA desarrolla Ecosistia?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Desarrollamos aplicaciones de automatizacion de procesos, sistemas de lectura inteligente de documentos (OCR con IA), paneles de datos con predicciones, gestion comercial con IA, plataformas de analisis forense y sincronizacion entre sistemas empresariales como CRM, ERP y herramientas de gestion.",
@@ -169,7 +169,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      name: "ValerIA trabaja con empresas de cualquier sector?",
+      name: "Ecosistia trabaja con empresas de cualquier sector?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Si. Hemos desarrollado proyectos para clinicas, despachos de abogados, inmobiliarias, fabricantes, administraciones publicas, consultoras, comercio electronico y empresas de logistica, entre otros sectores.",
@@ -328,7 +328,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why ValerIA */}
+      {/* Why Ecosistia */}
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
@@ -337,7 +337,7 @@ export default function HomePage() {
                 {"Por que elegirnos"}
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-                {"Por que elegir ValerIA para desarrollar software con IA"}
+                {"Por que elegir Ecosistia para desarrollar software con IA"}
               </h2>
               <p className="mt-6 text-muted-foreground leading-relaxed">
                 No somos una consultora generica que promete y subcontrata. Somos un equipo de desarrolladores
@@ -468,7 +468,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 flex flex-col gap-6 text-muted-foreground leading-relaxed">
             <p>
-              <strong className="text-foreground">ValerIA es una empresa de desarrollo de software con inteligencia artificial</strong> del grupo Ecosistia,
+              <strong className="text-foreground">Ecosistia es una empresa de desarrollo de software con inteligencia artificial</strong>,
               especializada en crear aplicaciones a medida para empresas de cualquier sector y tamano.
               Nuestras soluciones de IA se integran con los sistemas que ya utilizas (CRM, ERP, email, bases de datos)
               y automatizan los procesos que mas tiempo consumen a tu equipo, desde la primera semana de uso.
