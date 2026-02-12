@@ -22,7 +22,7 @@ const developmentFeatures = [
   "Mock / demo antes de desarrollar",
   "Testing y despliegue incluido",
   "Formacion basica del equipo",
-  "Codigo fuente de tu propiedad",
+  "Acompañamiento completo",
 ]
 
 const faqs = [
