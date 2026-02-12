@@ -1,3 +1,4 @@
+/* Updated logo and favicon - v2 */
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
@@ -46,6 +47,10 @@ export const metadata: Metadata = {
     title: "Ecosistia - Aplicaciones con IA a medida | 899 €",
     description:
       "Software con inteligencia artificial para empresas. Automatiza procesos, lee documentos y analiza datos con IA. Desde 899 €.",
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   robots: {
     index: true,

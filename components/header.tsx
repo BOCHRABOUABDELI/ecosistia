@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Logo } from "@/components/logo"
+import Image from "next/image"
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -40,10 +40,18 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-heading text-xl font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2 text-foreground"
         >
-          <Logo />
-          Ecosistia
+          <Image
+            src="/logo-ecosistia.png"
+            alt="Ecosistia - AI Software & Solutions"
+            width={180}
+            height={48}
+            className="h-9 w-auto object-contain"
+            priority
+            loading="eager"
+            unoptimized
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegacion principal">
