@@ -79,7 +79,7 @@ export default function PoliticaCookiesPage() {
                   <tbody>
                     <tr className="border-b border-border">
                       <td className="px-4 py-2 font-mono text-xs">_va</td>
-                      <td className="px-4 py-2">Vercel Analytics</td>
+                      <td className="px-4 py-2">Analytics</td>
                       <td className="px-4 py-2">Medir el rendimiento y uso del sitio web</td>
                       <td className="px-4 py-2">Sesion</td>
                     </tr>
@@ -129,7 +129,7 @@ export default function PoliticaCookiesPage() {
             <h2 className="text-lg font-semibold text-foreground">6. Contacto</h2>
             <p className="mt-2">
               Si tienes alguna pregunta sobre nuestra politica de cookies, puedes contactarnos en{" "}
-              <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">hola@softwareopium.com</a>.
+              <a href="mailto:admin@ecosistia.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
             </p>
           </div>
         </div>

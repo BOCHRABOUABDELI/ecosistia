@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "automatizacion de procesos con IA",
     "aplicaciones IA para empresas",
     "software IA empresas",
-    "desarrollo software IA Espana",
+    "desarrollo software IA España",
     "inteligencia artificial para pymes",
     "app con IA precio",
     "Ecosistia",
