@@ -153,7 +153,7 @@ export const apps: AppItem[] = [
     description:
       "Sistema para mejorar eficiencia en urgencias con flujos diferenciados para pacientes, enfermeria, medicos y administradores.",
     status: "demo-funcional",
-    demoUrl: "https://www.triaje-urgencias.ecosistia.com",
+    demoUrl: "https://triaje.ecosistia.com/",
     sector: "Salud y Medicina",
     icon: "HeartPulse",
     iconColor: "bg-rose-500",
