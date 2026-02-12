@@ -1,3 +1,4 @@
+/* Updated logo and favicon - v2 */
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
