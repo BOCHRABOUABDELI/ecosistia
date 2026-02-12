@@ -459,7 +459,7 @@ export default async function AppDetailPage({
                   Mantenimiento mensual desde 150{"\u00A0\u20AC"}/mes sin permanencia.
                 </p>
                 <ul className="mt-5 flex flex-col gap-2">
-                  {["Prototipo funcional en 5 dias", "Entrega completa en 2-6 semanas", "Codigo fuente 100% tuyo", "Sin permanencia en mantenimiento"].map((item) => (
+                  {["Prototipo funcional en 5 dias", "Entrega completa en 2-12 semanas", "Sin permanencia en mantenimiento"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-foreground">
                       <Check className="h-4 w-4 shrink-0 text-success" />
                       <strong>{item}</strong>

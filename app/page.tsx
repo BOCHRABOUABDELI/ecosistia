@@ -427,7 +427,7 @@ export default function HomePage() {
               sistemas de <strong className="text-foreground">lectura inteligente de documentos (OCR con inteligencia artificial)</strong>,
               plataformas de gestion comercial con IA, paneles de datos con predicciones en tiempo real
               y sincronizacion entre sistemas de negocio. Cada aplicacion se desarrolla por un
-              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 6 semanas.
+              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 12 semanas.
             </p>
             <p>
               Trabajamos con tecnologias lider: procesamiento de lenguaje natural (NLP), modelos de lenguaje (LLM),
