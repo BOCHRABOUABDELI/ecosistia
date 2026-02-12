@@ -85,12 +85,7 @@ export const apps: AppItem[] = [
     ],
     problem:
       "Los archivos históricos sufren deterioro físico de los documentos, dificultades de acceso y riesgo de pérdida de información valiosa. Además, muchos carecen de una organización digital que refleje la estructura real del archivo físico, lo que impide saber de forma rápida y precisa dónde se encuentra cada documento en el edificio. Esta desconexión entre el archivo físico y el virtual provoca búsquedas lentas, errores y una gestión ineficiente del patrimonio documental.",
-    audience:
-      "Instituciones publicas 
-       Universidades
-       Museos
-       Bibliotecas 
-       Entidades con fondos documentales historicos.",
+    audience: "Esta solución está dirigida a instituciones públicas, universidades, museos, bibliotecas y a todas las entidades que gestionan fondos documentales históricos y patrimoniales. Está pensada para organizaciones que necesitan preservar, organizar y digitalizar grandes volúmenes de documentación, mejorar el acceso a la información y garantizar una gestión eficiente, segura y trazable de su archivo físico y digital, independientemente del tamaño del fondo o de la complejidad de su estructura.",
     allIntegrations: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
     seoContent: {
       heading: "Software de digitalizacion de archivos historicos con inteligencia artificial",
