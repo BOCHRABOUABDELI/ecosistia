@@ -88,7 +88,7 @@ export default async function AppDetailPage({
     offers: {
       "@type": "Offer",
       price: "899",
-      priceCurrency: "EUR",
+      priceCurrency: "€",
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "Organization",
@@ -123,7 +123,7 @@ export default async function AppDetailPage({
         name: `Cuanto cuesta desarrollar ${app.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 EUR. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 EUR sin permanencia.`,
+          text: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 € sin permanencia.`,
         },
       },
       {

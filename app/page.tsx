@@ -108,7 +108,7 @@ const jsonLd = {
   name: "Ecosistia",
   alternateName: "Ecosistia",
   description:
-    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
+    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 €.",
   url: "https://ecosistia.com",
   foundingDate: "2024",
   areaServed: "ES",
@@ -124,16 +124,16 @@ const jsonLd = {
         description:
           "Desarrollo completo de una aplicacion personalizada con inteligencia artificial, incluyendo analisis, prototipo, desarrollo, integraciones, testing y despliegue en produccion.",
         price: "899",
-        priceCurrency: "EUR",
+        priceCurrency: "€",
         availability: "https://schema.org/InStock",
       },
       {
         "@type": "Offer",
         name: "Mantenimiento mensual",
         description:
-          "Plan de mantenimiento con hosting, soporte tecnico, actualizaciones y mejoras continuas. Desde 150 EUR/mes sin permanencia.",
+          "Plan de mantenimiento con hosting, soporte tecnico, actualizaciones y mejoras continuas. Desde 150 €/mes sin permanencia.",
         price: "150",
-        priceCurrency: "EUR",
+        priceCurrency: "€",
         availability: "https://schema.org/InStock",
       },
     ],
@@ -149,7 +149,7 @@ const faqJsonLd = {
       name: "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 EUR. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 EUR/mes sin permanencia.",
+        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 €. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 €/mes sin permanencia.",
       },
     },
     {
