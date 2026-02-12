@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { IntegrationsGrid } from "@/components/integrations-grid"
 import { PricingCards } from "@/components/pricing-cards"
 import { AppsCarousel } from "@/components/apps-carousel"
+import { HeroSection } from "@/components/hero-section"
 import {
   ArrowRight,
   Cog,
@@ -190,59 +191,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative pb-20 pt-24 lg:pb-32 lg:pt-36 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.06),transparent)]" />
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-accent/[0.03] blur-3xl pointer-events-none" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              Desarrollo de software con IA
-            </div>
-            <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance leading-[1.1]">
-              Desarrollo de aplicaciones con inteligencia artificial a medida para tu empresa
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
-              Desarrollamos software a medida con inteligencia artificial para pymes y grandes empresas.
-              Automatiza procesos, conecta tus sistemas y elimina tareas manuales.
-            </p>
-            <p className="mt-5 flex items-baseline justify-center gap-2">
-              <span className="font-heading text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">899{"\u00A0\u20AC"}</span>
-              <span className="text-lg text-muted-foreground font-medium">precio cerrado por proyecto</span>
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
-                <Link href="/contacto">
-                  Hablemos de tu proyecto
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="text-base px-8"
-              >
-                <Link href="/aplicaciones">Ver demos funcionales</Link>
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Sin coste inicial
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Prototipo en 5 dias
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Codigo 100% tuyo
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Metrics bar */}
       <section className="border-y border-border bg-card">
