@@ -5,6 +5,7 @@ import Link from "next/link"
 import { apps } from "@/lib/data"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { AppScreenshot } from "@/components/app-screenshot"
 
 const INTERVAL = 4000
 const VISIBLE = 3
@@ -99,14 +100,13 @@ export function AppsCarousel() {
               className="w-1/3 shrink-0 px-2"
             >
               <div className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-lg hover:border-accent/20">
-                <div className="relative h-32 w-full overflow-hidden bg-muted">
-                  <img
-                    src={app.image || "/placeholder.svg"}
+                <div className="relative">
+                  <AppScreenshot
+                    src={app.image}
                     alt={app.name}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
+                    variant="carousel"
                   />
-                  <div className="absolute top-2 left-2 flex gap-1.5">
+                  <div className="absolute top-2 left-2 flex gap-1.5 z-10">
                     <span className="rounded-full bg-success px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-success-foreground shadow">
                       Demo
                     </span>

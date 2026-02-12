@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { ExternalLink } from "lucide-react"
 import type { AppItem } from "@/lib/data"
 import { AppIcon } from "@/components/app-icon"
+import { AppScreenshot } from "@/components/app-screenshot"
 
 const MAX_VISIBLE_TAGS = 3
 
@@ -15,26 +16,25 @@ export function AppCard({ app }: { app: AppItem }) {
   return (
     <div className="group flex flex-col rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/20 overflow-hidden">
       {/* Image header */}
-      <div className="relative h-48 w-full overflow-hidden bg-muted">
-        <img
-          src={app.image || "/placeholder.svg"}
+      <div className="relative">
+        <AppScreenshot
+          src={app.image}
           alt={app.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
+          variant="card"
+          slug={app.slug}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-          <Badge className="bg-success text-success-foreground hover:bg-success/90 border-0 text-[10px] font-bold uppercase tracking-wide">
+        <div className="absolute top-10 left-3 flex flex-wrap gap-1.5 z-10">
+          <Badge className="bg-success text-success-foreground hover:bg-success/90 border-0 text-[10px] font-bold uppercase tracking-wide shadow-sm">
             Demo Funcional
           </Badge>
           <Badge
             variant="secondary"
-            className="bg-background/90 text-foreground backdrop-blur-sm border-0 text-[10px] font-medium"
+            className="bg-background/90 text-foreground backdrop-blur-sm border-0 text-[10px] font-medium shadow-sm"
           >
             {app.sector}
           </Badge>
         </div>
-        <AppIcon name={app.icon} color={app.iconColor} className="absolute bottom-3 left-3" />
+        <AppIcon name={app.icon} color={app.iconColor} className="absolute bottom-3 left-3 z-10" />
       </div>
 
       {/* Body */}

@@ -19,6 +19,7 @@ import {
   Star,
 } from "lucide-react"
 import { AppIcon } from "@/components/app-icon"
+import { AppScreenshot } from "@/components/app-screenshot"
 
 export async function generateStaticParams() {
   return apps.map((app) => ({ slug: app.slug }))
@@ -213,21 +214,13 @@ export default async function AppDetailPage({
 
             {/* Imagen hero */}
             <div className="relative">
-              <div className="overflow-hidden rounded-2xl border border-primary-foreground/10 shadow-2xl shadow-black/20">
-                <div className="flex items-center gap-1.5 bg-black/30 px-4 py-2.5 backdrop-blur-sm">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-                  <span className="ml-3 text-[11px] text-primary-foreground/40 font-mono">{app.slug}.ecosistia.com</span>
-                </div>
-                <img
-                  src={app.image || "/placeholder.svg"}
-                  alt={`Captura de pantalla de ${app.name} - software con inteligencia artificial para ${app.sector}`}
-                  className="w-full object-cover"
-                  loading="eager"
-                />
-              </div>
-              <AppIcon name={app.icon} color={app.iconColor} size="lg" className="absolute -bottom-4 -left-4 shadow-xl ring-4 ring-primary" />
+              <AppScreenshot
+                src={app.image}
+                alt={`Captura de pantalla de ${app.name} - software con inteligencia artificial para ${app.sector}`}
+                variant="detail"
+                slug={app.slug}
+              />
+              <AppIcon name={app.icon} color={app.iconColor} size="lg" className="absolute -bottom-4 -left-4 shadow-xl ring-4 ring-primary z-10" />
             </div>
           </div>
         </div>

@@ -37,9 +37,9 @@ const faqs = [
       "No. El precio de desarrollo es 899 € y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto cerrado antes de empezar.",
   },
   {
-    question: "Puedo cancelar el mantenimiento en cualquier momento?",
+    question: "Incluye soporte y actualizaciones?",
     answer:
-      "Si, el mantenimiento es mensual y sin permanencia. Puedes cancelar cuando quieras. Tu aplicacion seguira funcionando, pero no tendras soporte ni actualizaciones.",
+      "Sí. El servicio incluye soporte técnico, actualizaciones de la plataforma y mejoras continuas. Nos encargamos de mantener el sistema actualizado, seguro y en evolución constante para que tu institución siempre disponga de la mejor versión del software.",
   },
   {
     question: "Que pasa si mi equipo crece y necesito mas usuarios?",
