@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { IntegrationsGrid } from "@/components/integrations-grid"
 import { PricingCards } from "@/components/pricing-cards"
 import { AppsCarousel } from "@/components/apps-carousel"
+import { HeroSection } from "@/components/hero-section"
 import {
   ArrowRight,
   Cog,
@@ -47,7 +48,7 @@ const whyUs = [
     icon: Zap,
     title: "Entrega en semanas, no meses",
     description:
-      "Tu aplicacion lista en 2-6 semanas. Trabajamos con metodologia agil y entregas parciales para que veas resultados desde el primer sprint.",
+      "Tu aplicacion lista en 2-12 semanas. Trabajamos con metodologia agil y entregas parciales para que veas resultados desde el primer sprint.",
   },
   {
     icon: Shield,
@@ -107,7 +108,7 @@ const jsonLd = {
   name: "Ecosistia",
   alternateName: "Ecosistia",
   description:
-    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 EUR.",
+    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 €.",
   url: "https://ecosistia.com",
   foundingDate: "2024",
   areaServed: "ES",
@@ -123,16 +124,16 @@ const jsonLd = {
         description:
           "Desarrollo completo de una aplicacion personalizada con inteligencia artificial, incluyendo analisis, prototipo, desarrollo, integraciones, testing y despliegue en produccion.",
         price: "899",
-        priceCurrency: "EUR",
+        priceCurrency: "€",
         availability: "https://schema.org/InStock",
       },
       {
         "@type": "Offer",
         name: "Mantenimiento mensual",
         description:
-          "Plan de mantenimiento con hosting, soporte tecnico, actualizaciones y mejoras continuas. Desde 150 EUR/mes sin permanencia.",
+          "Plan de mantenimiento con hosting, soporte tecnico, actualizaciones y mejoras continuas. Desde 150 €/mes sin permanencia.",
         price: "150",
-        priceCurrency: "EUR",
+        priceCurrency: "€",
         availability: "https://schema.org/InStock",
       },
     ],
@@ -148,7 +149,7 @@ const faqJsonLd = {
       name: "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 EUR. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 EUR/mes sin permanencia.",
+        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 €. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 €/mes sin permanencia.",
       },
     },
     {
@@ -156,7 +157,7 @@ const faqJsonLd = {
       name: "Cuanto tiempo tarda en desarrollarse una aplicacion con IA?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "La mayoria de proyectos se completan entre 2 y 6 semanas. Entregamos un prototipo funcional en los primeros 5 dias laborables para validar la idea antes del desarrollo completo.",
+        text: "La mayoria de proyectos se completan entre 2 y 12 semanas. Entregamos un prototipo funcional en los primeros 5 dias laborables para validar la idea antes del desarrollo completo.",
       },
     },
     {
@@ -190,59 +191,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative pb-20 pt-24 lg:pb-32 lg:pt-36 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(263_83%_58%_/_0.06),transparent)]" />
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-accent/[0.03] blur-3xl pointer-events-none" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              Desarrollo de software con IA
-            </div>
-            <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance leading-[1.1]">
-              Desarrollo de aplicaciones con inteligencia artificial a medida para tu empresa
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
-              Desarrollamos software a medida con inteligencia artificial para pymes y grandes empresas.
-              Automatiza procesos, conecta tus sistemas y elimina tareas manuales.
-            </p>
-            <p className="mt-5 flex items-baseline justify-center gap-2">
-              <span className="font-heading text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">899{"\u00A0\u20AC"}</span>
-              <span className="text-lg text-muted-foreground font-medium">precio cerrado por proyecto</span>
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
-                <Link href="/contacto">
-                  Hablemos de tu proyecto
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="text-base px-8"
-              >
-                <Link href="/aplicaciones">Ver demos funcionales</Link>
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Sin coste inicial
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Prototipo en 5 dias
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-success" />
-                Codigo 100% tuyo
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Metrics bar */}
       <section className="border-y border-border bg-card">
@@ -250,8 +199,8 @@ export default function HomePage() {
           <div className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
             {[
               { value: "899\u00A0\u20AC", label: "Precio cerrado" },
-              { value: "2-6 sem.", label: "Tiempo de entrega" },
-              { value: "100%", label: "Tu propiedad" },
+              { value: "2-12 sem.", label: "Tiempo de entrega" },
+              { value: "100%", label: "Acompañamiento completo" },
               { value: "24h", label: "Tiempo de respuesta" },
             ].map((metric) => (
               <div key={metric.label} className="py-8 text-center lg:py-10">
@@ -307,7 +256,7 @@ export default function HomePage() {
               estas son las soluciones de IA que mas impacto generan en los negocios de nuestros clientes.
             </p>
           </div>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {problems.map((problem) => (
               <div
                 key={problem.title}
@@ -395,7 +344,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-primary-foreground/60 text-lg leading-relaxed">
               Un proceso agil y transparente: de tu idea a una aplicacion con inteligencia artificial
-              en produccion en 2-6 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
+              en produccion en 2-12 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
             </p>
           </div>
           <div className="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
@@ -478,7 +427,7 @@ export default function HomePage() {
               sistemas de <strong className="text-foreground">lectura inteligente de documentos (OCR con inteligencia artificial)</strong>,
               plataformas de gestion comercial con IA, paneles de datos con predicciones en tiempo real
               y sincronizacion entre sistemas de negocio. Cada aplicacion se desarrolla por un
-              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 6 semanas.
+              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 12 semanas.
             </p>
             <p>
               Trabajamos con tecnologias lider: procesamiento de lenguaje natural (NLP), modelos de lenguaje (LLM),

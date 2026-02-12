@@ -42,6 +42,8 @@ export interface AppItem {
   audience: string
   allIntegrations: string[]
   demoUrl?: string
+  targetSectors: string[]
+  keyBenefits: { metric: string; label: string }[]
   seoContent: {
     heading: string
     paragraphs: string[]
@@ -70,31 +72,35 @@ export const apps: AppItem[] = [
     description:
       "Plataforma a medida para modernizar la gestion del archivo historico, con enfoque en automatizacion y preservacion digital.",
     status: "demo-funcional",
-    demoUrl: "https://courageous-lokum-e2303c.netlify.app/",
+    demoUrl: "https://historico.ecosistia.com/",
     sector: "Archivos y Documentacion",
     icon: "ClipboardList",
     iconColor: "bg-emerald-500",
-    image: "/apps/archivo-historico.jpg",
-    tags: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
+    image: "/apps/archivo-historico.png",
+    tags: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI", "Sistemas de gestión archivística y documental", "Gestores documentales (DMS) existentes", "Catálogos bibliográficos y sistemas de descripción archivística", "Buscadores internos y portales de consulta pública", "Sistemas de digitalización y escáneres profesionales"],
     features: [
       "OCR avanzado para texto manuscrito y lenguas antiguas",
       "Clasificacion automatica y deteccion de duplicados",
       "Indexacion semantica de contenidos historicos",
       "Busqueda inteligente por contexto y epoca",
       "Exportacion a formatos estandar de archivistica",
+      "Localización exacta del documento físico desde el archivo digital",
     ],
     problem:
-      "Los archivos historicos enfrentan deterioro fisico, dificultad de acceso y riesgo de perdida de informacion valiosa al no estar digitalizados correctamente.",
-    audience:
-      "Instituciones publicas, universidades, museos, bibliotecas y entidades con fondos documentales historicos.",
-    allIntegrations: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
+      "Los archivos históricos sufren deterioro físico de los documentos, dificultades de acceso y riesgo de pérdida de información valiosa. Además, muchos carecen de una organización digital que refleje la estructura real del archivo físico, lo que impide saber de forma rápida y precisa dónde se encuentra cada documento en el edificio. Esta desconexión entre el archivo físico y el virtual provoca búsquedas lentas, errores y una gestión ineficiente del patrimonio documental.",
+    audience: "Esta solución está dirigida a instituciones públicas, universidades, museos, bibliotecas y a todas las entidades que gestionan fondos documentales históricos y patrimoniales. Está pensada para organizaciones que necesitan preservar, organizar y digitalizar grandes volúmenes de documentación, mejorar el acceso a la información y garantizar una gestión eficiente, segura y trazable de su archivo físico y digital, independientemente del tamaño del fondo o de la complejidad de su estructura.",
+    allIntegrations: ["OCR Avanzado", "Machine Learning", "ERP y sistemas de gestión interna de la institución", "Procesamiento de Lenguaje Natural", "Almacenamiento en la nube (S3, Azure, Google Cloud, etc.)", "Sistemas de autenticación corporativa (LDAP, SSO, etc.)", "Repositorios institucionales y bibliotecas digitales", "APIs externas y sistemas propios de la institución", "Document AI"],
+    targetSectors: ["Museos y Bibliotecas", "Universidades", "Administracion Publica", "Archivos Nacionales", "Fundaciones Culturales", "Centros de Investigacion", "Editoriales", "Medios de Comunicacion"],
+    keyBenefits: [
+      { metric: "95%", label: "Precision en OCR de manuscritos" },
+      { metric: "80%", label: "Reduccion del tiempo de catalogacion" },
+      { metric: "5 dias", label: "Prototipo funcional listo" },
+      { metric: "24/7", label: "Acceso digital al archivo" },
+    ],
     seoContent: {
       heading: "Software de digitalizacion de archivos historicos con inteligencia artificial",
       paragraphs: [
-        "La digitalizacion de archivos historicos es uno de los mayores retos para instituciones publicas, universidades, museos y bibliotecas. Los fondos documentales historicos sufren deterioro fisico progresivo y, sin una estrategia de preservacion digital, se arriesga la perdida irreversible de informacion de alto valor cultural, academico y patrimonial. La tecnologia OCR tradicional no es suficiente para documentos manuscritos, lenguas antiguas o soportes degradados.",
-        "Nuestra plataforma de gestion de archivos historicos con IA utiliza modelos de reconocimiento optico de caracteres (OCR) avanzado combinados con procesamiento de lenguaje natural (NLP) para transcribir, clasificar e indexar automaticamente documentos de cualquier epoca y formato. El sistema detecta duplicados, organiza fondos por contexto historico y permite busquedas semanticas que van mas alla de las palabras clave tradicionales.",
-        "Ecosistia ha desarrollado este software de digitalizacion documental para instituciones que gestionan miles o millones de documentos fisicos. El resultado es un archivo digital accesible, organizado y consultable en segundos, con exportacion a formatos estandar de archivistica como EAD, Dublin Core y METS. Todo por un precio cerrado de 899 EUR, con entrega del prototipo funcional en 5 dias.",
-        "Si tu institucion necesita digitalizar fondos historicos, automatizar la catalogacion documental o crear un repositorio digital accesible al publico, Ecosistia es la solucion de inteligencia artificial mas asequible y especializada del mercado. Solicita una consulta gratuita y te mostramos como podemos adaptar esta tecnologia a tu caso particular.",
+        "La digitalizacion de archivos historicos es uno de los mayores retos para instituciones publicas, universidades, museos y bibliotecas. Los fondos documentales historicos sufren deterioro fisico progresivo y, sin una estrategia de preservacion digital, se arriesga la perdida irreversible de informacion de alto valor cultural, academico y patrimonial. La tecnologia OCR tradicional no es suficiente para documentos manuscritos, lenguas antiguas o soportes degradados. Nuestra plataforma de gestion de archivos historicos con IA utiliza modelos de reconocimiento optico de caracteres (OCR) avanzado combinados con procesamiento de lenguaje natural (NLP) para transcribir, clasificar e indexar automaticamente documentos de cualquier epoca y formato. El sistema detecta duplicados, organiza fondos por contexto historico y permite busquedas semanticas que van mas alla de las palabras clave tradicionales. Ecosistia ha desarrollado este software de digitalizacion documental para instituciones que gestionan miles o millones de documentos fisicos. El resultado es un archivo digital accesible, organizado y consultable en segundos, con exportacion a formatos estandar de archivistica como EAD, Dublin Core y METS. Todo por un precio cerrado de 899 €, con entrega del prototipo funcional en 5 dias. Si tu institucion necesita digitalizar fondos historicos, automatizar la catalogacion documental o crear un repositorio digital accesible al publico, Ecosistia es la solucion de inteligencia artificial mas asequible y especializada del mercado. Solicita una consulta gratuita y te mostramos como podemos adaptar esta tecnologia a tu caso particular.",
       ],
     },
   },
@@ -105,11 +111,11 @@ export const apps: AppItem[] = [
     description:
       "Plataforma para consultoras de PRL y empresas multisede que necesitan organizar documentacion y cumplir requerimientos legales.",
     status: "demo-funcional",
-    demoUrl: "https://rad-souffle-ddfc8b.netlify.app/",
+    demoUrl: "https://gestionprl.ecosistia.com/",
     sector: "Prevencion y Seguridad",
     icon: "ShieldCheck",
     iconColor: "bg-emerald-500",
-    image: "/apps/gestion-riesgos-laborales.jpg",
+    image: "/apps/gestion-riesgos-laborales.png",
     tags: ["Document AI", "Automated Compliance", "Alert Systems", "Risk Assessment"],
     features: [
       "Gestion de multiples empresas y centros",
@@ -123,13 +129,20 @@ export const apps: AppItem[] = [
     audience:
       "Consultoras de prevencion de riesgos laborales, empresas multisede, departamentos de RRHH y seguridad laboral.",
     allIntegrations: ["Document AI", "Automated Compliance", "Alert Systems", "Risk Assessment"],
+    targetSectors: ["Consultoras de PRL", "Construccion", "Industria", "Logistica", "Hosteleria", "Retail", "Sanidad", "Administracion Publica", "Energia", "Transporte"],
+    keyBenefits: [
+      { metric: "70%", label: "Menos tiempo en tareas administrativas" },
+      { metric: "0", label: "Sanciones por documentacion caducada" },
+      { metric: "100%", label: "Control de caducidades automatizado" },
+      { metric: "Multi-sede", label: "Gestion centralizada" },
+    ],
     seoContent: {
       heading: "Software de prevencion de riesgos laborales con inteligencia artificial",
       paragraphs: [
         "La gestion de la prevencion de riesgos laborales (PRL) en empresas multisede es un desafio constante. La normativa exige tener al dia evaluaciones de riesgos, planes de emergencia, certificados de formacion y documentacion especifica para cada centro de trabajo. Un solo documento caducado puede suponer sanciones de miles de euros y, lo que es mas grave, poner en riesgo la seguridad de los trabajadores.",
         "Nuestra plataforma de gestion de PRL con IA automatiza el ciclo completo de la documentacion preventiva. El sistema procesa automaticamente los documentos entrantes, extrae la informacion relevante mediante inteligencia artificial, detecta caducidades y envia alertas inteligentes antes de que se produzcan incumplimientos. Ademas, genera informes normativos automaticos listos para inspeccion.",
         "Este software de prevencion de riesgos laborales esta disenado para consultoras de PRL que gestionan decenas o cientos de empresas, asi como para departamentos de RRHH y seguridad laboral de companias multisede. La IA clasifica, organiza y monitoriza toda la documentacion de cada centro de trabajo de forma centralizada, reduciendo hasta un 70% el tiempo dedicado a tareas administrativas.",
-        "Ecosistia desarrolla esta solucion de cumplimiento normativo automatizado por un precio cerrado de 899 EUR. Si tu consultora de PRL pierde horas en gestion documental o tu empresa necesita un sistema centralizado de control de riesgos laborales, solicita una demo gratuita y descubre como la inteligencia artificial puede transformar tu operativa preventiva.",
+        "Ecosistia desarrolla esta solucion de cumplimiento normativo automatizado por un precio cerrado de 899 €. Si tu consultora de PRL pierde horas en gestion documental o tu empresa necesita un sistema centralizado de control de riesgos laborales, solicita una demo gratuita y descubre como la inteligencia artificial puede transformar tu operativa preventiva.",
       ],
     },
   },
@@ -140,11 +153,11 @@ export const apps: AppItem[] = [
     description:
       "Sistema para mejorar eficiencia en urgencias con flujos diferenciados para pacientes, enfermeria, medicos y administradores.",
     status: "demo-funcional",
-    demoUrl: "https://eloquent-alpaca-feddc0.netlify.app/",
+    demoUrl: "https://triaje.ecosistia.com/",
     sector: "Salud y Medicina",
     icon: "HeartPulse",
     iconColor: "bg-rose-500",
-    image: "/apps/triaje-urgencias.jpg",
+    image: "/apps/triaje-urgencias.png",
     tags: ["Medical AI", "Speech Recognition", "Predictive Analytics", "Clinical NLP"],
     features: [
       "Transcripcion automatica de entrevistas",
@@ -158,13 +171,20 @@ export const apps: AppItem[] = [
     audience:
       "Hospitales, clinicas de urgencias, centros de salud y servicios de emergencia sanitaria.",
     allIntegrations: ["Medical AI", "Speech Recognition", "Predictive Analytics", "Clinical NLP"],
+    targetSectors: ["Hospitales", "Clinicas Privadas", "Centros de Salud", "Servicios de Emergencia", "Residencias", "Centros de Atencion Primaria", "Laboratorios Clinicos", "Aseguradoras de Salud"],
+    keyBenefits: [
+      { metric: "35%", label: "Mejora en tiempos de clasificacion" },
+      { metric: "Real-time", label: "Monitorizacion de la sala" },
+      { metric: "99.2%", label: "Precision en la clasificacion" },
+      { metric: "4 roles", label: "Paneles diferenciados" },
+    ],
     seoContent: {
       heading: "Sistema de triaje inteligente para urgencias hospitalarias con IA",
       paragraphs: [
         "Los servicios de urgencias hospitalarias atienden miles de pacientes al mes bajo presion extrema. Los errores en la clasificacion del triaje pueden provocar retrasos criticos en la atencion de pacientes graves o saturar recursos con casos de baja prioridad. El triaje manual, basado exclusivamente en la experiencia del personal, es inconsistente y dificil de escalar en momentos de alta demanda.",
         "Nuestro sistema de triaje con inteligencia artificial asiste al personal sanitario en la clasificacion de pacientes mediante transcripcion automatica de entrevistas clinicas, analisis de sintomas con NLP clinico y sugerencias de nivel de urgencia basadas en modelos predictivos entrenados con datos medicos reales. El sistema no sustituye al profesional: le proporciona una segunda opinion inteligente en tiempo real.",
         "La plataforma incluye paneles diferenciados para pacientes, enfermeria, medicos y administradores, con actualizacion en tiempo real del estado de la sala de urgencias. El historial clinico se integra automaticamente, reduciendo la duplicacion de datos y acelerando la toma de decisiones. Los hospitales que implementan sistemas de triaje con IA reportan mejoras de hasta un 35% en los tiempos de clasificacion.",
-        "Ecosistia ha desarrollado esta solucion de IA para hospitales y centros de urgencias por un precio cerrado de 899 EUR. Si tu servicio de urgencias necesita mejorar la eficiencia del triaje, reducir errores de clasificacion o monitorizar la sala en tiempo real, contacta con nosotros para una demostracion gratuita del sistema.",
+        "Ecosistia ha desarrollado esta solucion de IA para hospitales y centros de urgencias por un precio cerrado de 899 €. Si tu servicio de urgencias necesita mejorar la eficiencia del triaje, reducir errores de clasificacion o monitorizar la sala en tiempo real, contacta con nosotros para una demostracion gratuita del sistema.",
       ],
     },
   },
@@ -179,7 +199,7 @@ export const apps: AppItem[] = [
     sector: "Administracion Publica",
     icon: "Building2",
     iconColor: "bg-foreground",
-    image: "/apps/gestion-penitenciaria.jpg",
+    image: "/apps/gestion-penitenciaria.png",
     tags: ["Predictive Analytics", "Risk Assessment", "Behavioral Analysis", "Security AI"],
     features: [
       "Analisis predictivo y recomendaciones IA",
@@ -193,13 +213,20 @@ export const apps: AppItem[] = [
     audience:
       "Instituciones penitenciarias, administraciones publicas de justicia y organismos de reinsercion social.",
     allIntegrations: ["Predictive Analytics", "Risk Assessment", "Behavioral Analysis", "Security AI"],
+    targetSectors: ["Instituciones Penitenciarias", "Ministerio de Justicia", "Centros de Menores", "Centros de Reinsercion", "Administracion Publica", "Seguridad del Estado", "ONGs de Reinsercion", "Universidades de Criminologia"],
+    keyBenefits: [
+      { metric: "Predictivo", label: "Evaluacion de riesgo por IA" },
+      { metric: "60%", label: "Menos tiempo en informes" },
+      { metric: "360", label: "Vision integral del interno" },
+      { metric: "Automatico", label: "Generacion de informes" },
+    ],
     seoContent: {
       heading: "Software de gestion penitenciaria con inteligencia artificial",
       paragraphs: [
         "La administracion de centros penitenciarios es una de las tareas mas complejas de la administracion publica. Coordinar la seguridad, la reinsercion social, la gestion de programas formativos y el control de accesos con recursos limitados requiere herramientas que vayan mas alla de las hojas de calculo y los sistemas legacy de hace decadas.",
         "Nuestro sistema de gestion penitenciaria con IA integra analisis predictivo para evaluar el riesgo de cada interno, deteccion de patrones de comportamiento, gestion automatizada de programas de reinsercion y generacion de informes para autoridades judiciales y penitenciarias. La inteligencia artificial no toma decisiones por los profesionales, sino que les proporciona datos objetivos y tendencias para mejorar la toma de decisiones.",
         "La plataforma permite perfilar internos de forma individualizada, hacer seguimiento de su evolucion, planificar actividades de reinsercion y controlar accesos de forma inteligente. Los centros que implementan sistemas de gestion con IA mejoran la eficiencia administrativa y pueden dedicar mas recursos a lo verdaderamente importante: la reinsercion y la seguridad.",
-        "Ecosistia desarrolla soluciones de inteligencia artificial para la administracion publica por un precio cerrado de 899 EUR. Si tu institucion penitenciaria necesita modernizar su gestion, mejorar la evaluacion de riesgos o automatizar la generacion de informes, solicita una consulta gratuita y te mostramos como podemos ayudarte.",
+        "Ecosistia desarrolla soluciones de inteligencia artificial para la administracion publica por un precio cerrado de 899 €. Si tu institucion penitenciaria necesita modernizar su gestion, mejorar la evaluacion de riesgos o automatizar la generacion de informes, solicita una consulta gratuita y te mostramos como podemos ayudarte.",
       ],
     },
   },
@@ -214,7 +241,7 @@ export const apps: AppItem[] = [
     sector: "Finanzas y Banca",
     icon: "TrendingUp",
     iconColor: "bg-emerald-500",
-    image: "/apps/gestion-hipotecaria.jpg",
+    image: "/apps/gestion-hipotecaria.png",
     tags: ["Financial AI", "Risk Analysis", "Automated Calculations", "Document Processing"],
     features: [
       "Analisis de viabilidad con IA en tiempo real",
@@ -228,13 +255,20 @@ export const apps: AppItem[] = [
     audience:
       "Intermediarios financieros, brokers hipotecarios, asesores bancarios y entidades financieras.",
     allIntegrations: ["Financial AI", "Risk Analysis", "Automated Calculations", "Document Processing"],
+    targetSectors: ["Brokers Hipotecarios", "Asesores Financieros", "Bancos", "Cooperativas de Credito", "Inmobiliarias", "Notarias", "Gestoras", "Agencias de Seguros", "Fintech"],
+    keyBenefits: [
+      { metric: "40%", label: "Mas operaciones cerradas al mes" },
+      { metric: "Instant", label: "Analisis de viabilidad" },
+      { metric: "Multi-banco", label: "Comparativa automatica" },
+      { metric: "100%", label: "Trazabilidad del expediente" },
+    ],
     seoContent: {
       heading: "Plataforma de gestion hipotecaria con inteligencia artificial para brokers y asesores",
       paragraphs: [
         "El proceso hipotecario es uno de los mas complejos del sector financiero. Los intermediarios hipotecarios y brokers deben gestionar simultaneamente decenas de expedientes, comparar condiciones de multiples bancos, recopilar documentacion de clientes y cumplir plazos estrictos. Un error o un retraso puede significar la perdida de la operacion y del cliente.",
         "Nuestra plataforma de gestion hipotecaria con IA centraliza todo el ciclo de tramitacion: desde el primer contacto con el cliente hasta la firma ante notario. La inteligencia artificial analiza la viabilidad de cada operacion en tiempo real, recomienda automaticamente el banco con mejores condiciones para cada perfil y gestiona toda la documentacion del expediente con extraccion automatica de datos.",
         "El sistema incluye calculadoras inteligentes de condiciones, seguimiento del estado de cada tramitacion, alertas de plazos y un panel de control con metricas de conversion y productividad. Los brokers hipotecarios que utilizan herramientas de IA reportan un aumento de hasta un 40% en el numero de operaciones cerradas al mes, gracias a la eliminacion de tareas manuales repetitivas.",
-        "Ecosistia desarrolla esta solucion de fintech con IA por un precio cerrado de 899 EUR. Si eres intermediario financiero, broker hipotecario o asesor bancario y quieres digitalizar tu operativa, solicita una demostracion gratuita y descubre como la inteligencia artificial puede multiplicar tu productividad.",
+        "Ecosistia desarrolla esta solucion de fintech con IA por un precio cerrado de 899 €. Si eres intermediario financiero, broker hipotecario o asesor bancario y quieres digitalizar tu operativa, solicita una demostracion gratuita y descubre como la inteligencia artificial puede multiplicar tu productividad.",
       ],
     },
   },
@@ -249,7 +283,7 @@ export const apps: AppItem[] = [
     sector: "Legal y Juridico",
     icon: "Scale",
     iconColor: "bg-foreground",
-    image: "/apps/gestion-despachos.jpg",
+    image: "/apps/gestion-despachos.png",
     tags: ["Legal AI", "Document Classification", "Contract Analysis", "NLP"],
     features: [
       "Clasificador automatico de documentos",
@@ -263,13 +297,20 @@ export const apps: AppItem[] = [
     audience:
       "Despachos de abogados, asesorias juridicas, departamentos legales de empresas y notarias.",
     allIntegrations: ["Legal AI", "Document Classification", "Contract Analysis", "NLP"],
+    targetSectors: ["Despachos de Abogados", "Asesorias Juridicas", "Notarias", "Departamentos Legales", "Procuradores", "Administracion de Fincas", "Gestoras Administrativas", "Compliance Corporativo", "Auditoras"],
+    keyBenefits: [
+      { metric: "60%", label: "Menos tiempo en tareas admin" },
+      { metric: "Semantica", label: "Busqueda jurisprudencial" },
+      { metric: "Auto", label: "Generacion de escritos" },
+      { metric: "0 errores", label: "Control de plazos" },
+    ],
     seoContent: {
       heading: "Software de gestion de despachos de abogados con inteligencia artificial",
       paragraphs: [
         "Los despachos de abogados y asesorias juridicas dedican entre el 30% y el 50% de su tiempo a tareas administrativas: busqueda de jurisprudencia, revision manual de contratos, gestion de plazos procesales y redaccion de escritos repetitivos. Este tiempo no facturable reduce la rentabilidad del despacho y limita la capacidad de captar nuevos clientes.",
         "Nuestra plataforma de gestion juridica con IA automatiza las tareas que mas tiempo consumen. El clasificador automatico de documentos organiza toda la documentacion entrante por tipo, cliente y expediente. El analizador de contratos detecta clausulas problematicas, incoherencias y riesgos legales en segundos. La busqueda jurisprudencial con IA encuentra sentencias relevantes utilizando comprension semantica, no solo coincidencia de palabras clave.",
         "El sistema tambien incluye gestion completa de expedientes con alertas de plazos procesales, generacion automatica de escritos basada en plantillas inteligentes y un panel de productividad que muestra metricas clave del despacho. Los despachos que implementan tecnologia de IA legal reportan una reduccion de hasta un 60% en el tiempo dedicado a tareas administrativas.",
-        "Ecosistia es la opcion mas asequible para que tu despacho de abogados acceda a la inteligencia artificial. Por un precio cerrado de 899 EUR desarrollamos una plataforma adaptada a tu practica juridica. Si quieres automatizar la gestion documental, acelerar la busqueda juridica o mejorar el control de expedientes, solicita una consulta gratuita.",
+        "Ecosistia es la opcion mas asequible para que tu despacho de abogados acceda a la inteligencia artificial. Por un precio cerrado de 899 € desarrollamos una plataforma adaptada a tu practica juridica. Si quieres automatizar la gestion documental, acelerar la busqueda juridica o mejorar el control de expedientes, solicita una consulta gratuita.",
       ],
     },
   },
@@ -298,13 +339,20 @@ export const apps: AppItem[] = [
     audience:
       "Empresas industriales con servicio tecnico propio, fabricantes de maquinaria, empresas de mantenimiento industrial e instalaciones tecnicas.",
     allIntegrations: ["Predictive Maintenance", "IoT Integration", "Workflow Automation", "Field Service AI"],
+    targetSectors: ["Fabricantes de Maquinaria", "Mantenimiento Industrial", "Climatizacion y HVAC", "Telecomunicaciones", "Ascensores", "Energia y Utilities", "Electrica e Instalaciones", "Fontaneria y Gas", "Facility Management"],
+    keyBenefits: [
+      { metric: "50%", label: "Menos tiempo de respuesta" },
+      { metric: "Predictivo", label: "Mantenimiento anticipado" },
+      { metric: "Movil", label: "Acceso en campo" },
+      { metric: "Auto", label: "Asignacion de tecnicos" },
+    ],
     seoContent: {
       heading: "Software de gestion SAT y mantenimiento industrial con inteligencia artificial",
       paragraphs: [
         "Las empresas industriales con servicio de asistencia tecnica (SAT) gestionan cientos de avisos, partes de trabajo e intervenciones cada mes. Hacerlo con hojas de calculo, WhatsApp o sistemas obsoletos genera errores de asignacion, perdida de trazabilidad, tiempos de respuesta lentos y tecnicos que no tienen acceso a la informacion que necesitan en campo.",
         "Nuestra plataforma inteligente de gestion SAT digitaliza todo el ciclo de servicio tecnico: recepcion de avisos, clasificacion y priorizacion con IA, asignacion automatica de tecnicos segun disponibilidad y ubicacion, generacion de partes de trabajo digitales y cierre de intervenciones con firma electronica. Todo accesible desde oficina y desde el movil del tecnico en campo.",
         "La inteligencia artificial del sistema clasifica automaticamente las incidencias por tipo y urgencia, sugiere el tecnico mas adecuado para cada aviso y detecta patrones que permiten anticipar averias recurrentes (mantenimiento predictivo). El panel de control muestra en tiempo real el estado de todos los avisos, la carga de trabajo de cada tecnico y metricas de eficiencia del servicio.",
-        "Ecosistia desarrolla este software de gestion de servicio tecnico por un precio cerrado de 899 EUR, con entrega funcional en 2-6 semanas. Si tu empresa industrial necesita digitalizar la gestion del SAT, mejorar los tiempos de respuesta o dar herramientas moviles a tus tecnicos de campo, solicita una demostracion gratuita.",
+        "Ecosistia desarrolla este software de gestion de servicio tecnico por un precio cerrado de 899 €, con entrega funcional en 2-12 semanas. Si tu empresa industrial necesita digitalizar la gestion del SAT, mejorar los tiempos de respuesta o dar herramientas moviles a tus tecnicos de campo, solicita una demostracion gratuita.",
       ],
     },
   },
@@ -319,7 +367,7 @@ export const apps: AppItem[] = [
     sector: "Automatizacion y Bots",
     icon: "Bot",
     iconColor: "bg-accent",
-    image: "/apps/valeria-asistente.jpg",
+    image: "/apps/valeria-asistente.png",
     tags: ["Asistente IA", "Chatbot Empresarial", "NLP", "Automatizacion", "LLM"],
     features: [
       "Asistente conversacional con IA para empresa",
@@ -338,6 +386,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas que quieren un asistente con IA propio, equipos de atencion al cliente, departamentos administrativos y comerciales, y negocios con mucha documentacion o procesos repetitivos que buscan integrar IA sin proyectos complejos.",
     allIntegrations: ["Asistente IA", "NLP", "LLM", "CRM Integration", "ERP Integration", "Knowledge Base", "Workflow Automation"],
+    targetSectors: ["Retail y Ecommerce", "Seguros", "Banca", "Telecomunicaciones", "Educacion", "Inmobiliarias", "Turismo y Hosteleria", "Recursos Humanos", "Servicios Profesionales", "Industria"],
+    keyBenefits: [
+      { metric: "50%", label: "Menos consultas internas" },
+      { metric: "24/7", label: "Disponibilidad del asistente" },
+      { metric: "Multi-canal", label: "CRM, ERP, Slack, WhatsApp" },
+      { metric: "Modular", label: "Desde simple a avanzado" },
+    ],
     seoContent: {
       heading: "Asistente virtual con inteligencia artificial para empresas",
       paragraphs: [
@@ -345,7 +400,7 @@ export const apps: AppItem[] = [
         "Nuestro asistente con inteligencia artificial centraliza y automatiza las interacciones mas frecuentes de tu empresa. Funciona como una herramienta inteligente que entiende el contexto de tu negocio, responde consultas de clientes y empleados de forma autonoma, genera y resume documentos, busca informacion en tus sistemas internos y apoya la toma de decisiones con datos en tiempo real. Todo desde una unica interfaz conversacional accesible para cualquier miembro del equipo.",
         "La plataforma se adapta a cada caso de uso: atencion al cliente 24/7, soporte interno para empleados, gestion de informacion corporativa, ayuda comercial con propuestas automaticas, analisis de datos para direccion y automatizacion de procesos operativos. El sistema aprende del contexto de tu negocio y se conecta con tus herramientas actuales: CRM, ERP, bases de datos, Google Workspace, Microsoft 365, Slack, WhatsApp y muchas mas.",
         "Gracias a su arquitectura modular, la plataforma puede desplegarse como un simple asistente de preguntas frecuentes o como un sistema empresarial avanzado conectado a flujos de trabajo, bases de conocimiento y sistemas de gestion. Las empresas que implementan asistentes con IA reportan una reduccion de hasta un 50% en el tiempo dedicado a consultas internas y una mejora significativa en la satisfaccion del cliente.",
-        "Este asistente es el producto insignia de Ecosistia y esta disponible como plataforma lista para usar o como desarrollo a medida por 899 EUR. Si tu empresa quiere un asistente virtual inteligente que realmente entienda tu negocio y automatice lo que mas tiempo consume, solicita una demostracion gratuita y descubre como puede transformar tu operativa.",
+        "Este asistente es el producto insignia de Ecosistia y esta disponible como plataforma lista para usar o como desarrollo a medida por 899 €. Si tu empresa quiere un asistente virtual inteligente que realmente entienda tu negocio y automatice lo que mas tiempo consume, solicita una demostracion gratuita y descubre como puede transformar tu operativa.",
       ],
     },
   },
@@ -360,7 +415,7 @@ export const apps: AppItem[] = [
     sector: "Forense y Pericial",
     icon: "FileSearch",
     iconColor: "bg-primary",
-    image: "/apps/asistente-forense.jpg",
+    image: "/apps/asistente-forense.png",
     tags: ["Forensic AI", "Document Analysis", "Evidence Management", "NLP", "Report Generation"],
     features: [
       "Gestion integral de casos y expedientes forenses",
@@ -381,6 +436,13 @@ export const apps: AppItem[] = [
     audience:
       "Peritos y consultores forenses, despachos de abogados, departamentos legales y de compliance, auditorias y consultoras, equipos de investigacion interna y empresas que realizan analisis documentales complejos.",
     allIntegrations: ["Forensic AI", "Document Analysis", "NLP", "Evidence Management", "Report Generation", "Knowledge Base"],
+    targetSectors: ["Peritos Judiciales", "Despachos de Abogados", "Auditoras", "Compliance Corporativo", "Fuerzas de Seguridad", "Investigacion Privada", "Due Diligence", "Aseguradoras", "Banca y Finanzas"],
+    keyBenefits: [
+      { metric: "60%", label: "Menos tiempo en revision documental" },
+      { metric: "Semantica", label: "Busqueda inteligente" },
+      { metric: "Auto", label: "Borradores de informes" },
+      { metric: "100%", label: "Trazabilidad de fuentes" },
+    ],
     seoContent: {
       heading: "Software de analisis forense con inteligencia artificial para peritos, abogados y auditores",
       paragraphs: [
@@ -388,7 +450,7 @@ export const apps: AppItem[] = [
         "El Asistente Forense con IA de Ecosistia es una plataforma disenada para transformar la forma en que se gestionan los casos forenses, periciales y de investigacion. El sistema permite centralizar toda la documentacion de un caso en un unico entorno seguro y utilizar inteligencia artificial para analizar contenidos, clasificar evidencias automaticamente, detectar patrones y relaciones entre documentos, resumir textos largos y generar borradores de informes periciales y forenses con estructura profesional.",
         "La plataforma se adapta a multiples tipos de uso profesional: peritajes judiciales, auditorias financieras y corporativas, investigaciones internas de compliance, preparacion de demandas y defensas legales, analisis forense digital y due diligence. Cada caso mantiene trazabilidad completa de fuentes, versiones de documentos, notas y observaciones, garantizando la integridad probatoria y la cadena de custodia documental.",
         "El motor de busqueda inteligente del sistema va mas alla de las coincidencias por palabras clave: utiliza comprension semantica para encontrar informacion relevante incluso cuando se utilizan terminos diferentes. La funcion de deteccion de patrones identifica incoherencias, duplicidades y relaciones no evidentes entre documentos, lo que acelera significativamente el analisis y mejora la calidad de las conclusiones del profesional.",
-        "Ecosistia desarrolla este software de analisis forense con IA por un precio cerrado de 899 EUR, con entrega funcional en 2-6 semanas. Si eres perito, abogado, auditor o investigador y necesitas una herramienta que te permita gestionar casos complejos con mayor velocidad, organizacion y precision, solicita una demostracion gratuita y descubre como la inteligencia artificial puede revolucionar tu practica profesional.",
+        "Ecosistia desarrolla este software de analisis forense con IA por un precio cerrado de 899 €, con entrega funcional en 2-12 semanas. Si eres perito, abogado, auditor o investigador y necesitas una herramienta que te permita gestionar casos complejos con mayor velocidad, organizacion y precision, solicita una demostracion gratuita y descubre como la inteligencia artificial puede revolucionar tu practica profesional.",
       ],
     },
   },
@@ -424,6 +486,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas de reformas y construccion, empresas de rehabilitacion y obra nueva, negocios que trabajan con partners o colaboradores, equipos comerciales del sector reformas y empresas que quieren profesionalizar su gestion comercial con tecnologia e IA.",
     allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Commission Automation", "Risk Detection", "Audit AI"],
+    targetSectors: ["Reformas Integrales", "Obra Nueva", "Rehabilitacion", "Interiorismo", "Carpinteria", "Electricidad", "Fontaneria", "Pintura", "Albaileria", "Constructoras"],
+    keyBenefits: [
+      { metric: "45%", label: "Mas conversion de leads" },
+      { metric: "0 errores", label: "Calculo de comisiones" },
+      { metric: "Kanban", label: "Pipeline visual" },
+      { metric: "IA Audit", label: "Auditoria automatica" },
+    ],
     seoContent: {
       heading: "CRM con inteligencia artificial para empresas de reformas y construccion",
       paragraphs: [
@@ -431,7 +500,7 @@ export const apps: AppItem[] = [
         "ReformasLux es una plataforma de gestion comercial con inteligencia artificial disenada especificamente para empresas de reformas. Centraliza todo el ciclo de vida del cliente en una unica herramienta: captacion y cualificacion de leads con scoring por IA, seguimiento de oportunidades en un pipeline visual tipo Kanban, creacion y envio de presupuestos, control de cobros por hitos, calculo automatico de comisiones a partners y liquidaciones por periodos. Todo con dashboards en tiempo real que muestran exactamente como va el negocio.",
         "La inteligencia artificial de ReformasLux no es decorativa: el sistema analiza cada lead y le asigna una puntuacion de probabilidad de cierre, prioriza las oportunidades con mayor valor, detecta riesgos de impago en los proyectos en curso y audita automaticamente las oportunidades perdidas buscando contradicciones, errores de gestion y patrones de mejora. Incluso genera scripts de auditoria para que los comerciales realicen llamadas de seguimiento mas efectivas.",
         "La plataforma incluye gestion completa de partners y colaboradores, con configuracion de porcentajes de comision por partner, calculo automatico por proyecto y liquidaciones por periodos. El sistema de roles permite que administradores, comerciales, auditores y los propios partners accedan solo a la informacion que les corresponde. Las empresas de reformas que implementan CRMs con IA reportan un aumento de hasta un 45% en la tasa de conversion de leads a proyectos cerrados.",
-        "Ecosistia ha desarrollado ReformasLux como una solucion llave en mano por un precio cerrado de 899 EUR, totalmente personalizable por empresa y sector. Si tu empresa de reformas quiere dejar de perder negocio, profesionalizar su gestion comercial y tener visibilidad real sobre ventas, cobros y comisiones, solicita una demostracion gratuita y descubre como la inteligencia artificial puede transformar tu forma de trabajar.",
+        "Ecosistia ha desarrollado ReformasLux como una solucion llave en mano por un precio cerrado de 899 €, totalmente personalizable por empresa y sector. Si tu empresa de reformas quiere dejar de perder negocio, profesionalizar su gestion comercial y tener visibilidad real sobre ventas, cobros y comisiones, solicita una demostracion gratuita y descubre como la inteligencia artificial puede transformar tu forma de trabajar.",
       ],
     },
   },
@@ -442,7 +511,7 @@ export const apps: AppItem[] = [
     description:
       "SmartCRM es una plataforma CRM completa con inteligencia artificial integrada nativamente en cada componente: gestion de contactos, cuentas, leads con scoring, pipeline Kanban, inbox omnicanal, automatizaciones sin codigo, forecast avanzado y analítica predictiva. Arquitectura multi-tenant con aislamiento de datos por empresa.",
     status: "demo-funcional",
-    demoUrl: "https://crm-saas-con-ia-nati-lrdh.bolt.host/",
+    demoUrl: "https://smartcrm.ecosistia.com/",
     sector: "CRM y Ventas",
     icon: "Users",
     iconColor: "bg-sky-600",
@@ -467,6 +536,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas B2B de cualquier sector que necesitan un CRM moderno con IA integrada, equipos comerciales que buscan automatizar su operativa, directores de ventas que necesitan forecast fiable y analítica predictiva, y empresas SaaS que quieren gestionar multiples clientes desde una unica plataforma multi-tenant.",
     allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Omnichannel Inbox", "Forecast AI", "Workflow Automation", "Multi-Tenant"],
+    targetSectors: ["SaaS y Tecnologia", "Consultorias", "Agencias de Marketing", "Servicios Profesionales", "Distribuidores", "Fabricantes B2B", "Telecomunicaciones", "Formacion y Educacion", "Eventos", "Inmobiliarias"],
+    keyBenefits: [
+      { metric: "IA Nativa", label: "En cada funcionalidad" },
+      { metric: "Omnicanal", label: "Email, WhatsApp, SMS, Chat" },
+      { metric: "Predictivo", label: "Forecast por escenarios" },
+      { metric: "Multi-tenant", label: "Datos aislados por empresa" },
+    ],
     seoContent: {
       heading: "CRM SaaS con inteligencia artificial nativa para equipos de ventas",
       paragraphs: [
@@ -474,7 +550,7 @@ export const apps: AppItem[] = [
         "SmartCRM es un CRM SaaS con inteligencia artificial integrada nativamente en cada funcionalidad. No es un modulo de IA anadido: la inteligencia artificial esta presente en cada vista y cada accion. En contactos, la IA genera resumenes 360 y sugiere la siguiente mejor accion. En el pipeline, el Deal Doctor analiza cada oportunidad y predice la probabilidad de cierre. En el inbox omnicanal, la IA redacta borradores automaticos y analiza el sentimiento de cada conversacion. En analitica, los modelos predictivos generan forecast por escenarios y detectan anomalias en tiempo real.",
         "La plataforma incluye un constructor visual de automatizaciones sin codigo que permite crear flujos complejos (por ejemplo: cuando un lead no responde en 3 dias, enviar seguimiento por WhatsApp y notificar al comercial). El sistema de lead scoring asigna automaticamente una puntuacion de 0 a 100 a cada lead basandose en su comportamiento, datos demograficos y probabilidad real de conversion, priorizando las oportunidades con mayor valor para el equipo.",
         "SmartCRM esta disenado con arquitectura multi-tenant, lo que significa que cada empresa tiene sus propios datos, configuraciones, branding, moneda e idioma completamente aislados. El sistema soporta roles granulares (administrador, comercial, observador) y limites de uso de IA configurables por plan. Todo esto permite que una unica instalacion sirva a multiples clientes con total seguridad y personalizacion.",
-        "Ecosistia desarrolla SmartCRM como solucion llave en mano por un precio cerrado de 899 EUR. Si tu empresa necesita un CRM con inteligencia artificial real que ayude a tu equipo a vender mas y mejor, con predicciones fiables, inbox unificado y automatizaciones inteligentes, solicita una demostracion gratuita y descubre como la IA nativa puede transformar tu proceso comercial.",
+        "Ecosistia desarrolla SmartCRM como solucion llave en mano por un precio cerrado de 899 €. Si tu empresa necesita un CRM con inteligencia artificial real que ayude a tu equipo a vender mas y mejor, con predicciones fiables, inbox unificado y automatizaciones inteligentes, solicita una demostracion gratuita y descubre como la IA nativa puede transformar tu proceso comercial.",
       ],
     },
   },

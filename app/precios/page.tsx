@@ -11,9 +11,9 @@ import {
 import { ArrowRight, Check } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Precios de desarrollo de aplicaciones con IA | Desde 899 EUR",
+  title: "Precios de desarrollo de aplicaciones con IA | Desde 899 €",
   description:
-    "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial? Precio cerrado de 899 EUR con todo incluido. Mantenimiento desde 150 EUR/mes sin permanencia. Consulta gratuita.",
+    "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial? Precio cerrado de 899 € con todo incluido. Mantenimiento desde 150 €/mes sin permanencia. Consulta gratuita.",
 }
 
 const developmentFeatures = [
@@ -22,19 +22,19 @@ const developmentFeatures = [
   "Mock / demo antes de desarrollar",
   "Testing y despliegue incluido",
   "Formacion basica del equipo",
-  "Codigo fuente de tu propiedad",
+  "Acompañamiento completo",
 ]
 
 const faqs = [
   {
-    question: "Que incluye el precio de 899 EUR?",
+    question: "Que incluye el precio de 899 €?",
     answer:
       "Incluye todo el desarrollo de tu aplicacion con IA: analisis de requisitos, mock/demo, desarrollo, integraciones, testing, despliegue en produccion y formacion basica de tu equipo. Es un pago unico, no una suscripcion.",
   },
   {
     question: "Hay costes ocultos?",
     answer:
-      "No. El precio de desarrollo es 899 EUR y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto cerrado antes de empezar.",
+      "No. El precio de desarrollo es 899 € y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto cerrado antes de empezar.",
   },
   {
     question: "Puedo cancelar el mantenimiento en cualquier momento?",

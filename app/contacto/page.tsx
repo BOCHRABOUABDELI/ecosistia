@@ -5,7 +5,7 @@ import { Clock, Shield, Sparkles } from "lucide-react"
 export const metadata: Metadata = {
   title: "Contacto | Consulta gratuita para tu proyecto con IA",
   description:
-    "Solicita una consulta gratuita para tu proyecto de inteligencia artificial. Te respondemos en menos de 24 horas con una propuesta personalizada. Desarrollo de apps con IA por 899 EUR.",
+    "Solicita una consulta gratuita para tu proyecto de inteligencia artificial. Te respondemos en menos de 24 horas con una propuesta personalizada. Desarrollo de apps con IA por 899 €.",
 }
 
 const trustPoints = [

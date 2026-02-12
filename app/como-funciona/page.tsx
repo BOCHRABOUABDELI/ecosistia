@@ -12,7 +12,7 @@ import { ArrowRight, MessageCircle, Palette, Code, Rocket } from "lucide-react"
 export const metadata: Metadata = {
   title: "Como funciona el desarrollo de aplicaciones con IA | Proceso en 4 pasos",
   description:
-    "Asi desarrollamos tu aplicacion con inteligencia artificial: consulta gratuita, prototipo en 5 dias, desarrollo agil y despliegue en produccion. De tu idea a una app con IA en 2-6 semanas por 899 EUR.",
+    "Asi desarrollamos tu aplicacion con inteligencia artificial: consulta gratuita, prototipo en 5 dias, desarrollo agil y despliegue en produccion. De tu idea a una app con IA en 2-12 semanas por 899 €.",
 }
 
 const steps = [
@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Cuanto tiempo tarda el desarrollo de una aplicacion?",
     answer:
-      "Depende de la complejidad, pero la mayoria de proyectos se completan entre 2 y 6 semanas. El mock/demo lo tienes en 5 dias laborables para que valides la idea rapidamente.",
+      "Depende de la complejidad, pero la mayoria de proyectos se completan entre 2 y 12 semanas. El mock/demo lo tienes en 5 dias laborables para que valides la idea rapidamente.",
   },
   {
     question: "Necesito conocimientos tecnicos para trabajar con vosotros?",
