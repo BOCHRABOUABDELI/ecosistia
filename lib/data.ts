@@ -436,6 +436,13 @@ export const apps: AppItem[] = [
     audience:
       "Peritos y consultores forenses, despachos de abogados, departamentos legales y de compliance, auditorias y consultoras, equipos de investigacion interna y empresas que realizan analisis documentales complejos.",
     allIntegrations: ["Forensic AI", "Document Analysis", "NLP", "Evidence Management", "Report Generation", "Knowledge Base"],
+    targetSectors: ["Peritos Judiciales", "Despachos de Abogados", "Auditoras", "Compliance Corporativo", "Fuerzas de Seguridad", "Investigacion Privada", "Due Diligence", "Aseguradoras", "Banca y Finanzas"],
+    keyBenefits: [
+      { metric: "60%", label: "Menos tiempo en revision documental" },
+      { metric: "Semantica", label: "Busqueda inteligente" },
+      { metric: "Auto", label: "Borradores de informes" },
+      { metric: "100%", label: "Trazabilidad de fuentes" },
+    ],
     seoContent: {
       heading: "Software de analisis forense con inteligencia artificial para peritos, abogados y auditores",
       paragraphs: [
@@ -479,6 +486,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas de reformas y construccion, empresas de rehabilitacion y obra nueva, negocios que trabajan con partners o colaboradores, equipos comerciales del sector reformas y empresas que quieren profesionalizar su gestion comercial con tecnologia e IA.",
     allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Commission Automation", "Risk Detection", "Audit AI"],
+    targetSectors: ["Reformas Integrales", "Obra Nueva", "Rehabilitacion", "Interiorismo", "Carpinteria", "Electricidad", "Fontaneria", "Pintura", "Albaileria", "Constructoras"],
+    keyBenefits: [
+      { metric: "45%", label: "Mas conversion de leads" },
+      { metric: "0 errores", label: "Calculo de comisiones" },
+      { metric: "Kanban", label: "Pipeline visual" },
+      { metric: "IA Audit", label: "Auditoria automatica" },
+    ],
     seoContent: {
       heading: "CRM con inteligencia artificial para empresas de reformas y construccion",
       paragraphs: [
@@ -522,6 +536,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas B2B de cualquier sector que necesitan un CRM moderno con IA integrada, equipos comerciales que buscan automatizar su operativa, directores de ventas que necesitan forecast fiable y analítica predictiva, y empresas SaaS que quieren gestionar multiples clientes desde una unica plataforma multi-tenant.",
     allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Omnichannel Inbox", "Forecast AI", "Workflow Automation", "Multi-Tenant"],
+    targetSectors: ["SaaS y Tecnologia", "Consultorias", "Agencias de Marketing", "Servicios Profesionales", "Distribuidores", "Fabricantes B2B", "Telecomunicaciones", "Formacion y Educacion", "Eventos", "Inmobiliarias"],
+    keyBenefits: [
+      { metric: "IA Nativa", label: "En cada funcionalidad" },
+      { metric: "Omnicanal", label: "Email, WhatsApp, SMS, Chat" },
+      { metric: "Predictivo", label: "Forecast por escenarios" },
+      { metric: "Multi-tenant", label: "Datos aislados por empresa" },
+    ],
     seoContent: {
       heading: "CRM SaaS con inteligencia artificial nativa para equipos de ventas",
       paragraphs: [
