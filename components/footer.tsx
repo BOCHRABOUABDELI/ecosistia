@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import { Logo } from "@/components/logo"
 
 const footerLinks = {
   Producto: [
@@ -28,7 +28,7 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2.5 font-heading text-xl font-bold text-primary-foreground"
             >
-              <Image src="/logo.jpg" alt="Ecosistia logo" width={36} height={36} className="h-9 w-9 rounded-md object-contain" />
+              <Logo variant="light" />
               Ecosistia
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">
