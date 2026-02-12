@@ -34,10 +34,10 @@ export async function generateMetadata({
   if (!app) return { title: "Aplicacion no encontrada" }
 
   const sectorKeywords = app.targetSectors?.slice(0, 5).join(", ") ?? ""
-  const descriptionSeo = `${app.name}: ${app.description} Ideal para ${sectorKeywords}. Desarrollo a medida con inteligencia artificial por 899 EUR. Demo funcional disponible.`
+  const descriptionSeo = `${app.name}: ${app.description} Ideal para ${sectorKeywords}. Desarrollo a medida con inteligencia artificial por 899 €. Demo funcional disponible.`
 
   return {
-    title: `${app.name} | Software con IA para ${app.sector} | 899 EUR | Ecosistia`,
+    title: `${app.name} | Software con IA para ${app.sector} | 899 € | Ecosistia`,
     description: descriptionSeo.substring(0, 320),
     keywords: [
       app.name,
@@ -48,7 +48,7 @@ export async function generateMetadata({
       "desarrollo software IA",
       "automatizacion con IA",
       "Ecosistia",
-      "899 EUR",
+      "899 €",
     ],
     openGraph: {
       title: `${app.name} - Software con inteligencia artificial para ${app.sector}`,
