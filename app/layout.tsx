@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Ecosistia",
     title: "Ecosistia - Aplicaciones con inteligencia artificial a medida por 899 EUR",
     description:
-      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-6 semanas.",
+      "Desarrollamos software con IA que automatiza procesos, conecta sistemas y elimina tareas manuales. Precio cerrado de 899 EUR. Entrega en 2-12 semanas.",
   },
   twitter: {
     card: "summary_large_image",
