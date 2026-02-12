@@ -386,6 +386,13 @@ export const apps: AppItem[] = [
     audience:
       "Empresas que quieren un asistente con IA propio, equipos de atencion al cliente, departamentos administrativos y comerciales, y negocios con mucha documentacion o procesos repetitivos que buscan integrar IA sin proyectos complejos.",
     allIntegrations: ["Asistente IA", "NLP", "LLM", "CRM Integration", "ERP Integration", "Knowledge Base", "Workflow Automation"],
+    targetSectors: ["Retail y Ecommerce", "Seguros", "Banca", "Telecomunicaciones", "Educacion", "Inmobiliarias", "Turismo y Hosteleria", "Recursos Humanos", "Servicios Profesionales", "Industria"],
+    keyBenefits: [
+      { metric: "50%", label: "Menos consultas internas" },
+      { metric: "24/7", label: "Disponibilidad del asistente" },
+      { metric: "Multi-canal", label: "CRM, ERP, Slack, WhatsApp" },
+      { metric: "Modular", label: "Desde simple a avanzado" },
+    ],
     seoContent: {
       heading: "Asistente virtual con inteligencia artificial para empresas",
       paragraphs: [
