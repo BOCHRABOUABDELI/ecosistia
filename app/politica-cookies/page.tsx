@@ -79,7 +79,7 @@ export default function PoliticaCookiesPage() {
                   <tbody>
                     <tr className="border-b border-border">
                       <td className="px-4 py-2 font-mono text-xs">_va</td>
-                      <td className="px-4 py-2">Vercel Analytics</td>
+                      <td className="px-4 py-2">Analytics</td>
                       <td className="px-4 py-2">Medir el rendimiento y uso del sitio web</td>
                       <td className="px-4 py-2">Sesion</td>
                     </tr>
