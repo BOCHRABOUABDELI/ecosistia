@@ -360,7 +360,7 @@ export const apps: AppItem[] = [
     sector: "Forense y Pericial",
     icon: "FileSearch",
     iconColor: "bg-primary",
-    image: "/apps/asistente-forense.jpg",
+    image: "/apps/asistente-forense.png",
     tags: ["Forensic AI", "Document Analysis", "Evidence Management", "NLP", "Report Generation"],
     features: [
       "Gestion integral de casos y expedientes forenses",
