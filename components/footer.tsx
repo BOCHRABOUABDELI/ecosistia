@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Logo } from "@/components/logo"
+import Image from "next/image"
 
 const footerLinks = {
   Producto: [
@@ -26,10 +26,15 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="flex items-center gap-2.5 font-heading text-xl font-bold text-primary-foreground"
+              className="flex items-center gap-2 text-primary-foreground"
             >
-              <Logo variant="light" />
-              Ecosistia
+              <Image
+                src="/logo-ecosistia.png"
+                alt="Ecosistia - AI Software & Solutions"
+                width={180}
+                height={48}
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">
               Creamos aplicaciones con inteligencia artificial a medida para empresas que quieren automatizar
