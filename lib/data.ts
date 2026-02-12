@@ -319,7 +319,7 @@ export const apps: AppItem[] = [
     sector: "Automatizacion y Bots",
     icon: "Bot",
     iconColor: "bg-accent",
-    image: "/apps/valeria-asistente.jpg",
+    image: "/apps/valeria-asistente.png",
     tags: ["Asistente IA", "Chatbot Empresarial", "NLP", "Automatizacion", "LLM"],
     features: [
       "Asistente conversacional con IA para empresa",
