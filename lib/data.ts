@@ -214,7 +214,7 @@ export const apps: AppItem[] = [
     sector: "Finanzas y Banca",
     icon: "TrendingUp",
     iconColor: "bg-emerald-500",
-    image: "/apps/gestion-hipotecaria.jpg",
+    image: "/apps/gestion-hipotecaria.png",
     tags: ["Financial AI", "Risk Analysis", "Automated Calculations", "Document Processing"],
     features: [
       "Analisis de viabilidad con IA en tiempo real",
