@@ -24,7 +24,7 @@ export default function PoliticaPrivacidadPage() {
             <p className="mt-2">
               El responsable del tratamiento de tus datos personales es LOGICA HISPALIS 2020 SL
               (en adelante, &quot;Ecosistia&quot;), con domicilio social en CALLE GIRALDA, 22 , LA PUEBLA DEL RIO SEVILLA, España.
-              Puedes contactarnos en <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
+              Puedes contactarnos en <a href="mailto:admin@ecosistia.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export default function PoliticaPrivacidadPage() {
             </ul>
             <p className="mt-2">
               Para ejercer tus derechos, puedes escribirnos a{" "}
-              <a href="mailto:hola@softwareopium.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
+              <a href="mailto:admin@ecosistia.com" className="text-accent hover:underline">admin@ecosistia.com</a>.
               Tambien puedes presentar una reclamacion ante la Agencia Espanola de Proteccion de Datos (AEPD).
             </p>
           </div>
