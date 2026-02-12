@@ -11,6 +11,7 @@ export type Sector =
   | "Industria y Mantenimiento"
   | "Forense y Pericial"
   | "Reformas y Construccion"
+  | "CRM y Ventas"
 
 export type AppIconName =
   | "ClipboardList"
@@ -23,6 +24,7 @@ export type AppIconName =
   | "Bot"
   | "FileSearch"
   | "HardHat"
+  | "Users"
 
 export interface AppItem {
   slug: string
@@ -57,6 +59,7 @@ export const sectors: Sector[] = [
   "Industria y Mantenimiento",
   "Forense y Pericial",
   "Reformas y Construccion",
+  "CRM y Ventas",
 ]
 
 export const apps: AppItem[] = [
@@ -429,6 +432,49 @@ export const apps: AppItem[] = [
         "La inteligencia artificial de ReformasLux no es decorativa: el sistema analiza cada lead y le asigna una puntuacion de probabilidad de cierre, prioriza las oportunidades con mayor valor, detecta riesgos de impago en los proyectos en curso y audita automaticamente las oportunidades perdidas buscando contradicciones, errores de gestion y patrones de mejora. Incluso genera scripts de auditoria para que los comerciales realicen llamadas de seguimiento mas efectivas.",
         "La plataforma incluye gestion completa de partners y colaboradores, con configuracion de porcentajes de comision por partner, calculo automatico por proyecto y liquidaciones por periodos. El sistema de roles permite que administradores, comerciales, auditores y los propios partners accedan solo a la informacion que les corresponde. Las empresas de reformas que implementan CRMs con IA reportan un aumento de hasta un 45% en la tasa de conversion de leads a proyectos cerrados.",
         "Ecosistia ha desarrollado ReformasLux como una solucion llave en mano por un precio cerrado de 899 EUR, totalmente personalizable por empresa y sector. Si tu empresa de reformas quiere dejar de perder negocio, profesionalizar su gestion comercial y tener visibilidad real sobre ventas, cobros y comisiones, solicita una demostracion gratuita y descubre como la inteligencia artificial puede transformar tu forma de trabajar.",
+      ],
+    },
+  },
+  {
+    slug: "smartcrm-ia-nativa",
+    name: "SmartCRM - CRM con IA Nativa",
+    subtitle: "CRM SaaS multi-tenant con inteligencia artificial integrada en cada funcionalidad",
+    description:
+      "SmartCRM es una plataforma CRM completa con inteligencia artificial integrada nativamente en cada componente: gestion de contactos, cuentas, leads con scoring, pipeline Kanban, inbox omnicanal, automatizaciones sin codigo, forecast avanzado y analítica predictiva. Arquitectura multi-tenant con aislamiento de datos por empresa.",
+    status: "demo-funcional",
+    demoUrl: "https://crm-saas-con-ia-nati-lrdh.bolt.host/",
+    sector: "CRM y Ventas",
+    icon: "Users",
+    iconColor: "bg-sky-600",
+    image: "/apps/smartcrm.jpg",
+    tags: ["CRM con IA", "Multi-Tenant SaaS", "Lead Scoring", "Pipeline Kanban", "Inbox Omnicanal", "Forecast"],
+    features: [
+      "Dashboard inteligente con metricas clave y deals en riesgo",
+      "Gestion de contactos 360 con resumen IA y siguiente mejor accion",
+      "Gestion de cuentas con analisis de oportunidades por IA",
+      "Lead scoring automatico con puntuacion predictiva de 0 a 100",
+      "Pipeline de deals tipo Kanban con Deal Doctor y predicciones de cierre",
+      "Inbox omnicanal unificado: email, WhatsApp, SMS y chat web",
+      "Automatizaciones sin codigo con constructor visual de flujos",
+      "Agenda inteligente con optimizacion de horarios por IA",
+      "Analitica avanzada con forecast por escenarios y deteccion de anomalias",
+      "Arquitectura multi-tenant con aislamiento completo de datos",
+      "Gestion de usuarios y roles: administrador, comercial, auditor, observador",
+      "Configuracion por empresa: branding, moneda, idioma, limites de IA por plan",
+    ],
+    problem:
+      "Las empresas usan CRMs genericos que no integran IA de forma nativa, lo que obliga a usar herramientas externas desconectadas. Los equipos comerciales pierden tiempo en tareas manuales, no tienen predicciones fiables de cierre, la comunicacion esta dispersa entre canales y la direccion no tiene visibilidad real sobre el forecast ni sobre los deals en riesgo.",
+    audience:
+      "Empresas B2B de cualquier sector que necesitan un CRM moderno con IA integrada, equipos comerciales que buscan automatizar su operativa, directores de ventas que necesitan forecast fiable y analítica predictiva, y empresas SaaS que quieren gestionar multiples clientes desde una unica plataforma multi-tenant.",
+    allIntegrations: ["CRM AI", "Lead Scoring", "Pipeline Management", "Omnichannel Inbox", "Forecast AI", "Workflow Automation", "Multi-Tenant"],
+    seoContent: {
+      heading: "CRM SaaS con inteligencia artificial nativa para equipos de ventas",
+      paragraphs: [
+        "Los equipos comerciales de hoy necesitan mucho mas que un CRM para almacenar contactos. Necesitan una plataforma que les diga a quien llamar primero, que deal esta en riesgo, que responder a cada cliente y como va a cerrar el trimestre. Los CRMs tradicionales no ofrecen estas capacidades y obligan a integrar herramientas externas de IA que no estan conectadas con los datos reales del pipeline, generando silos de informacion y decisiones basadas en intuicion en lugar de datos.",
+        "SmartCRM es un CRM SaaS con inteligencia artificial integrada nativamente en cada funcionalidad. No es un modulo de IA anadido: la inteligencia artificial esta presente en cada vista y cada accion. En contactos, la IA genera resumenes 360 y sugiere la siguiente mejor accion. En el pipeline, el Deal Doctor analiza cada oportunidad y predice la probabilidad de cierre. En el inbox omnicanal, la IA redacta borradores automaticos y analiza el sentimiento de cada conversacion. En analitica, los modelos predictivos generan forecast por escenarios y detectan anomalias en tiempo real.",
+        "La plataforma incluye un constructor visual de automatizaciones sin codigo que permite crear flujos complejos (por ejemplo: cuando un lead no responde en 3 dias, enviar seguimiento por WhatsApp y notificar al comercial). El sistema de lead scoring asigna automaticamente una puntuacion de 0 a 100 a cada lead basandose en su comportamiento, datos demograficos y probabilidad real de conversion, priorizando las oportunidades con mayor valor para el equipo.",
+        "SmartCRM esta disenado con arquitectura multi-tenant, lo que significa que cada empresa tiene sus propios datos, configuraciones, branding, moneda e idioma completamente aislados. El sistema soporta roles granulares (administrador, comercial, observador) y limites de uso de IA configurables por plan. Todo esto permite que una unica instalacion sirva a multiples clientes con total seguridad y personalizacion.",
+        "Ecosistia desarrolla SmartCRM como solucion llave en mano por un precio cerrado de 899 EUR. Si tu empresa necesita un CRM con inteligencia artificial real que ayude a tu equipo a vender mas y mejor, con predicciones fiables, inbox unificado y automatizaciones inteligentes, solicita una demostracion gratuita y descubre como la IA nativa puede transformar tu proceso comercial.",
       ],
     },
   },
