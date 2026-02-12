@@ -82,6 +82,7 @@ export const apps: AppItem[] = [
       "Indexacion semantica de contenidos historicos",
       "Busqueda inteligente por contexto y epoca",
       "Exportacion a formatos estandar de archivistica",
+      "Localización exacta del documento físico desde el archivo digital",
     ],
     problem:
       "Los archivos históricos sufren deterioro físico de los documentos, dificultades de acceso y riesgo de pérdida de información valiosa. Además, muchos carecen de una organización digital que refleje la estructura real del archivo físico, lo que impide saber de forma rápida y precisa dónde se encuentra cada documento en el edificio. Esta desconexión entre el archivo físico y el virtual provoca búsquedas lentas, errores y una gestión ineficiente del patrimonio documental.",
