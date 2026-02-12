@@ -84,7 +84,7 @@ export const apps: AppItem[] = [
       "Exportacion a formatos estandar de archivistica",
     ],
     problem:
-      "Los archivos historicos enfrentan deterioro fisico, dificultad de acceso y riesgo de perdida de informacion valiosa al no estar digitalizados correctamente.",
+      "Los archivos históricos sufren deterioro físico de los documentos, dificultades de acceso y riesgo de pérdida de información valiosa. Además, muchos carecen de una organización digital que refleje la estructura real del archivo físico, lo que impide saber de forma rápida y precisa dónde se encuentra cada documento en el edificio. Esta desconexión entre el archivo físico y el virtual provoca búsquedas lentas, errores y una gestión ineficiente del patrimonio documental.",
     audience:
       "Instituciones publicas, universidades, museos, bibliotecas y entidades con fondos documentales historicos.",
     allIntegrations: ["OCR Avanzado", "Machine Learning", "Procesamiento de Lenguaje Natural", "Document AI"],
