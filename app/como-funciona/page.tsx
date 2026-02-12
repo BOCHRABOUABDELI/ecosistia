@@ -12,7 +12,7 @@ import { ArrowRight, MessageCircle, Palette, Code, Rocket } from "lucide-react"
 export const metadata: Metadata = {
   title: "Como funciona el desarrollo de aplicaciones con IA | Proceso en 4 pasos",
   description:
-    "Asi desarrollamos tu aplicacion con inteligencia artificial: consulta gratuita, prototipo en 5 dias, desarrollo agil y despliegue en produccion. De tu idea a una app con IA en 2-12 semanas por 899 EUR.",
+    "Asi desarrollamos tu aplicacion con inteligencia artificial: consulta gratuita, prototipo en 5 dias, desarrollo agil y despliegue en produccion. De tu idea a una app con IA en 2-12 semanas por 899 €.",
 }
 
 const steps = [
