@@ -109,7 +109,7 @@ export const apps: AppItem[] = [
     sector: "Prevencion y Seguridad",
     icon: "ShieldCheck",
     iconColor: "bg-emerald-500",
-    image: "/apps/gestion-riesgos-laborales.jpg",
+    image: "/apps/gestion-riesgos-laborales.png",
     tags: ["Document AI", "Automated Compliance", "Alert Systems", "Risk Assessment"],
     features: [
       "Gestion de multiples empresas y centros",
