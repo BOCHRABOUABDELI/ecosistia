@@ -37,7 +37,7 @@ const faqs = [
       "No. El precio de desarrollo es 899 € y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto cerrado antes de empezar.",
   },
   {
-    question: "¿Incluye soporte y actualizaciones?",
+    question: "Incluye soporte y actualizaciones?",
     answer:
       "Sí. El servicio incluye soporte técnico, actualizaciones de la plataforma y mejoras continuas. Nos encargamos de mantener el sistema actualizado, seguro y en evolución constante para que tu institución siempre disponga de la mejor versión del software.",
   },
