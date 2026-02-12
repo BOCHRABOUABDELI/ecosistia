@@ -250,7 +250,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
             {[
               { value: "899\u00A0\u20AC", label: "Precio cerrado" },
-              { value: "2-6 sem.", label: "Tiempo de entrega" },
+              { value: "2-12 sem.", label: "Tiempo de entrega" },
               { value: "100%", label: "Tu propiedad" },
               { value: "24h", label: "Tiempo de respuesta" },
             ].map((metric) => (
