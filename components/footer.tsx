@@ -34,6 +34,7 @@ export function Footer() {
                 width={180}
                 height={48}
                 className="h-9 w-auto object-contain brightness-0 invert"
+                unoptimized
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">
