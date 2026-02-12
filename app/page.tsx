@@ -48,7 +48,7 @@ const whyUs = [
     icon: Zap,
     title: "Entrega en semanas, no meses",
     description:
-      "Tu aplicacion lista en 2-6 semanas. Trabajamos con metodologia agil y entregas parciales para que veas resultados desde el primer sprint.",
+      "Tu aplicacion lista en 2-12 semanas. Trabajamos con metodologia agil y entregas parciales para que veas resultados desde el primer sprint.",
   },
   {
     icon: Shield,

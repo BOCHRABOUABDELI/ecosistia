@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Ecosistia - Software con IA a medida",
   },
   description:
-    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-6 semanas. Consulta gratuita.",
+    "Ecosistia desarrolla aplicaciones con inteligencia artificial a medida para empresas por 899 EUR. Automatizacion de procesos, lectura inteligente de documentos, paneles de datos con IA y mas. Entrega en 2-12 semanas. Consulta gratuita.",
   keywords: [
     "desarrollo aplicaciones inteligencia artificial",
     "software con IA a medida",
