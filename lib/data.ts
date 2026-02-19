@@ -465,7 +465,7 @@ export const apps: AppItem[] = [
     sector: "Reformas y Construccion",
     icon: "HardHat",
     iconColor: "bg-amber-500",
-    image: "/apps/reformaslux.jpg",
+    image: "/apps/reformaslux.png",
     tags: ["CRM con IA", "Lead Scoring", "Pipeline Kanban", "Comisiones", "Cobros", "Auditoria IA"],
     features: [
       "Gestion de leads con scoring e IA para priorizar oportunidades",
