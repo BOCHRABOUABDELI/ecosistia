@@ -515,7 +515,7 @@ export const apps: AppItem[] = [
     sector: "CRM y Ventas",
     icon: "Users",
     iconColor: "bg-sky-600",
-    image: "/apps/smartcrm.jpg",
+    image: "/apps/smartcrm.png",
     tags: ["CRM con IA", "Multi-Tenant SaaS", "Lead Scoring", "Pipeline Kanban", "Inbox Omnicanal", "Forecast"],
     features: [
       "Dashboard inteligente con metricas clave y deals en riesgo",
