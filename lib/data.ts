@@ -237,7 +237,7 @@ export const apps: AppItem[] = [
     description:
       "Aplicacion para profesionales hipotecarios con gestion centralizada del ciclo completo de tramitacion.",
     status: "demo-funcional",
-    demoUrl: "https://funny-syrniki-b1bae1.netlify.app/",
+    demoUrl: "https://hipotecas.ecosistia.com/dashboard",
     sector: "Finanzas y Banca",
     icon: "TrendingUp",
     iconColor: "bg-emerald-500",
