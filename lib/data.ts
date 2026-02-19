@@ -321,7 +321,7 @@ export const apps: AppItem[] = [
     description:
       "Plataforma inteligente para gestionar servicios tecnicos, avisos, partes de trabajo, tecnicos, clientes y mantenimiento, con automatizacion y apoyo de IA.",
     status: "demo-funcional",
-    demoUrl: "https://hidraer-sat-ai-maint-4zrp.bolt.host/",
+    demoUrl: "https://sat.ecosistia.com/",
     sector: "Industria y Mantenimiento",
     icon: "Wrench",
     iconColor: "bg-sky-600",
