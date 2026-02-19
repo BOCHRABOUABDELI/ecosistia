@@ -35,10 +35,10 @@ export async function generateMetadata({
   if (!app) return { title: "Aplicacion no encontrada" }
 
   const sectorKeywords = app.targetSectors?.slice(0, 5).join(", ") ?? ""
-  const descriptionSeo = `${app.name}: ${app.description} Ideal para ${sectorKeywords}. Desarrollo a medida con inteligencia artificial por 899 €. Demo funcional disponible.`
+  const descriptionSeo = `${app.name}: ${app.description} Ideal para ${sectorKeywords}. Desarrollo a medida con inteligencia artificial desde 899 €. Demo funcional disponible.`
 
   return {
-    title: `${app.name} | Software con IA para ${app.sector} | 899 € | Ecosistia`,
+    title: `${app.name} | Software con IA para ${app.sector} | Desde 899 € | Ecosistia`,
     description: descriptionSeo.substring(0, 320),
     keywords: [
       app.name,
@@ -49,7 +49,7 @@ export async function generateMetadata({
       "desarrollo software IA",
       "automatizacion con IA",
       "Ecosistia",
-      "899 €",
+      "desde 899 €",
     ],
     openGraph: {
       title: `${app.name} - Software con inteligencia artificial para ${app.sector}`,
@@ -124,7 +124,7 @@ export default async function AppDetailPage({
         name: `Cuanto cuesta desarrollar ${app.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 € sin permanencia.`,
+          text: `El desarrollo completo de ${app.name} parte desde 899 €. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 € sin permanencia.`,
         },
       },
       {
@@ -182,7 +182,7 @@ export default async function AppDetailPage({
                   {app.sector}
                 </Badge>
                 <Badge variant="secondary" className="bg-primary-foreground/10 text-primary-foreground border-0 text-xs">
-                  899 €
+                  Desde 899 €
                 </Badge>
               </div>
 
@@ -376,7 +376,7 @@ export default async function AppDetailPage({
                 a cualquier tipo de empresa dentro del sector <strong className="text-foreground">{app.sector}</strong>.
                 Tanto si eres una <strong className="text-foreground">pyme</strong>, una <strong className="text-foreground">startup</strong> o una <strong className="text-foreground">empresa consolidada</strong>,
                 el sistema se configura para adaptarse a tus procesos, tu equipo y tus objetivos de negocio.
-                Ecosistia desarrolla cada proyecto por un <strong className="text-foreground">precio cerrado de 899 €</strong> con
+                Ecosistia desarrolla cada proyecto <strong className="text-foreground">desde 899 €</strong> con
                 entrega funcional en <strong className="text-foreground">2 a 12 semanas</strong>.
               </p>
             </div>
@@ -440,10 +440,10 @@ export default async function AppDetailPage({
             <div className="grid items-center gap-8 lg:grid-cols-2">
               <div>
                 <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
-                  Desarrollo completo por <span className="text-accent">899{"\u00A0\u20AC"}</span>
+                  Desarrollo completo desde <span className="text-accent">899{"\u00A0\u20AC"}</span>
                 </h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Precio cerrado, sin sorpresas. Incluye <strong className="text-foreground">analisis de requisitos</strong>,{" "}
+                  Todo incluido. Incluye <strong className="text-foreground">analisis de requisitos</strong>,{" "}
                   <strong className="text-foreground">prototipo funcional en 5 dias</strong>,{" "}
                   <strong className="text-foreground">desarrollo completo</strong>,{" "}
                   <strong className="text-foreground">integraciones con tus sistemas</strong>,{" "}
@@ -464,7 +464,7 @@ export default async function AppDetailPage({
                 <p className="font-heading text-6xl font-bold tracking-tight text-accent lg:text-7xl">
                   899{"\u00A0\u20AC"}
                 </p>
-                <p className="text-muted-foreground text-sm">precio cerrado por proyecto</p>
+                <p className="text-muted-foreground text-sm">desde, por proyecto</p>
                 <Button asChild variant="success" size="lg" className="mt-2 text-base px-10 shadow-lg shadow-success/20">
                   <Link href="/contacto">
                     Empezar mi proyecto
@@ -513,7 +513,7 @@ export default async function AppDetailPage({
               },
               {
                 q: `Cuanto cuesta el desarrollo de ${app.name}?`,
-                a: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 €/mes sin permanencia.`,
+                a: `El desarrollo completo de ${app.name} parte desde 899 €. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 €/mes sin permanencia.`,
               },
               {
                 q: `Para que tipos de empresa es util ${app.name}?`,
@@ -550,7 +550,7 @@ export default async function AppDetailPage({
               {"Quieres una solucion como"} {app.name} {"para tu empresa?"}
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-primary-foreground/60 leading-relaxed">
-              Cuentanos tu caso y te preparamos una <strong className="text-primary-foreground">solucion a medida con inteligencia artificial</strong> por un precio cerrado de 899{"\u00A0\u20AC"}.
+              Cuentanos tu caso y te preparamos una <strong className="text-primary-foreground">solucion a medida con inteligencia artificial</strong> desde 899{"\u00A0\u20AC"}.
               Prototipo funcional en 5 dias. Entrega completa en 2-12 semanas.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

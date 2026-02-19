@@ -100,13 +100,14 @@ export function HeroSection() {
 
             {/* Price - elegant integration */}
             <div className="mt-8 inline-flex items-baseline gap-3 rounded-2xl border border-border bg-card/80 px-6 py-4 shadow-sm backdrop-blur-sm">
+              <span className="text-sm text-muted-foreground font-medium leading-tight">desde</span>
               <span className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 899{"\u00A0\u20AC"}
               </span>
               <span className="text-sm text-muted-foreground font-medium leading-tight">
                 por proyecto
                 <br />
-                <span className="text-xs">precio cerrado, sin sorpresas</span>
+                <span className="text-xs">todo incluido, sin sorpresas</span>
               </span>
             </div>
 
