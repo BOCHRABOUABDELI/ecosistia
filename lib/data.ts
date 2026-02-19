@@ -325,7 +325,7 @@ export const apps: AppItem[] = [
     sector: "Industria y Mantenimiento",
     icon: "Wrench",
     iconColor: "bg-sky-600",
-    image: "/apps/gestion-sat-hidraer.jpg",
+    image: "/apps/gestion-sat-hidraer.png",
     tags: ["Predictive Maintenance", "IoT Integration", "Workflow Automation", "Field Service AI"],
     features: [
       "Gestion completa de avisos y partes de trabajo",
