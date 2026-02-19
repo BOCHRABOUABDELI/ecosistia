@@ -279,7 +279,7 @@ export const apps: AppItem[] = [
     description:
       "Aplicacion para modernizar gestion de despachos juridicos con automatizacion documental y analisis legal asistido por IA.",
     status: "demo-funcional",
-    demoUrl: "https://golden-druid-2181e0.netlify.app/",
+    demoUrl: "https://abogados.ecosistia.com/",
     sector: "Legal y Juridico",
     icon: "Scale",
     iconColor: "bg-foreground",
