@@ -42,15 +42,15 @@ export function Header() {
           href="/"
           className="flex items-center gap-2 text-foreground"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo-ecosistia.png"
             alt="Ecosistia - AI Software & Solutions"
             width={180}
             height={48}
             className="h-9 w-auto object-contain"
-            priority
             loading="eager"
-            unoptimized
+            fetchPriority="high"
           />
         </Link>
 
