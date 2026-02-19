@@ -550,7 +550,7 @@ export default async function AppDetailPage({
               {"Quieres una solucion como"} {app.name} {"para tu empresa?"}
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-primary-foreground/60 leading-relaxed">
-              Cuentanos tu caso y te preparamos una <strong className="text-primary-foreground">solucion a medida con inteligencia artificial</strong> por un precio cerrado de 899{"\u00A0\u20AC"}.
+              Cuentanos tu caso y te preparamos una <strong className="text-primary-foreground">solucion a medida con inteligencia artificial</strong> por un precio desde 899{"\u00A0\u20AC"}.
               Prototipo funcional en 5 dias. Entrega completa en 2-12 semanas.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
