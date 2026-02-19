@@ -376,7 +376,7 @@ export default async function AppDetailPage({
                 a cualquier tipo de empresa dentro del sector <strong className="text-foreground">{app.sector}</strong>.
                 Tanto si eres una <strong className="text-foreground">pyme</strong>, una <strong className="text-foreground">startup</strong> o una <strong className="text-foreground">empresa consolidada</strong>,
                 el sistema se configura para adaptarse a tus procesos, tu equipo y tus objetivos de negocio.
-                Ecosistia desarrolla cada proyecto por un <strong className="text-foreground">precio cerrado de 899 €</strong> con
+                Ecosistia desarrolla cada proyecto desde <strong className="text-foreground">899 €</strong> con
                 entrega funcional en <strong className="text-foreground">2 a 12 semanas</strong>.
               </p>
             </div>
