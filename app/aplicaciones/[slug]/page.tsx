@@ -124,7 +124,7 @@ export default async function AppDetailPage({
         name: `Cuanto cuesta desarrollar ${app.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 € sin permanencia.`,
+          text: `El desarrollo completo de ${app.name} tiene un precio desde 899 €. Incluye analisis, prototipo, desarrollo, integraciones y despliegue. Mantenimiento mensual desde 150 € sin permanencia.`,
         },
       },
       {
@@ -513,7 +513,7 @@ export default async function AppDetailPage({
               },
               {
                 q: `Cuanto cuesta el desarrollo de ${app.name}?`,
-                a: `El desarrollo completo de ${app.name} tiene un precio cerrado de 899 €. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 €/mes sin permanencia.`,
+                a: `El desarrollo completo de ${app.name} tiene un precio desde 899 €. Este precio incluye analisis de requisitos, prototipo funcional, desarrollo completo, integraciones con tus sistemas, testing y despliegue en produccion. El mantenimiento mensual posterior parte de 150 €/mes sin permanencia.`,
               },
               {
                 q: `Para que tipos de empresa es util ${app.name}?`,
