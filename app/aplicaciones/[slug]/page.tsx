@@ -440,10 +440,10 @@ export default async function AppDetailPage({
             <div className="grid items-center gap-8 lg:grid-cols-2">
               <div>
                 <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
-                  Desarrollo completo por <span className="text-accent">899{"\u00A0\u20AC"}</span>
+                  Desarrollo completo desde <span className="text-accent">899{"\u00A0\u20AC"}</span>
                 </h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Precio cerrado, sin sorpresas. Incluye <strong className="text-foreground">analisis de requisitos</strong>,{" "}
+                  Precio personalizado, sin sorpresas. Incluye <strong className="text-foreground">analisis de requisitos</strong>,{" "}
                   <strong className="text-foreground">prototipo funcional en 5 dias</strong>,{" "}
                   <strong className="text-foreground">desarrollo completo</strong>,{" "}
                   <strong className="text-foreground">integraciones con tus sistemas</strong>,{" "}
