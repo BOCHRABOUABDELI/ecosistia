@@ -411,7 +411,7 @@ export const apps: AppItem[] = [
     description:
       "Plataforma con inteligencia artificial para analizar documentacion, organizar evidencias y apoyar la elaboracion de informes forenses, legales y periciales. Permite centralizar toda la informacion de un caso y utilizar IA para busqueda de datos clave, deteccion de patrones y generacion de borradores de informes.",
     status: "demo-funcional",
-    demoUrl: "https://jolly-daifuku-ee7612.netlify.app/",
+    demoUrl: "https://forense.ecosistia.com/",
     sector: "Forense y Pericial",
     icon: "FileSearch",
     iconColor: "bg-primary",
