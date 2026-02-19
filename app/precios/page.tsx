@@ -64,7 +64,7 @@ export default function PreciosPage() {
             {"Cuanto cuesta una aplicacion con inteligencia artificial"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Desarrollo completo de tu aplicacion con IA por un pago unico de 899{"\u00A0\u20AC"}.
+            Desarrollo completo de tu aplicacion con IA por un pago unico desde 899{"\u00A0\u20AC"}.
             Mantenimiento mensual desde 150{"\u00A0\u20AC"}/mes. Sin permanencias, sin costes ocultos
             y sin letra pequena.
           </p>
