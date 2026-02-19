@@ -195,7 +195,7 @@ export const apps: AppItem[] = [
     description:
       "Solucion avanzada para optimizar gestion de instituciones penitenciarias con enfoque en seguridad y reinsercion.",
     status: "demo-funcional",
-    demoUrl: "https://rad-cannoli-070883.netlify.app/",
+    demoUrl: "https://penitenciaria.ecosistia.com/",
     sector: "Administracion Publica",
     icon: "Building2",
     iconColor: "bg-foreground",
