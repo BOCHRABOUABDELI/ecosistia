@@ -84,7 +84,7 @@ export default function PreciosPage() {
                   {"Aplicacion con IA a medida"}
                 </h2>
                 <p className="mt-2 text-muted-foreground leading-relaxed">
-                  Pago unico. Sin suscripciones de desarrollo. El codigo es tuyo.
+
                 </p>
                 <ul className="mt-6 grid gap-2 sm:grid-cols-2">
                   {developmentFeatures.map((feature) => (
