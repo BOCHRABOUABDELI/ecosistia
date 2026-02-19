@@ -182,7 +182,7 @@ export default async function AppDetailPage({
                   {app.sector}
                 </Badge>
                 <Badge variant="secondary" className="bg-primary-foreground/10 text-primary-foreground border-0 text-xs">
-                  899 €
+                  Desde 899 €
                 </Badge>
               </div>
 
