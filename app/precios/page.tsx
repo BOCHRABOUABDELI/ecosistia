@@ -13,7 +13,7 @@ import { ArrowRight, Check } from "lucide-react"
 export const metadata: Metadata = {
   title: "Precios de desarrollo de aplicaciones con IA | Desde 899 €",
   description:
-    "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial? Precio cerrado de 899 € con todo incluido. Mantenimiento desde 150 €/mes sin permanencia. Consulta gratuita.",
+    "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial? Desde 899 € con todo incluido. Mantenimiento desde 150 €/mes sin permanencia. Consulta gratuita.",
 }
 
 const developmentFeatures = [
@@ -27,14 +27,14 @@ const developmentFeatures = [
 
 const faqs = [
   {
-    question: "Que incluye el precio de 899 €?",
+    question: "Que incluye el precio desde 899 €?",
     answer:
       "Incluye todo el desarrollo de tu aplicacion con IA: analisis de requisitos, mock/demo, desarrollo, integraciones, testing, despliegue en produccion y formacion basica de tu equipo. Es un pago unico, no una suscripcion.",
   },
   {
     question: "Hay costes ocultos?",
     answer:
-      "No. El precio de desarrollo es 899 € y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto cerrado antes de empezar.",
+      "No. El precio de desarrollo parte desde 899 € y el mantenimiento mensual es el que elijas segun el numero de usuarios. Si necesitas funcionalidades extra despues del lanzamiento, te damos un presupuesto detallado antes de empezar.",
   },
   {
     question: "Incluye soporte y actualizaciones?",
@@ -64,7 +64,7 @@ export default function PreciosPage() {
             {"Cuanto cuesta una aplicacion con inteligencia artificial"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Desarrollo completo de tu aplicacion con IA por un pago unico de 899{"\u00A0\u20AC"}.
+            Desarrollo completo de tu aplicacion con IA por un pago unico desde 899{"\u00A0\u20AC"}.
             Mantenimiento mensual desde 150{"\u00A0\u20AC"}/mes. Sin permanencias, sin costes ocultos
             y sin letra pequena.
           </p>
@@ -84,7 +84,7 @@ export default function PreciosPage() {
                   {"Aplicacion con IA a medida"}
                 </h2>
                 <p className="mt-2 text-muted-foreground leading-relaxed">
-                  Pago unico. Sin suscripciones de desarrollo. El codigo es tuyo.
+
                 </p>
                 <ul className="mt-6 grid gap-2 sm:grid-cols-2">
                   {developmentFeatures.map((feature) => (
@@ -101,7 +101,7 @@ export default function PreciosPage() {
               <div className="text-center shrink-0">
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="font-heading text-6xl font-bold text-foreground">
-                    899
+                    Desde 899
                   </span>
                   <span className="font-heading text-2xl font-bold text-muted-foreground">
                     {"\u20AC"}

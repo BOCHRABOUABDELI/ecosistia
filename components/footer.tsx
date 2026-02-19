@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 
 const footerLinks = {
   Producto: [
@@ -28,13 +27,13 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2 text-primary-foreground"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/logo-ecosistia.png"
                 alt="Ecosistia - AI Software & Solutions"
                 width={180}
                 height={48}
                 className="h-9 w-auto object-contain brightness-0 invert"
-                unoptimized
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/50">

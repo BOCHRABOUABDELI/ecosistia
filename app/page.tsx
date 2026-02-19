@@ -108,7 +108,7 @@ const jsonLd = {
   name: "Ecosistia",
   alternateName: "Ecosistia",
   description:
-    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes por un precio cerrado de 899 €.",
+    "Ecosistia es una empresa especializada en el desarrollo de aplicaciones con inteligencia artificial a medida para empresas. Ofrecemos automatizacion de procesos, lectura inteligente de documentos, sincronizacion de sistemas y paneles de datos inteligentes desde 899 €.",
   url: "https://ecosistia.com",
   foundingDate: "2024",
   areaServed: "ES",
@@ -149,7 +149,7 @@ const faqJsonLd = {
       name: "Cuanto cuesta desarrollar una aplicacion con inteligencia artificial?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida tiene un precio cerrado de 899 €. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 €/mes sin permanencia.",
+        text: "En Ecosistia, el desarrollo completo de una aplicacion con IA a medida parte desde 899 €. Este precio incluye analisis, prototipo, desarrollo, integraciones, testing y despliegue. Despues, el mantenimiento mensual empieza desde 150 €/mes sin permanencia.",
       },
     },
     {
@@ -198,7 +198,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
             {[
-              { value: "899\u00A0\u20AC", label: "Precio cerrado" },
+              { value: "899\u00A0\u20AC", label: "Desde, por proyecto" },
               { value: "2-12 sem.", label: "Tiempo de entrega" },
               { value: "100%", label: "Acompañamiento completo" },
               { value: "24h", label: "Tiempo de respuesta" },
@@ -381,10 +381,10 @@ export default function HomePage() {
               Precios transparentes
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              {"Precio de desarrollo de software con IA: 899\u00A0\u20AC"}
+              {"Desarrollo de software con IA desde 899\u00A0\u20AC"}
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              {"Desarrollo completo de tu aplicacion con inteligencia artificial por un pago unico de "}
+              {"Desarrollo completo de tu aplicacion con inteligencia artificial desde "}
               <span className="font-semibold text-foreground">{"899\u00A0\u20AC"}</span>
               {". Despues, planes de mantenimiento desde 150\u00A0\u20AC/mes adaptados al tamano de tu equipo. Sin permanencias, cancelas cuando quieras."}
             </p>
@@ -427,7 +427,7 @@ export default function HomePage() {
               sistemas de <strong className="text-foreground">lectura inteligente de documentos (OCR con inteligencia artificial)</strong>,
               plataformas de gestion comercial con IA, paneles de datos con predicciones en tiempo real
               y sincronizacion entre sistemas de negocio. Cada aplicacion se desarrolla por un
-              precio cerrado de 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 12 semanas.
+              desde 899{"\u00A0\u20AC"} y se entrega en un plazo de 2 a 12 semanas.
             </p>
             <p>
               Trabajamos con tecnologias lider: procesamiento de lenguaje natural (NLP), modelos de lenguaje (LLM),
