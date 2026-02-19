@@ -461,7 +461,7 @@ export const apps: AppItem[] = [
     description:
       "ReformasLux es una plataforma todo-en-uno disenada para empresas de reformas que necesitan profesionalizar y escalar su gestion comercial. Centraliza el ciclo de vida del cliente: desde la captacion del lead hasta el cobro final y la liquidacion de comisiones a partners. La inteligencia artificial apoya con scoring de leads, deteccion de riesgos en cobros, priorizacion de oportunidades y auditoria de oportunidades perdidas.",
     status: "demo-funcional",
-    demoUrl: "https://aplicaci-n-de-gesti-bwwg.bolt.host/",
+    demoUrl: "https://reformas.ecosistia.com/",
     sector: "Reformas y Construccion",
     icon: "HardHat",
     iconColor: "bg-amber-500",
