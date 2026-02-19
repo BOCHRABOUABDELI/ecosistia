@@ -101,7 +101,7 @@ export default function PreciosPage() {
               <div className="text-center shrink-0">
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="font-heading text-6xl font-bold text-foreground">
-                    899
+                    Desde 899
                   </span>
                   <span className="font-heading text-2xl font-bold text-muted-foreground">
                     {"\u20AC"}
