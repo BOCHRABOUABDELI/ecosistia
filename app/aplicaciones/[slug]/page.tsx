@@ -462,7 +462,7 @@ export default async function AppDetailPage({
               </div>
               <div className="flex flex-col items-center gap-4 text-center">
                 <p className="font-heading text-6xl font-bold tracking-tight text-accent lg:text-7xl">
-                  899{"\u00A0\u20AC"}
+                  Desde 899{"\u00A0\u20AC"}
                 </p>
                 <p className="text-muted-foreground text-sm">precio cerrado por proyecto</p>
                 <Button asChild variant="success" size="lg" className="mt-2 text-base px-10 shadow-lg shadow-success/20">
