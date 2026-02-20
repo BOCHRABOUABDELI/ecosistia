@@ -98,16 +98,7 @@ export default function GraciasPage() {
           </Button>
         </div>
 
-        {/* Trust line */}
-        <p className="mt-10 text-center text-sm text-muted-foreground">
-          Si necesitas contactarnos urgentemente, puedes escribirnos a{" "}
-          <a
-            href="mailto:info@ecosistia.com"
-            className="font-medium text-accent hover:underline"
-          >
-            info@ecosistia.com
-          </a>
-        </p>
+
       </div>
     </section>
   )
