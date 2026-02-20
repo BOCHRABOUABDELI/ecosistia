@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,10 +14,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Send, AlertCircle, Loader2 } from "lucide-react"
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+  const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [usuarios, setUsuarios] = useState("")
@@ -51,7 +52,8 @@ export function ContactForm() {
         throw new Error(data.error || "Error al enviar el mensaje.")
       }
 
-      setSubmitted(true)
+      router.push("/contacto/gracias")
+      return
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Error al enviar el mensaje."
@@ -59,23 +61,6 @@ export function ContactForm() {
     } finally {
       setLoading(false)
     }
-  }
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10">
-          <CheckCircle className="h-8 w-8 text-success" />
-        </div>
-        <h3 className="mt-6 font-heading text-2xl font-bold text-foreground">
-          {"Mensaje enviado"}
-        </h3>
-        <p className="mt-2 text-muted-foreground max-w-sm">
-          Te llamamos en menos de 24 horas para hablar de tu proyecto. Revisa
-          tambien tu email.
-        </p>
-      </div>
-    )
   }
 
   return (
