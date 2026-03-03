@@ -15,13 +15,9 @@ export async function POST(request: Request) {
       )
     }
 
-    const toEmail = process.env.CONTACT_EMAIL_TO
-    if (!toEmail) {
-      return NextResponse.json(
-        { error: "Email de destino no configurado." },
-        { status: 500 }
-      )
-    }
+    const toEmail = process.env.CONTACT_EMAIL_TO || "hola@softwareopium.com"
+
+    console.log("[v0] Sending notification email to:", toEmail)
 
     const { data, error: resendError } = await resend.emails.send({
       from: "Ecosistia <hola@softwareopium.com>",
@@ -67,12 +63,17 @@ export async function POST(request: Request) {
       `,
     })
 
+    console.log("[v0] Notification email result:", { data, resendError })
+
     if (resendError) {
+      console.error("[v0] Notification email FAILED:", resendError)
       return NextResponse.json(
         { error: resendError.message || "Error al enviar el email." },
         { status: 500 }
       )
     }
+
+    console.log("[v0] Notification email sent successfully, ID:", data?.id)
 
     const { error: confirmError } = await resend.emails.send({
       from: "Ecosistia <hola@softwareopium.com>",
