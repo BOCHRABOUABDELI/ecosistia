@@ -27,6 +27,14 @@ export async function POST(request: Request) {
     const fromEmail = process.env.SMTP_USER || "hola@softwareopium.com"
     const toEmail = process.env.CONTACT_EMAIL_TO || "hola@softwareopium.com"
 
+    console.log("[v0] SMTP config:", {
+      host: process.env.SMTP_HOST || "smtp.ionos.es",
+      port: Number(process.env.SMTP_PORT) || 587,
+      user: process.env.SMTP_USER ? "SET" : "NOT SET",
+      pass: process.env.SMTP_PASS ? "SET" : "NOT SET",
+      toEmail,
+    })
+
     // 1. Email de notificacion a Ecosistia
     await transporter.sendMail({
       from: `"Ecosistia Contacto" <${fromEmail}>`,
@@ -117,9 +125,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Error sending email:", error)
+    console.error("[v0] SMTP Error:", error instanceof Error ? error.message : error)
     return NextResponse.json(
-      { error: "Error al enviar el mensaje." },
+      { error: "Error al enviar el mensaje. Intentalo de nuevo." },
       { status: 500 }
     )
   }
