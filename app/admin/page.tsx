@@ -15,12 +15,26 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     async function load() {
-      const [postsRes, sectorsRes] = await Promise.all([
-        fetch("/api/blog/posts?admin=true"),
-        fetch("/api/blog/sectors"),
-      ])
-      setPosts(await postsRes.json())
-      setSectors(await sectorsRes.json())
+      console.log("[v0] AdminDashboard - loading data...")
+      try {
+        const [postsRes, sectorsRes] = await Promise.all([
+          fetch("/api/blog/posts?admin=true"),
+          fetch("/api/blog/sectors"),
+        ])
+        console.log("[v0] AdminDashboard - posts response status:", postsRes.status)
+        console.log("[v0] AdminDashboard - sectors response status:", sectorsRes.status)
+        
+        const postsData = await postsRes.json()
+        const sectorsData = await sectorsRes.json()
+        
+        console.log("[v0] AdminDashboard - posts loaded:", postsData)
+        console.log("[v0] AdminDashboard - sectors loaded:", sectorsData)
+        
+        setPosts(postsData)
+        setSectors(sectorsData)
+      } catch (err) {
+        console.error("[v0] AdminDashboard - error loading:", err)
+      }
       setLoading(false)
     }
     load()
