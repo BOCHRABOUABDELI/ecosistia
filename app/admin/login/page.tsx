@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -9,7 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AlertCircle, Lock, Loader2 } from "lucide-react"
 
 export default function AdminLoginPage() {
-  const router = useRouter()
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
@@ -32,8 +30,7 @@ export default function AdminLoginPage() {
         return
       }
 
-      router.push("/admin")
-      router.refresh()
+      window.location.href = "/admin"
     } catch {
       setError("Error de conexion")
       setLoading(false)
