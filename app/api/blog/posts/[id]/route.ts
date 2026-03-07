@@ -1,16 +1,10 @@
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 import { getPostById, savePost, deletePost } from "@/lib/blog-data"
-import crypto from "crypto"
 
 function isAdmin(cookieStore: Awaited<ReturnType<typeof cookies>>): boolean {
   const session = cookieStore.get("admin-session")
-  if (!session?.value) return false
-  const expected = crypto
-    .createHash("sha256")
-    .update(process.env.ADMIN_PASSWORD || "ecosistia-admin-2024")
-    .digest("hex")
-  return session.value === expected
+  return session?.value === "authenticated"
 }
 
 export async function GET(

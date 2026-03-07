@@ -2,16 +2,10 @@ import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 import { getPosts, getPublishedPosts, savePost } from "@/lib/blog-data"
 import type { BlogPost } from "@/lib/blog-types"
-import crypto from "crypto"
 
 function isAdmin(cookieStore: Awaited<ReturnType<typeof cookies>>): boolean {
   const session = cookieStore.get("admin-session")
-  if (!session?.value) return false
-  const expected = crypto
-    .createHash("sha256")
-    .update(process.env.ADMIN_PASSWORD || "ecosistia-admin-2024")
-    .digest("hex")
-  return session.value === expected
+  return session?.value === "authenticated"
 }
 
 export async function GET(request: Request) {
@@ -36,7 +30,7 @@ export async function POST(request: Request) {
   const now = new Date().toISOString()
 
   const post: BlogPost = {
-    id: crypto.randomUUID(),
+    id: Math.random().toString(36).substring(2) + Date.now().toString(36),
     title: body.title || "",
     slug: body.slug || "",
     excerpt: body.excerpt || "",
