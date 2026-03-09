@@ -1,14 +1,15 @@
-import { getPostBySlug, getPublishedPosts } from "@/lib/blog-data"
+import { getPostBySlug, getPublishedPosts, getSectors } from "@/lib/blog-data"
 import { notFound } from "next/navigation"
-import ReactMarkdown from "react-markdown"
+import Link from "next/link"
 import type { Metadata } from "next"
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return {}
 
   return {
@@ -29,17 +30,42 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
 
   if (!post) {
     notFound()
   }
 
+  const sectors = getSectors()
+  const sector = sectors.find(s => s.id === post.sectorId)
+  const subsector = sector?.subsectors.find(sub => sub.id === post.subsectorId)
+
   return (
     <main className="min-h-screen bg-background py-16 md:py-24">
       <article className="container max-w-3xl">
+        <div className="mb-6">
+          <Link href="/blog" className="text-sm text-primary hover:underline">
+            &larr; Volver al blog
+          </Link>
+        </div>
+
         <header className="mb-12">
+          {(sector || subsector) && (
+            <div className="mb-4 flex gap-2">
+              {sector && (
+                <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  {sector.name}
+                </span>
+              )}
+              {subsector && (
+                <span className="inline-block rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  {subsector.name}
+                </span>
+              )}
+            </div>
+          )}
           <h1 className="font-heading text-4xl font-bold text-foreground md:text-5xl">
             {post.title}
           </h1>
@@ -61,11 +87,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <div className="prose prose-sm md:prose-base max-w-none text-foreground space-y-4">
-          <ReactMarkdown>
-            {post.content}
-          </ReactMarkdown>
-        </div>
+        <div 
+          className="prose prose-sm md:prose-base max-w-none text-foreground"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
 
         <footer className="mt-16 pt-8 border-t">
           <p className="text-sm text-muted-foreground">
