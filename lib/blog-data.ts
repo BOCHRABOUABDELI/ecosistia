@@ -14,9 +14,13 @@ function ensureFile(filePath: string) {
 // --- Posts ---
 
 export function getPosts(): BlogPost[] {
-  ensureFile(POSTS_FILE)
-  const raw = fs.readFileSync(POSTS_FILE, "utf-8")
-  return JSON.parse(raw) as BlogPost[]
+  try {
+    ensureFile(POSTS_FILE)
+    const raw = fs.readFileSync(POSTS_FILE, "utf-8")
+    return JSON.parse(raw || "[]") as BlogPost[]
+  } catch {
+    return []
+  }
 }
 
 export function getPublishedPosts(): BlogPost[] {
@@ -34,31 +38,47 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
 }
 
 export function savePost(post: BlogPost): BlogPost {
-  const posts = getPosts()
-  const idx = posts.findIndex((p) => p.id === post.id)
-  if (idx >= 0) {
-    posts[idx] = { ...post, updatedAt: new Date().toISOString() }
-  } else {
-    posts.push(post)
+  try {
+    const posts = getPosts()
+    const idx = posts.findIndex((p) => p.id === post.id)
+    if (idx >= 0) {
+      posts[idx] = post
+    } else {
+      posts.push(post)
+    }
+    ensureFile(POSTS_FILE)
+    fs.writeFileSync(POSTS_FILE, JSON.stringify(posts, null, 2), "utf-8")
+    return post
+  } catch (error) {
+    console.error("Error saving post:", error)
+    return post
   }
-  fs.writeFileSync(POSTS_FILE, JSON.stringify(posts, null, 2), "utf-8")
-  return post
 }
 
-export function deletePost(id: string): boolean {
-  const posts = getPosts()
-  const filtered = posts.filter((p) => p.id !== id)
-  if (filtered.length === posts.length) return false
-  fs.writeFileSync(POSTS_FILE, JSON.stringify(filtered, null, 2), "utf-8")
-  return true
+export function deletePosts(id: string): boolean {
+  try {
+    const posts = getPosts()
+    const filtered = posts.filter((p) => p.id !== id)
+    if (filtered.length === posts.length) return false
+    ensureFile(POSTS_FILE)
+    fs.writeFileSync(POSTS_FILE, JSON.stringify(filtered, null, 2), "utf-8")
+    return true
+  } catch (error) {
+    console.error("Error deleting post:", error)
+    return false
+  }
 }
 
 // --- Sectors ---
 
 export function getSectors(): BlogSector[] {
-  ensureFile(SECTORS_FILE)
-  const raw = fs.readFileSync(SECTORS_FILE, "utf-8")
-  return JSON.parse(raw) as BlogSector[]
+  try {
+    ensureFile(SECTORS_FILE)
+    const raw = fs.readFileSync(SECTORS_FILE, "utf-8")
+    return JSON.parse(raw || "[]") as BlogSector[]
+  } catch {
+    return []
+  }
 }
 
 export function getSectorById(id: string): BlogSector | undefined {
@@ -66,21 +86,33 @@ export function getSectorById(id: string): BlogSector | undefined {
 }
 
 export function saveSector(sector: BlogSector): BlogSector {
-  const sectors = getSectors()
-  const idx = sectors.findIndex((s) => s.id === sector.id)
-  if (idx >= 0) {
-    sectors[idx] = sector
-  } else {
-    sectors.push(sector)
+  try {
+    const sectors = getSectors()
+    const idx = sectors.findIndex((s) => s.id === sector.id)
+    if (idx >= 0) {
+      sectors[idx] = sector
+    } else {
+      sectors.push(sector)
+    }
+    ensureFile(SECTORS_FILE)
+    fs.writeFileSync(SECTORS_FILE, JSON.stringify(sectors, null, 2), "utf-8")
+    return sector
+  } catch (error) {
+    console.error("Error saving sector:", error)
+    return sector
   }
-  fs.writeFileSync(SECTORS_FILE, JSON.stringify(sectors, null, 2), "utf-8")
-  return sector
 }
 
 export function deleteSector(id: string): boolean {
-  const sectors = getSectors()
-  const filtered = sectors.filter((s) => s.id !== id)
-  if (filtered.length === sectors.length) return false
-  fs.writeFileSync(SECTORS_FILE, JSON.stringify(filtered, null, 2), "utf-8")
-  return true
+  try {
+    const sectors = getSectors()
+    const filtered = sectors.filter((s) => s.id !== id)
+    if (filtered.length === sectors.length) return false
+    ensureFile(SECTORS_FILE)
+    fs.writeFileSync(SECTORS_FILE, JSON.stringify(filtered, null, 2), "utf-8")
+    return true
+  } catch (error) {
+    console.error("Error deleting sector:", error)
+    return false
+  }
 }

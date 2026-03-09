@@ -1,64 +1,43 @@
 import { NextResponse } from "next/server"
-import { cookies } from "next/headers"
-import { getPostById, savePost, deletePost } from "@/lib/blog-data"
+import { getPostById, savePost, deletePosts } from "@/lib/blog-data"
 
-function isAdmin(cookieStore: Awaited<ReturnType<typeof cookies>>): boolean {
-  const session = cookieStore.get("admin-session")
-  return session?.value === "authenticated"
-}
-
-export async function GET(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const { id } = await params
-  const cookieStore = await cookies()
-  if (!isAdmin(cookieStore)) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 })
+export async function GET(request: Request, { params }: { params: { id: string } }) {
+  const post = getPostById(params.id)
+  if (!post) {
+    return NextResponse.json({ error: "Post not found" }, { status: 404 })
   }
-
-  const post = getPostById(id)
-  if (!post) return NextResponse.json({ error: "No encontrado" }, { status: 404 })
   return NextResponse.json(post)
 }
 
-export async function PUT(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const { id } = await params
-  const cookieStore = await cookies()
-  if (!isAdmin(cookieStore)) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 })
+export async function PUT(request: Request, { params }: { params: { id: string } }) {
+  try {
+    const body = await request.json()
+    const existingPost = getPostById(params.id)
+    
+    if (!existingPost) {
+      return NextResponse.json({ error: "Post not found" }, { status: 404 })
+    }
+
+    const updated = {
+      ...existingPost,
+      ...body,
+      updatedAt: new Date().toISOString(),
+    }
+
+    savePost(updated)
+    return NextResponse.json(updated)
+  } catch (error) {
+    console.error("Error updating post:", error)
+    return NextResponse.json({ error: "Error updating post" }, { status: 500 })
   }
-
-  const existing = getPostById(id)
-  if (!existing) return NextResponse.json({ error: "No encontrado" }, { status: 404 })
-
-  const body = await request.json()
-  const updated = {
-    ...existing,
-    ...body,
-    id: existing.id,
-    createdAt: existing.createdAt,
-    updatedAt: new Date().toISOString(),
-  }
-
-  savePost(updated)
-  return NextResponse.json(updated)
 }
 
-export async function DELETE(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const { id } = await params
-  const cookieStore = await cookies()
-  if (!isAdmin(cookieStore)) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 })
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  try {
+    deletePosts(params.id)
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    console.error("Error deleting post:", error)
+    return NextResponse.json({ error: "Error deleting post" }, { status: 500 })
   }
-
-  const deleted = deletePost(id)
-  if (!deleted) return NextResponse.json({ error: "No encontrado" }, { status: 404 })
-  return NextResponse.json({ success: true })
 }

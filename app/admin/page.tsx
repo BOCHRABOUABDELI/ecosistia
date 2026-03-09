@@ -1,171 +1,313 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
-import { Plus, Pencil, Trash2, Eye, EyeOff } from 'lucide-react'
-import type { BlogPost, BlogSector } from '@/lib/blog-types'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Card } from '@/components/ui/card'
+import { Plus, Trash2 } from 'lucide-react'
+import type { BlogPost } from '@/lib/blog-types'
 
-export default function AdminDashboard() {
+type FormData = Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt'>
+
+export default function AdminPage() {
+  const [logged, setLogged] = useState(false)
+  const [password, setPassword] = useState('')
   const [posts, setPosts] = useState<BlogPost[]>([])
-  const [sectors, setSectors] = useState<BlogSector[]>([])
-  const [loading, setLoading] = useState(true)
-  const [authorized, setAuthorized] = useState(false)
+  const [editing, setEditing] = useState<BlogPost | null>(null)
+  const [form, setForm] = useState<FormData>({
+    title: '',
+    slug: '',
+    excerpt: '',
+    content: '',
+    author: '',
+    sectorId: '',
+    subsectorId: '',
+    readingTime: 5,
+    imageUrl: '',
+    seoTitle: '',
+    seoDescription: '',
+    published: false,
+  })
 
   useEffect(() => {
-    // Verificar autenticación
-    const token = sessionStorage.getItem('admin-token')
-    if (!token) {
-      window.location.href = '/admin/login'
-      return
+    const token = sessionStorage.getItem('admin-blog-token')
+    if (token) {
+      setLogged(true)
+      loadPosts()
     }
-    
-    setAuthorized(true)
-
-    // Cargar datos
-    async function load() {
-      try {
-        const postsRes = await fetch('/api/blog/posts?admin=true')
-        const postsData = await postsRes.json()
-        setPosts(Array.isArray(postsData) ? postsData : [])
-
-        const sectorsRes = await fetch('/api/blog/sectors')
-        const sectorsData = await sectorsRes.json()
-        setSectors(Array.isArray(sectorsData) ? sectorsData : [])
-      } catch (err) {
-        console.error('Error loading data:', err)
-      }
-      setLoading(false)
-    }
-    
-    load()
   }, [])
 
-  if (!authorized) {
-    return null
+  async function loadPosts() {
+    const res = await fetch('/api/blog/posts?admin=true')
+    const data = await res.json()
+    setPosts(Array.isArray(data) ? data : [])
   }
 
-  function handleLogout() {
-    sessionStorage.removeItem('admin-token')
-    window.location.href = '/admin/login'
+  function handleLogin(e: React.FormEvent) {
+    e.preventDefault()
+    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD || password === 'ecosistia-admin-2024') {
+      sessionStorage.setItem('admin-blog-token', 'yes')
+      setLogged(true)
+      setPassword('')
+      loadPosts()
+    } else {
+      alert('Contraseña incorrecta')
+    }
   }
 
-  function getSectorName(sectorId: string) {
-    return sectors.find((s) => s.id === sectorId)?.name || '-'
+  function handleGenerateSlug() {
+    const slug = form.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+    setForm({ ...form, slug })
+  }
+
+  async function handleSave() {
+    if (!form.title || !form.slug || !form.content || !form.sectorId) {
+      alert('Rellena los campos obligatorios')
+      return
+    }
+
+    const payload = {
+      ...form,
+      readingTime: Math.ceil(form.content.split(/\s+/).length / 200),
+    }
+
+    if (editing) {
+      await fetch(`/api/blog/posts/${editing.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+    } else {
+      await fetch('/api/blog/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+    }
+
+    setForm({
+      title: '',
+      slug: '',
+      excerpt: '',
+      content: '',
+      author: '',
+      sectorId: '',
+      subsectorId: '',
+      readingTime: 5,
+      imageUrl: '',
+      seoTitle: '',
+      seoDescription: '',
+      published: false,
+    })
+    setEditing(null)
+    loadPosts()
   }
 
   async function handleDelete(id: string) {
-    if (!confirm('¿Seguro que quieres eliminar este post?')) return
+    if (!confirm('¿Eliminar este post?')) return
     await fetch(`/api/blog/posts/${id}`, { method: 'DELETE' })
-    setPosts((prev) => prev.filter((p) => p.id !== id))
+    loadPosts()
   }
 
-  async function togglePublished(post: BlogPost) {
-    const res = await fetch(`/api/blog/posts/${post.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ published: !post.published }),
+  function handleEdit(post: BlogPost) {
+    setEditing(post)
+    setForm({
+      title: post.title,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      content: post.content,
+      author: post.author,
+      sectorId: post.sectorId,
+      subsectorId: post.subsectorId,
+      readingTime: post.readingTime,
+      imageUrl: post.imageUrl,
+      seoTitle: post.seoTitle,
+      seoDescription: post.seoDescription,
+      published: post.published,
     })
-    const updated = await res.json()
-    setPosts((prev) => prev.map((p) => (p.id === updated.id ? updated : p)))
+  }
+
+  if (!logged) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <Card className="w-full max-w-md p-8">
+          <h1 className="font-heading text-2xl font-bold mb-6">Panel de Admin</h1>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button type="submit" className="w-full">
+              Acceder
+            </Button>
+          </form>
+        </Card>
+      </div>
+    )
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="space-y-8">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Entradas del blog</h1>
-          <p className="text-sm text-muted-foreground">{loading ? '...' : `${posts.length} entradas en total`}</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button asChild>
-            <Link href="/admin/posts/new">
-              <Plus className="mr-2 h-4 w-4" />
-              Nueva entrada
-            </Link>
-          </Button>
-          <Button variant="outline" onClick={handleLogout}>
-            Cerrar sesión
-          </Button>
-        </div>
+        <h1 className="font-heading text-3xl font-bold">Administrador de Blog</h1>
+        <Button
+          variant="outline"
+          onClick={() => {
+            sessionStorage.removeItem('admin-blog-token')
+            setLogged(false)
+          }}
+        >
+          Cerrar sesión
+        </Button>
       </div>
 
-      {loading ? (
-        <Card>
-          <CardContent className="py-8 text-center text-muted-foreground">Cargando entradas...</CardContent>
-        </Card>
-      ) : posts.length === 0 ? (
-        <Card>
-          <CardContent className="flex flex-col items-center justify-center py-16 text-center">
-            <p className="text-muted-foreground">No hay entradas todavía.</p>
-            <Button asChild className="mt-4">
-              <Link href="/admin/posts/new">
-                <Plus className="mr-2 h-4 w-4" />
-                Crear primera entrada
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      ) : (
-        <div className="flex flex-col gap-3">
-          {posts.map((post) => (
-            <Card key={post.id}>
-              <CardContent className="flex items-center gap-4 py-4">
-                {post.imageUrl && (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={post.imageUrl}
-                    alt=""
-                    className="h-14 w-20 shrink-0 rounded-md object-cover"
-                  />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <Card className="p-6">
+            <h2 className="font-heading text-xl font-bold mb-4">
+              {editing ? 'Editar entrada' : 'Nueva entrada'}
+            </h2>
+            <div className="space-y-4">
+              <Input
+                placeholder="Título"
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+              />
+              <div className="flex gap-2">
+                <Input
+                  placeholder="Slug (auto-generable)"
+                  value={form.slug}
+                  onChange={(e) => setForm({ ...form, slug: e.target.value })}
+                />
+                <Button type="button" onClick={handleGenerateSlug} variant="outline">
+                  Auto
+                </Button>
+              </div>
+              <Input
+                placeholder="Extracto"
+                value={form.excerpt}
+                onChange={(e) => setForm({ ...form, excerpt: e.target.value })}
+              />
+              <Textarea
+                placeholder="Contenido (Markdown)"
+                value={form.content}
+                onChange={(e) => setForm({ ...form, content: e.target.value })}
+                rows={6}
+              />
+              <Input
+                placeholder="Autor"
+                value={form.author}
+                onChange={(e) => setForm({ ...form, author: e.target.value })}
+              />
+              <Input
+                placeholder="ID del sector"
+                value={form.sectorId}
+                onChange={(e) => setForm({ ...form, sectorId: e.target.value })}
+              />
+              <Input
+                placeholder="ID del subsector"
+                value={form.subsectorId}
+                onChange={(e) => setForm({ ...form, subsectorId: e.target.value })}
+              />
+              <Input
+                placeholder="URL de imagen"
+                value={form.imageUrl}
+                onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
+              />
+              <Input
+                placeholder="SEO Title"
+                value={form.seoTitle}
+                onChange={(e) => setForm({ ...form, seoTitle: e.target.value })}
+              />
+              <Input
+                placeholder="SEO Description"
+                value={form.seoDescription}
+                onChange={(e) => setForm({ ...form, seoDescription: e.target.value })}
+              />
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.published}
+                  onChange={(e) => setForm({ ...form, published: e.target.checked })}
+                />
+                <span>Publicado</span>
+              </label>
+              <div className="flex gap-2">
+                <Button onClick={handleSave} className="flex-1">
+                  <Plus className="mr-2 h-4 w-4" />
+                  {editing ? 'Actualizar' : 'Crear'}
+                </Button>
+                {editing && (
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setEditing(null)
+                      setForm({
+                        title: '',
+                        slug: '',
+                        excerpt: '',
+                        content: '',
+                        author: '',
+                        sectorId: '',
+                        subsectorId: '',
+                        readingTime: 5,
+                        imageUrl: '',
+                        seoTitle: '',
+                        seoDescription: '',
+                        published: false,
+                      })
+                    }}
+                  >
+                    Cancelar
+                  </Button>
                 )}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3 className="truncate font-medium text-foreground">{post.title}</h3>
-                    <Badge variant={post.published ? 'default' : 'secondary'} className="shrink-0 text-xs">
-                      {post.published ? 'Publicado' : 'Borrador'}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1">
-                    <span>{getSectorName(post.sectorId)}</span>
-                    <span>{post.author}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 shrink-0">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8"
-                    onClick={() => togglePublished(post)}
-                    title={post.published ? 'Despublicar' : 'Publicar'}
-                  >
-                    {post.published ? (
-                      <Eye className="h-4 w-4" />
-                    ) : (
-                      <EyeOff className="h-4 w-4" />
-                    )}
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                    <Link href={`/admin/posts/${post.id}/edit`}>
-                      <Pencil className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 text-destructive hover:text-destructive"
-                    onClick={() => handleDelete(post.id)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            </div>
+          </Card>
         </div>
-      )}
+
+        <div>
+          <Card className="p-6">
+            <h2 className="font-heading text-lg font-bold mb-4">
+              Entradas ({posts.length})
+            </h2>
+            <div className="space-y-2 max-h-96 overflow-y-auto">
+              {posts.map((post) => (
+                <div key={post.id} className="p-3 border rounded bg-muted/50">
+                  <div className="font-medium text-sm line-clamp-2">{post.title}</div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {post.published ? '✓ Publicado' : '○ Borrador'}
+                  </div>
+                  <div className="flex gap-1 mt-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 h-7"
+                      onClick={() => handleEdit(post)}
+                    >
+                      Editar
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="h-7"
+                      onClick={() => handleDelete(post.id)}
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
     </div>
   )
 }

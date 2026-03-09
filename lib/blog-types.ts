@@ -20,12 +20,11 @@ export interface BlogPost {
   sectorId: string
   subsectorId: string
   author: string
-  readTime: string
+  readingTime: number
   imageUrl: string
   published: boolean
   seoTitle: string
   seoDescription: string
-  keywords: string
   createdAt: string
   updatedAt: string
 }
