@@ -18,11 +18,14 @@ export default function AdminLoginPage() {
     setError("")
 
     try {
+      console.log("[v0] Login page - submitting...")
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ password }),
       })
+      console.log("[v0] Login page - response status:", res.status)
 
       if (!res.ok) {
         setError("Contrasena incorrecta")
@@ -30,6 +33,7 @@ export default function AdminLoginPage() {
         return
       }
 
+      console.log("[v0] Login page - SUCCESS, redirecting to /admin...")
       window.location.href = "/admin"
     } catch {
       setError("Error de conexion")
