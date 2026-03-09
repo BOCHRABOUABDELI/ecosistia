@@ -56,17 +56,17 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-primary py-20 md:py-28">
+      <section className="relative bg-primary py-16 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.15),transparent_50%)]" />
-        <div className="container max-w-6xl relative">
+        <div className="mx-auto max-w-6xl px-6 relative">
           <div className="max-w-2xl">
             <span className="inline-block text-accent font-medium text-sm mb-4 tracking-wide uppercase">
               Blog Ecosistia
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground leading-tight">
               Conocimiento que impulsa tu negocio
             </h1>
-            <p className="mt-6 text-lg text-primary-foreground/80 leading-relaxed max-w-xl">
+            <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed max-w-xl">
               Descubre las ultimas tendencias en inteligencia artificial, estrategias de digitalizacion y casos de exito para profesionales.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function BlogPage() {
 
       {/* Filters Section */}
       <section className="border-b bg-card/50">
-        <div className="container max-w-6xl py-6">
+        <div className="mx-auto max-w-6xl px-6 py-6">
           {sectors.length > 0 && (
             <div className="space-y-4">
               <div className="flex items-center gap-3 flex-wrap">
@@ -139,8 +139,8 @@ export default function BlogPage() {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 md:py-20">
-        <div className="container max-w-6xl">
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-6xl px-6">
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="animate-pulse text-muted-foreground">Cargando articulos...</div>

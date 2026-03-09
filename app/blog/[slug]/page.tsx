@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      <article className={`container max-w-4xl ${post.imageUrl ? '-mt-32 relative z-10' : 'pt-16 md:pt-24'}`}>
+      <article className={`mx-auto max-w-4xl px-6 ${post.imageUrl ? '-mt-32 relative z-10' : 'pt-16 md:pt-24'}`}>
         {/* Back Link */}
         <div className="mb-8">
           <Link href="/blog">
