@@ -11,15 +11,16 @@ interface PostCardProps {
 
 export function PostCard({ post, sector }: PostCardProps) {
   const subsector = sector?.subsectors.find((s) => s.id === post.subsectorId)
+  const imageUrl = post.imageUrl ? encodeURI(post.imageUrl) : null
 
   return (
     <Link href={`/blog/${post.slug}`} className="group">
       <Card className="overflow-hidden transition-all hover:shadow-md hover:border-accent/30">
-        {post.imageUrl && (
+        {imageUrl && (
           <div className="aspect-video overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={post.imageUrl}
+              src={imageUrl}
               alt={post.title}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />

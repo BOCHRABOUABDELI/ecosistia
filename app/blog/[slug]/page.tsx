@@ -54,7 +54,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="mb-12 rounded-lg overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={post.imageUrl}
+              src={encodeURI(post.imageUrl)}
               alt={post.title}
               className="w-full h-96 object-cover"
             />

@@ -36,7 +36,7 @@ export default function BlogPage() {
                     {post.imageUrl && (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
-                        src={post.imageUrl}
+                        src={encodeURI(post.imageUrl)}
                         alt={post.title}
                         className="h-48 w-full object-cover"
                       />
