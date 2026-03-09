@@ -36,8 +36,10 @@ export default function BlogPage() {
   const currentSector = sectors.find(s => s.id === selectedSector)
 
   const filteredPosts = posts.filter(post => {
-    if (selectedSector && post.sectorId !== selectedSector) return false
-    if (selectedSubsector && post.subsectorId !== selectedSubsector) return false
+    const sectorId = post.sectorId || post.sector_id
+    const subsectorId = post.subsectorId || post.subsector_id
+    if (selectedSector && sectorId !== selectedSector) return false
+    if (selectedSubsector && subsectorId !== selectedSubsector) return false
     return true
   })
 

@@ -1,9 +1,52 @@
-import { getPostBySlug, getPublishedPosts, getSectors } from "@/lib/blog-data"
+import { createClient } from "@/lib/supabase/server"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowLeft, Clock, User, Calendar, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+interface BlogPost {
+  id: string
+  title: string
+  slug: string
+  excerpt: string
+  content: string
+  image_url: string
+  author: string
+  reading_time: string
+  sector_id: string
+  subsector_id: string
+  seo_title: string
+  seo_description: string
+  published: boolean
+  created_at: string
+}
+
+interface BlogSector {
+  id: string
+  name: string
+  slug: string
+  subsectors: { id: string; name: string; slug: string }[]
+}
+
+async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  const supabase = await createClient()
+  const { data } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('slug', slug)
+    .single()
+  return data
+}
+
+async function getSectors(): Promise<BlogSector[]> {
+  const supabase = await createClient()
+  const { data } = await supabase
+    .from('blog_sectors')
+    .select('*')
+    .order('name')
+  return data || []
+}
 
 export async function generateMetadata({
   params,
@@ -11,40 +54,33 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
   if (!post) return {}
 
   return {
-    title: post.seoTitle || post.title,
-    description: post.seoDescription || post.excerpt,
+    title: post.seo_title || post.title,
+    description: post.seo_description || post.excerpt,
     openGraph: {
-      title: post.seoTitle || post.title,
-      description: post.seoDescription || post.excerpt,
-      images: post.imageUrl ? [{ url: post.imageUrl }] : [],
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.excerpt,
+      images: post.image_url ? [{ url: post.image_url }] : [],
     },
   }
 }
 
-export async function generateStaticParams() {
-  const posts = getPublishedPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
-}
-
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
-  if (!post) {
+  if (!post || !post.published) {
     notFound()
   }
 
-  const sectors = getSectors()
-  const sector = sectors.find(s => s.id === post.sectorId)
-  const subsector = sector?.subsectors.find(sub => sub.id === post.subsectorId)
+  const sectors = await getSectors()
+  const sector = sectors.find(s => s.id === post.sector_id)
+  const subsector = sector?.subsectors.find(sub => sub.id === post.subsector_id)
 
-  const formattedDate = new Date(post.createdAt).toLocaleDateString('es-ES', {
+  const formattedDate = new Date(post.created_at).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -53,12 +89,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section with Image */}
-      {post.imageUrl && (
+      {post.image_url && (
         <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={encodeURI(post.imageUrl)}
+              src={encodeURI(post.image_url)}
               alt={post.title}
               className="w-full h-full object-cover"
             />
@@ -67,7 +103,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      <article className={`mx-auto max-w-4xl px-6 ${post.imageUrl ? '-mt-32 relative z-10' : 'pt-16 md:pt-24'}`}>
+      <article className={`mx-auto max-w-4xl px-6 ${post.image_url ? '-mt-32 relative z-10' : 'pt-16 md:pt-24'}`}>
         {/* Back Link */}
         <div className="mb-8">
           <Link href="/blog">
@@ -79,7 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Header Card */}
-        <header className={`rounded-2xl p-8 md:p-12 mb-12 ${post.imageUrl ? 'bg-card shadow-xl' : ''}`}>
+        <header className={`rounded-2xl p-8 md:p-12 mb-12 ${post.image_url ? 'bg-card shadow-xl' : ''}`}>
           {/* Categories */}
           {(sector || subsector) && (
             <div className="mb-6 flex gap-2 flex-wrap">
@@ -120,7 +156,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </span>
             <span className="flex items-center gap-2">
               <Clock className="h-4 w-4" />
-              {post.readingTime} min de lectura
+              {post.reading_time} de lectura
             </span>
           </div>
         </header>
