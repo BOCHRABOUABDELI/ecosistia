@@ -1,46 +1,75 @@
-import { NextResponse } from "next/server"
-import { getPostById, savePost, deletePosts } from "@/lib/blog-data"
+import { createClient } from '@/lib/supabase/server'
+import { NextResponse } from 'next/server'
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const post = getPostById(id)
-  if (!post) {
-    return NextResponse.json({ error: "Post not found" }, { status: 404 })
+  try {
+    const { id } = await params
+    const supabase = await createClient()
+    
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .eq('id', id)
+      .single()
+    
+    if (error) throw error
+    
+    return NextResponse.json(data)
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    return NextResponse.json({ error: String(error) }, { status: 404 })
   }
-  return NextResponse.json(post)
 }
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
     const body = await request.json()
-    const existingPost = getPostById(id)
+    const supabase = await createClient()
     
-    if (!existingPost) {
-      return NextResponse.json({ error: "Post not found" }, { status: 404 })
-    }
-
-    const updated = {
-      ...existingPost,
-      ...body,
-      updatedAt: new Date().toISOString(),
-    }
-
-    savePost(updated)
-    return NextResponse.json(updated)
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .update({
+        title: body.title,
+        slug: body.slug,
+        excerpt: body.excerpt,
+        content: body.content,
+        sector_id: body.sectorId || null,
+        subsector_id: body.subsectorId || null,
+        author: body.author,
+        image_url: body.imageUrl,
+        seo_title: body.seoTitle,
+        seo_description: body.seoDescription,
+        published: body.published || false,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id)
+      .select()
+    
+    if (error) throw error
+    
+    return NextResponse.json(data?.[0] || {})
   } catch (error) {
-    console.error("Error updating post:", error)
-    return NextResponse.json({ error: "Error updating post" }, { status: 500 })
+    console.error('Error updating post:', error)
+    return NextResponse.json({ error: String(error) }, { status: 500 })
   }
 }
 
 export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
-    deletePosts(id)
+    const supabase = await createClient()
+    
+    const { error } = await supabase
+      .from('blog_posts')
+      .delete()
+      .eq('id', id)
+    
+    if (error) throw error
+    
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Error deleting post:", error)
-    return NextResponse.json({ error: "Error deleting post" }, { status: 500 })
+    console.error('Error deleting post:', error)
+    return NextResponse.json({ error: String(error) }, { status: 500 })
   }
 }

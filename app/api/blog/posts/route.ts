@@ -1,45 +1,57 @@
-import { NextResponse } from "next/server"
-import { getPosts, getPublishedPosts, savePost } from "@/lib/blog-data"
-import type { BlogPost } from "@/lib/blog-types"
+import { createClient } from '@/lib/supabase/server'
+import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const admin = searchParams.get("admin") === "true"
-
-  if (admin) {
-    return NextResponse.json(getPosts())
+  try {
+    const { searchParams } = new URL(request.url)
+    const adminMode = searchParams.get('admin') === 'true'
+    
+    const supabase = await createClient()
+    
+    let query = supabase.from('blog_posts').select('*')
+    
+    if (!adminMode) {
+      query = query.eq('published', true)
+    }
+    
+    const { data, error } = await query.order('created_at', { ascending: false })
+    
+    if (error) throw error
+    
+    return NextResponse.json(data || [])
+  } catch (error) {
+    console.error('Error fetching posts:', error)
+    return NextResponse.json({ error: String(error) }, { status: 500 })
   }
-
-  return NextResponse.json(getPublishedPosts())
 }
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const now = new Date().toISOString()
-
-    const post: BlogPost = {
-      id: Math.random().toString(36).substring(2) + Date.now().toString(36),
-      title: body.title || "",
-      slug: body.slug || "",
-      excerpt: body.excerpt || "",
-      content: body.content || "",
-      sectorId: body.sectorId || "",
-      subsectorId: body.subsectorId || "",
-      author: body.author || "Equipo Ecosistia",
-      readingTime: body.readingTime || 5,
-      imageUrl: body.imageUrl || "",
-      published: body.published || false,
-      seoTitle: body.seoTitle || "",
-      seoDescription: body.seoDescription || "",
-      createdAt: now,
-      updatedAt: now,
-    }
-
-    savePost(post)
-    return NextResponse.json(post, { status: 201 })
+    const supabase = await createClient()
+    
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .insert([{
+        title: body.title,
+        slug: body.slug,
+        excerpt: body.excerpt,
+        content: body.content,
+        sector_id: body.sectorId || null,
+        subsector_id: body.subsectorId || null,
+        author: body.author,
+        image_url: body.imageUrl,
+        seo_title: body.seoTitle,
+        seo_description: body.seoDescription,
+        published: body.published || false,
+      }])
+      .select()
+    
+    if (error) throw error
+    
+    return NextResponse.json(data?.[0] || {})
   } catch (error) {
-    console.error("Error creating post:", error)
-    return NextResponse.json({ error: "Error creating post" }, { status: 500 })
+    console.error('Error creating post:', error)
+    return NextResponse.json({ error: String(error) }, { status: 500 })
   }
 }
