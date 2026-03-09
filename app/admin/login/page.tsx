@@ -1,42 +1,44 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertCircle, Lock, Loader2 } from "lucide-react"
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { AlertCircle, Lock, Loader2 } from 'lucide-react'
 
 export default function AdminLoginPage() {
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    setError("")
+    setError('')
 
     try {
-      console.log("[v0] Login page - submitting...")
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
       })
-      console.log("[v0] Login page - response status:", res.status)
 
       if (!res.ok) {
-        setError("Contrasena incorrecta")
+        setError('Contraseña incorrecta')
         setLoading(false)
         return
       }
 
-      console.log("[v0] Login page - SUCCESS, redirecting to /admin...")
-      window.location.href = "/admin"
-    } catch {
-      setError("Error de conexion")
+      const data = await res.json()
+      
+      // Store the token in sessionStorage
+      if (data.token) {
+        sessionStorage.setItem('admin-token', data.token)
+        window.location.href = '/admin'
+      }
+    } catch (err) {
+      setError('Error de conexión')
       setLoading(false)
     }
   }
@@ -49,20 +51,21 @@ export default function AdminLoginPage() {
             <Lock className="h-6 w-6 text-primary" />
           </div>
           <CardTitle className="text-xl font-bold">Ecosistia Admin</CardTitle>
-          <CardDescription>Introduce la contrasena para acceder al panel</CardDescription>
+          <CardDescription>Introduce la contraseña para acceder al panel</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <Label htmlFor="password">Contrasena</Label>
+              <Label htmlFor="password">Contraseña</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Introduce la contrasena"
+                placeholder="Introduce la contraseña"
                 required
                 autoFocus
+                disabled={loading}
               />
             </div>
 
@@ -80,7 +83,7 @@ export default function AdminLoginPage() {
                   Accediendo...
                 </>
               ) : (
-                "Acceder"
+                'Acceder'
               )}
             </Button>
           </form>
