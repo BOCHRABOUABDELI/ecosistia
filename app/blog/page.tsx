@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { ArrowRight, Clock, User, Filter } from "lucide-react"
 import type { BlogPost, BlogSector } from "@/lib/blog-types"
 
 export default function BlogPage() {
@@ -40,6 +41,9 @@ export default function BlogPage() {
     return true
   })
 
+  const featuredPost = filteredPosts[0]
+  const otherPosts = filteredPosts.slice(1)
+
   function getSectorName(sectorId: string) {
     return sectors.find(s => s.id === sectorId)?.name || ""
   }
@@ -50,128 +54,228 @@ export default function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background py-16 md:py-24">
-      <div className="container max-w-6xl">
-        <div className="mb-12 text-center">
-          <h1 className="font-heading text-4xl font-bold text-foreground md:text-5xl">
-            Blog Ecosistia
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Artículos sobre inteligencia artificial, desarrollo y tecnología
-          </p>
+    <main className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative bg-primary py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.15),transparent_50%)]" />
+        <div className="container max-w-6xl relative">
+          <div className="max-w-2xl">
+            <span className="inline-block text-accent font-medium text-sm mb-4 tracking-wide uppercase">
+              Blog Ecosistia
+            </span>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+              Conocimiento que impulsa tu negocio
+            </h1>
+            <p className="mt-6 text-lg text-primary-foreground/80 leading-relaxed max-w-xl">
+              Descubre las ultimas tendencias en inteligencia artificial, estrategias de digitalizacion y casos de exito para profesionales.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Filtros de sectores */}
-        {sectors.length > 0 && (
-          <div className="mb-8 space-y-4">
-            <div className="flex flex-wrap gap-2">
-              <Button
-                variant={selectedSector === null ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  setSelectedSector(null)
-                  setSelectedSubsector(null)
-                }}
-              >
-                Todos
-              </Button>
-              {sectors.map(sector => (
+      {/* Filters Section */}
+      <section className="border-b bg-card/50">
+        <div className="container max-w-6xl py-6">
+          {sectors.length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mr-2">
+                  <Filter className="h-4 w-4" />
+                  <span>Filtrar:</span>
+                </div>
                 <Button
-                  key={sector.id}
-                  variant={selectedSector === sector.id ? "default" : "outline"}
+                  variant={selectedSector === null ? "default" : "outline"}
                   size="sm"
+                  className="rounded-full"
                   onClick={() => {
-                    setSelectedSector(sector.id)
+                    setSelectedSector(null)
                     setSelectedSubsector(null)
                   }}
                 >
-                  {sector.name}
+                  Todos
                 </Button>
-              ))}
-            </div>
-
-            {/* Subsectores del sector seleccionado */}
-            {currentSector && currentSector.subsectors.length > 0 && (
-              <div className="flex flex-wrap gap-2 pl-4 border-l-2 border-primary/20">
-                <Button
-                  variant={selectedSubsector === null ? "secondary" : "ghost"}
-                  size="sm"
-                  onClick={() => setSelectedSubsector(null)}
-                >
-                  Todos en {currentSector.name}
-                </Button>
-                {currentSector.subsectors.map(sub => (
+                {sectors.map(sector => (
                   <Button
-                    key={sub.id}
-                    variant={selectedSubsector === sub.id ? "secondary" : "ghost"}
+                    key={sector.id}
+                    variant={selectedSector === sector.id ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setSelectedSubsector(sub.id)}
+                    className="rounded-full"
+                    onClick={() => {
+                      setSelectedSector(sector.id)
+                      setSelectedSubsector(null)
+                    }}
                   >
-                    {sub.name}
+                    {sector.name}
                   </Button>
                 ))}
               </div>
-            )}
-          </div>
-        )}
 
-        {loading ? (
-          <Card className="p-12 text-center">
-            <p className="text-muted-foreground">Cargando artículos...</p>
-          </Card>
-        ) : filteredPosts.length === 0 ? (
-          <Card className="p-12 text-center">
-            <p className="text-muted-foreground">
-              {selectedSector ? "No hay artículos en esta categoría." : "No hay artículos publicados aún."}
-            </p>
-          </Card>
-        ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`}>
-                <Card className="h-full overflow-hidden transition-all hover:shadow-lg hover:border-primary cursor-pointer">
-                  <CardContent className="flex flex-col h-full p-0">
-                    {post.imageUrl && (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={encodeURI(post.imageUrl)}
-                        alt={post.title}
-                        className="h-48 w-full object-cover"
-                      />
-                    )}
-                    <div className="flex flex-col flex-1 p-6">
-                      {(post.sectorId || post.subsectorId) && (
-                        <div className="mb-2 flex gap-2 flex-wrap">
-                          {post.sectorId && (
-                            <span className="inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
-                              {getSectorName(post.sectorId)}
+              {currentSector && currentSector.subsectors.length > 0 && (
+                <div className="flex flex-wrap gap-2 pl-6 border-l-2 border-accent/30">
+                  <Button
+                    variant={selectedSubsector === null ? "secondary" : "ghost"}
+                    size="sm"
+                    className="rounded-full text-xs"
+                    onClick={() => setSelectedSubsector(null)}
+                  >
+                    Todo {currentSector.name}
+                  </Button>
+                  {currentSector.subsectors.map(sub => (
+                    <Button
+                      key={sub.id}
+                      variant={selectedSubsector === sub.id ? "secondary" : "ghost"}
+                      size="sm"
+                      className="rounded-full text-xs"
+                      onClick={() => setSelectedSubsector(sub.id)}
+                    >
+                      {sub.name}
+                    </Button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 md:py-20">
+        <div className="container max-w-6xl">
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <div className="animate-pulse text-muted-foreground">Cargando articulos...</div>
+            </div>
+          ) : filteredPosts.length === 0 ? (
+            <Card className="p-12 text-center border-dashed">
+              <p className="text-muted-foreground">
+                {selectedSector ? "No hay articulos en esta categoria." : "No hay articulos publicados aun."}
+              </p>
+            </Card>
+          ) : (
+            <div className="space-y-16">
+              {/* Featured Post */}
+              {featuredPost && (
+                <Link href={`/blog/${featuredPost.slug}`} className="block group">
+                  <article className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+                      {featuredPost.imageUrl ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src={encodeURI(featuredPost.imageUrl)}
+                          alt={featuredPost.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                          Sin imagen
+                        </div>
+                      )}
+                    </div>
+                    <div className="space-y-4">
+                      {(featuredPost.sectorId || featuredPost.subsectorId) && (
+                        <div className="flex gap-2 flex-wrap">
+                          {featuredPost.sectorId && (
+                            <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                              {getSectorName(featuredPost.sectorId)}
                             </span>
                           )}
-                          {post.subsectorId && (
-                            <span className="inline-block rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-                              {getSubsectorName(post.sectorId, post.subsectorId)}
+                          {featuredPost.subsectorId && (
+                            <span className="inline-block rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
+                              {getSubsectorName(featuredPost.sectorId, featuredPost.subsectorId)}
                             </span>
                           )}
                         </div>
                       )}
-                      <h3 className="font-heading text-xl font-bold text-foreground line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                        {post.excerpt}
+                      <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight group-hover:text-accent transition-colors">
+                        {featuredPost.title}
+                      </h2>
+                      <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                        {featuredPost.excerpt}
                       </p>
-                      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-muted-foreground">
-                        <span>{post.author}</span>
-                        <span>{post.readingTime} min</span>
+                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1.5">
+                          <User className="h-4 w-4" />
+                          {featuredPost.author}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="h-4 w-4" />
+                          {featuredPost.readingTime} min
+                        </span>
+                      </div>
+                      <div className="pt-2">
+                        <span className="inline-flex items-center gap-2 text-accent font-medium group-hover:gap-3 transition-all">
+                          Leer articulo
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+                  </article>
+                </Link>
+              )}
+
+              {/* Other Posts Grid */}
+              {otherPosts.length > 0 && (
+                <div>
+                  <h2 className="font-heading text-2xl font-bold text-foreground mb-8">
+                    Mas articulos
+                  </h2>
+                  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {otherPosts.map((post) => (
+                      <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                        <Card className="h-full overflow-hidden border-0 shadow-sm hover:shadow-xl transition-all duration-300 bg-card">
+                          <CardContent className="flex flex-col h-full p-0">
+                            <div className="relative aspect-[16/10] overflow-hidden">
+                              {post.imageUrl ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
+                                <img
+                                  src={encodeURI(post.imageUrl)}
+                                  alt={post.title}
+                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground text-sm">
+                                  Sin imagen
+                                </div>
+                              )}
+                            </div>
+                            <div className="flex flex-col flex-1 p-6">
+                              {(post.sectorId || post.subsectorId) && (
+                                <div className="mb-3 flex gap-2 flex-wrap">
+                                  {post.sectorId && (
+                                    <span className="inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                                      {getSectorName(post.sectorId)}
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                              <h3 className="font-heading text-lg font-semibold text-foreground leading-snug group-hover:text-accent transition-colors line-clamp-2">
+                                {post.title}
+                              </h3>
+                              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                                {post.excerpt}
+                              </p>
+                              <div className="mt-auto flex items-center justify-between pt-4 text-xs text-muted-foreground border-t border-border/50">
+                                <span className="flex items-center gap-1">
+                                  <User className="h-3 w-3" />
+                                  {post.author}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <Clock className="h-3 w-3" />
+                                  {post.readingTime} min
+                                </span>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
     </main>
   )
 }
