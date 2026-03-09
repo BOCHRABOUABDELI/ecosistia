@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             prose-headings:font-heading prose-headings:text-foreground prose-headings:font-bold
             prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-            prose-p:text-muted-foreground prose-p:leading-relaxed
+            prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
             prose-a:text-accent prose-a:no-underline hover:prose-a:underline
             prose-strong:text-foreground prose-strong:font-semibold
             prose-ul:text-muted-foreground prose-ol:text-muted-foreground
@@ -175,6 +175,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             prose-img:rounded-xl prose-img:shadow-lg
             prose-blockquote:border-l-accent prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
             prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+            [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-xl [&_iframe]:my-6
+            [&_video]:w-full [&_video]:rounded-xl [&_video]:my-6
+            [&_.video-wrapper]:my-6
           "
           dangerouslySetInnerHTML={{ __html: post.content }}
         />

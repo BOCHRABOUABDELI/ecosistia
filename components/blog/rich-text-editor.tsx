@@ -8,11 +8,13 @@ import TextStyle from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import Image from '@tiptap/extension-image'
+import Youtube from '@tiptap/extension-youtube'
+import { VideoNode } from '@/lib/tiptap-video-node'
 import { useEffect } from 'react'
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough,
   Heading2, Heading3, List, ListOrdered, Link as LinkIcon,
-  Quote, Code, Undo, Redo, Type, ImageIcon
+  Quote, Code, Undo, Redo, Type, ImageIcon, Video
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -27,13 +29,25 @@ const FONTS = ['Inter', 'Georgia', 'Times New Roman', 'Courier New', 'Arial']
 export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        paragraph: {
+          HTMLAttributes: {
+            class: 'mb-4',
+          },
+        },
+      }),
       Underline,
       TextStyle,
       Color,
       FontFamily,
       Link.configure({ openOnClick: false }),
       Image.configure({ inline: false, allowBase64: false }),
+      VideoNode,
+      Youtube.configure({
+        controls: true,
+        nocookie: true,
+        modestBranding: true,
+      }),
     ],
     content: value,
     onUpdate({ editor }) {
@@ -60,6 +74,19 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     const url = window.prompt('URL de la imagen:')
     if (url) {
       editor!.chain().focus().setImage({ src: url }).run()
+    }
+  }
+
+  function insertVideo() {
+    const url = window.prompt('URL del video (YouTube o enlace directo .mp4):')
+    if (!url) return
+    
+    // Check if it's a YouTube URL
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      editor!.chain().focus().setYoutubeVideo({ src: url }).run()
+    } else {
+      // For direct video URLs, use the custom video node
+      editor!.chain().focus().setVideo({ src: url }).run()
     }
   }
 
@@ -129,6 +156,11 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
           <ImageIcon className="h-3.5 w-3.5" />
         </ToolBtn>
 
+        {/* Video */}
+        <ToolBtn onClick={insertVideo} title="Insertar video (YouTube o URL)">
+          <Video className="h-3.5 w-3.5" />
+        </ToolBtn>
+
         <Divider />
 
         {/* Colors */}
@@ -164,7 +196,12 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
       {/* Editor area */}
       <EditorContent
         editor={editor}
-        className="prose prose-sm max-w-none p-4 min-h-[220px] focus-within:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror]:min-h-[200px] [&_.ProseMirror_img]:max-w-full [&_.ProseMirror_img]:rounded-md [&_.ProseMirror_img]:my-4"
+        className="prose prose-sm max-w-none p-4 min-h-[300px] focus-within:outline-none 
+          [&_.ProseMirror]:outline-none [&_.ProseMirror]:min-h-[280px] 
+          [&_.ProseMirror_p]:mb-4
+          [&_.ProseMirror_img]:max-w-full [&_.ProseMirror_img]:rounded-md [&_.ProseMirror_img]:my-4
+          [&_.ProseMirror_iframe]:w-full [&_.ProseMirror_iframe]:aspect-video [&_.ProseMirror_iframe]:rounded-md [&_.ProseMirror_iframe]:my-4
+          [&_.ProseMirror_video]:w-full [&_.ProseMirror_video]:rounded-md [&_.ProseMirror_video]:my-4"
       />
     </div>
   )
