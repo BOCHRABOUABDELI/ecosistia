@@ -9,6 +9,7 @@ import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import Image from '@tiptap/extension-image'
 import Youtube from '@tiptap/extension-youtube'
+import { VideoNode } from '@/lib/tiptap-video-node'
 import { useEffect } from 'react'
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough,
@@ -41,6 +42,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
       FontFamily,
       Link.configure({ openOnClick: false }),
       Image.configure({ inline: false, allowBase64: false }),
+      VideoNode,
       Youtube.configure({
         controls: true,
         nocookie: true,
@@ -83,9 +85,8 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
       editor!.chain().focus().setYoutubeVideo({ src: url }).run()
     } else {
-      // For direct video URLs, insert as HTML
-      const videoHtml = `<div class="video-wrapper my-6"><video src="${url}" controls class="w-full rounded-lg"></video></div>`
-      editor!.chain().focus().insertContent(videoHtml).run()
+      // For direct video URLs, use the custom video node
+      editor!.chain().focus().setVideo({ src: url }).run()
     }
   }
 
