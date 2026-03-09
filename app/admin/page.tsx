@@ -136,20 +136,36 @@ export default function AdminPage() {
   async function saveSector() {
     if (!sectorName.trim()) return
     const slug = sectorName.toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u').replace(/ñ/g,'n').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
-    if (editingSector) {
-      await fetch(`/api/blog/sectors/${editingSector.id}`, {
-        method: 'PUT', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...editingSector, name: sectorName, slug }),
-      })
-      setEditingSector(null)
-    } else {
-      await fetch('/api/blog/sectors', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: sectorName, slug, subsectors: [] }),
-      })
+    try {
+      if (editingSector) {
+        console.log('[v0] Editando sector:', editingSector.id)
+        const res = await fetch(`/api/blog/sectors/${editingSector.id}`, {
+          method: 'PUT', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...editingSector, name: sectorName, slug }),
+        })
+        console.log('[v0] PUT response status:', res.status)
+        setEditingSector(null)
+      } else {
+        console.log('[v0] Creando nuevo sector:', sectorName)
+        const res = await fetch('/api/blog/sectors', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: sectorName, slug, subsectors: [] }),
+        })
+        console.log('[v0] POST response status:', res.status)
+        if (!res.ok) {
+          const error = await res.text()
+          console.error('[v0] Error:', error)
+          alert('Error al guardar: ' + error)
+          return
+        }
+      }
+      setSectorName('')
+      console.log('[v0] Recargando sectores...')
+      loadSectors()
+    } catch (err) {
+      console.error('[v0] Exception:', err)
+      alert('Error: ' + String(err))
     }
-    setSectorName('')
-    loadSectors()
   }
 
   async function deleteSector(id: string) {
