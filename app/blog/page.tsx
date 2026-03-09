@@ -58,17 +58,16 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-primary py-16 md:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.15),transparent_50%)]" />
+      <section className="relative bg-gradient-to-b from-primary/10 to-transparent py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6 relative">
           <div className="max-w-2xl">
             <span className="inline-block text-accent font-medium text-sm mb-4 tracking-wide uppercase">
               Blog Ecosistia
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground leading-tight">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-tight">
               Conocimiento que impulsa tu negocio
             </h1>
-            <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed max-w-xl">
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-xl">
               Descubre las ultimas tendencias en inteligencia artificial, estrategias de digitalizacion y casos de exito para profesionales.
             </p>
           </div>
@@ -76,7 +75,7 @@ export default function BlogPage() {
       </section>
 
       {/* Filters Section */}
-      <section className="border-b bg-card/50">
+      <section className="border-b bg-background">
         <div className="mx-auto max-w-6xl px-6 py-6">
           {sectors.length > 0 && (
             <div className="space-y-4">
