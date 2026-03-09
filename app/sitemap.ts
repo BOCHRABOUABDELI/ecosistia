@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { apps } from "@/lib/data"
+import { getPublishedPosts } from "@/lib/blog-data"
 
 const BASE_URL = "https://ecosistia.com"
 
@@ -36,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/contacto`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -62,5 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
-  return [...staticPages, ...appPages]
+  const blogPosts: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...appPages, ...blogPosts]
 }
