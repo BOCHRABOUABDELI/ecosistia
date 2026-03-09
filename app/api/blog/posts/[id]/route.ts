@@ -14,7 +14,20 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     
     if (error) throw error
     
-    return NextResponse.json(data)
+    // Map snake_case to camelCase for frontend compatibility
+    const mappedData = data ? {
+      ...data,
+      imageUrl: data.image_url,
+      sectorId: data.sector_id,
+      subsectorId: data.subsector_id,
+      readingTime: data.reading_time,
+      seoTitle: data.seo_title,
+      seoDescription: data.seo_description,
+      createdAt: data.created_at,
+      updatedAt: data.updated_at,
+    } : null
+    
+    return NextResponse.json(mappedData)
   } catch (error) {
     console.error('Error fetching post:', error)
     return NextResponse.json({ error: String(error) }, { status: 404 })
@@ -48,7 +61,20 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     
     if (error) throw error
     
-    return NextResponse.json(data?.[0] || {})
+    const post = data?.[0]
+    const mappedData = post ? {
+      ...post,
+      imageUrl: post.image_url,
+      sectorId: post.sector_id,
+      subsectorId: post.subsector_id,
+      readingTime: post.reading_time,
+      seoTitle: post.seo_title,
+      seoDescription: post.seo_description,
+      createdAt: post.created_at,
+      updatedAt: post.updated_at,
+    } : {}
+    
+    return NextResponse.json(mappedData)
   } catch (error) {
     console.error('Error updating post:', error)
     return NextResponse.json({ error: String(error) }, { status: 500 })

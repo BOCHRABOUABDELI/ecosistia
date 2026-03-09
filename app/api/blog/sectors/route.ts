@@ -12,7 +12,13 @@ export async function GET() {
     
     if (error) throw error
     
-    return NextResponse.json(data || [])
+    // Map snake_case to camelCase for frontend compatibility
+    const mappedData = (data || []).map(sector => ({
+      ...sector,
+      createdAt: sector.created_at,
+    }))
+    
+    return NextResponse.json(mappedData)
   } catch (error) {
     console.error('Error fetching sectors:', error)
     return NextResponse.json({ error: String(error) }, { status: 500 })

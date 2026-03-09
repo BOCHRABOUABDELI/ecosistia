@@ -18,7 +18,20 @@ export async function GET(request: Request) {
     
     if (error) throw error
     
-    return NextResponse.json(data || [])
+    // Map snake_case to camelCase for frontend compatibility
+    const mappedData = (data || []).map(post => ({
+      ...post,
+      imageUrl: post.image_url,
+      sectorId: post.sector_id,
+      subsectorId: post.subsector_id,
+      readingTime: post.reading_time,
+      seoTitle: post.seo_title,
+      seoDescription: post.seo_description,
+      createdAt: post.created_at,
+      updatedAt: post.updated_at,
+    }))
+    
+    return NextResponse.json(mappedData)
   } catch (error) {
     console.error('Error fetching posts:', error)
     return NextResponse.json({ error: String(error) }, { status: 500 })
