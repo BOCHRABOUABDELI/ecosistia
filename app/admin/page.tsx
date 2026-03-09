@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { RichTextEditor } from '@/components/blog/rich-text-editor'
-import { Plus, Trash2, Pencil, Eye, EyeOff, X, ChevronRight, Upload, Loader2, ImageIcon } from 'lucide-react'
+import { Plus, Trash2, Pencil, Eye, EyeOff, X, ChevronRight } from 'lucide-react'
 import type { BlogPost, BlogSector, BlogSubsector } from '@/lib/blog-types'
 
 const BLANK_POST = {
@@ -29,10 +29,6 @@ export default function AdminPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null)
   const [postForm, setPostForm] = useState<typeof BLANK_POST>({ ...BLANK_POST })
-
-  // Upload state
-  const [uploadingCover, setUploadingCover] = useState(false)
-  const coverInputRef = useRef<HTMLInputElement>(null)
 
   // Sectors state
   const [sectors, setSectors] = useState<BlogSector[]>([])
@@ -186,32 +182,6 @@ export default function AdminPage() {
     loadSectors()
   }
 
-  async function handleCoverUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    setUploadingCover(true)
-    try {
-      const formData = new FormData()
-      formData.append('file', file)
-
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      })
-
-      if (!res.ok) throw new Error('Upload failed')
-
-      const { url } = await res.json()
-      setPostForm(f => ({ ...f, imageUrl: url }))
-    } catch (err) {
-      alert('Error al subir la imagen')
-    } finally {
-      setUploadingCover(false)
-      if (coverInputRef.current) coverInputRef.current.value = ''
-    }
-  }
-
   const selectedSector = sectors.find(s => s.id === postForm.sectorId)
 
   // --- LOGIN SCREEN ---
@@ -340,47 +310,15 @@ export default function AdminPage() {
                           onChange={e => setPostForm(f => ({ ...f, author: e.target.value }))} />
                       </div>
                       <div>
-                        <label className="text-sm font-medium mb-1 block">Imagen de portada</label>
-                        <div className="space-y-2">
-                          <div className="flex gap-2">
-                            <Input placeholder="URL o sube una imagen" value={postForm.imageUrl}
-                              onChange={e => setPostForm(f => ({ ...f, imageUrl: e.target.value }))} />
-                            <Button 
-                              type="button" 
-                              variant="outline" 
-                              onClick={() => coverInputRef.current?.click()}
-                              disabled={uploadingCover}
-                            >
-                              {uploadingCover ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-                            </Button>
-                            <input
-                              ref={coverInputRef}
-                              type="file"
-                              accept="image/*"
-                              className="hidden"
-                              onChange={handleCoverUpload}
-                            />
+                        <label className="text-sm font-medium mb-1 block">Imagen de portada (URL)</label>
+                        <Input placeholder="https://..." value={postForm.imageUrl}
+                          onChange={e => setPostForm(f => ({ ...f, imageUrl: e.target.value }))} />
+                        {postForm.imageUrl && (
+                          <div className="mt-2 relative w-full h-32 bg-muted rounded-md overflow-hidden">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={postForm.imageUrl} alt="Preview" className="w-full h-full object-cover" />
                           </div>
-                          {postForm.imageUrl && (
-                            <div className="relative w-full h-32 bg-muted rounded-md overflow-hidden">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img 
-                                src={postForm.imageUrl} 
-                                alt="Preview" 
-                                className="w-full h-full object-cover"
-                              />
-                              <Button
-                                type="button"
-                                variant="secondary"
-                                size="icon"
-                                className="absolute top-2 right-2 h-6 w-6"
-                                onClick={() => setPostForm(f => ({ ...f, imageUrl: '' }))}
-                              >
-                                <X className="h-3 w-3" />
-                              </Button>
-                            </div>
-                          )}
-                        </div>
+                        )}
                       </div>
                     </div>
 

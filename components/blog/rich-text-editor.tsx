@@ -8,11 +8,11 @@ import TextStyle from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import Image from '@tiptap/extension-image'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough,
   Heading2, Heading3, List, ListOrdered, Link as LinkIcon,
-  Quote, Code, Undo, Redo, Type, ImageIcon, Loader2
+  Quote, Code, Undo, Redo, Type, ImageIcon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -25,9 +25,6 @@ const COLORS = ['#000000', '#374151', '#dc2626', '#2563eb', '#16a34a', '#d97706'
 const FONTS = ['Inter', 'Georgia', 'Times New Roman', 'Courier New', 'Arial']
 
 export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
-  const [uploading, setUploading] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -59,29 +56,10 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     }
   }
 
-  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    setUploading(true)
-    try {
-      const formData = new FormData()
-      formData.append('file', file)
-
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      })
-
-      if (!res.ok) throw new Error('Upload failed')
-
-      const { url } = await res.json()
+  function insertImage() {
+    const url = window.prompt('URL de la imagen:')
+    if (url) {
       editor!.chain().focus().setImage({ src: url }).run()
-    } catch (err) {
-      alert('Error al subir la imagen')
-    } finally {
-      setUploading(false)
-      if (fileInputRef.current) fileInputRef.current.value = ''
     }
   }
 
@@ -146,17 +124,10 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
           <LinkIcon className="h-3.5 w-3.5" />
         </ToolBtn>
 
-        {/* Image Upload */}
-        <ToolBtn onClick={() => fileInputRef.current?.click()} title="Insertar imagen" disabled={uploading}>
-          {uploading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
+        {/* Image */}
+        <ToolBtn onClick={insertImage} title="Insertar imagen (URL)">
+          <ImageIcon className="h-3.5 w-3.5" />
         </ToolBtn>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={handleImageUpload}
-        />
 
         <Divider />
 
