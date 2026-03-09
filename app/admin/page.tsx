@@ -23,7 +23,8 @@ const PASS = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'ecosistia-admin-2024'
 export default function AdminPage() {
   const [logged, setLogged] = useState(false)
   const [password, setPassword] = useState('')
-  const [tab, setTab] = useState('posts')
+  const [tab, setTab] = useState('editor')
+  const [postsSubTab, setPostsSubTab] = useState('editor')
 
   // Posts state
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -224,177 +225,175 @@ export default function AdminPage() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-8">
         <Tabs value={tab} onValueChange={setTab}>
           <TabsList className="mb-8">
-            <TabsTrigger value="posts">Entradas</TabsTrigger>
+            <TabsTrigger value="editor">{editingPost ? 'Editar entrada' : 'Nueva entrada'}</TabsTrigger>
+            <TabsTrigger value="list">Entradas ({posts.length})</TabsTrigger>
             <TabsTrigger value="sectors">Sectores y temas</TabsTrigger>
           </TabsList>
 
-          {/* ============ POSTS TAB ============ */}
-          <TabsContent value="posts" className="space-y-8">
-            <div className="grid grid-cols-1 xl:grid-cols-5 gap-8 items-start">
-
-              {/* Form */}
-              <div className="xl:col-span-3">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="font-heading text-lg">
-                      {editingPost ? 'Editar entrada' : 'Nueva entrada'}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Título *</label>
-                      <Input placeholder="Título del artículo" value={postForm.title}
-                        onChange={e => setPostForm(f => ({ ...f, title: e.target.value }))} />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Slug *</label>
-                      <div className="flex gap-2">
-                        <Input placeholder="url-del-articulo" value={postForm.slug}
-                          onChange={e => setPostForm(f => ({ ...f, slug: e.target.value }))} />
-                        <Button type="button" variant="outline" onClick={genSlug}>Auto</Button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Extracto</label>
-                      <Textarea placeholder="Breve descripción del artículo..." value={postForm.excerpt}
-                        onChange={e => setPostForm(f => ({ ...f, excerpt: e.target.value }))} rows={2} />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Contenido *</label>
-                      <RichTextEditor value={postForm.content} onChange={v => setPostForm(f => ({ ...f, content: v }))} />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-1 block">Sector</label>
-                        <Select value={postForm.sectorId} onValueChange={v => setPostForm(f => ({ ...f, sectorId: v, subsectorId: '' }))}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecciona sector" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {sectors.map(s => (
-                              <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-1 block">Subsector</label>
-                        <Select
-                          value={postForm.subsectorId}
-                          onValueChange={v => setPostForm(f => ({ ...f, subsectorId: v }))}
-                          disabled={!selectedSector || selectedSector.subsectors.length === 0}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecciona subsector" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {selectedSector?.subsectors.map(s => (
-                              <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-1 block">Autor</label>
-                        <Input placeholder="Nombre del autor" value={postForm.author}
-                          onChange={e => setPostForm(f => ({ ...f, author: e.target.value }))} />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-1 block">Imagen de portada (URL)</label>
-                        <Input placeholder="https://..." value={postForm.imageUrl}
-                          onChange={e => setPostForm(f => ({ ...f, imageUrl: e.target.value }))} />
-                        {postForm.imageUrl && (
-                          <div className="mt-2 relative w-full h-32 bg-muted rounded-md overflow-hidden">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={postForm.imageUrl} alt="Preview" className="w-full h-full object-cover" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">SEO Title</label>
-                      <Input placeholder="Título para buscadores" value={postForm.seoTitle}
-                        onChange={e => setPostForm(f => ({ ...f, seoTitle: e.target.value }))} />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">SEO Description</label>
-                      <Textarea placeholder="Descripción para buscadores (máx 160 caracteres)" value={postForm.seoDescription}
-                        onChange={e => setPostForm(f => ({ ...f, seoDescription: e.target.value }))} rows={2} />
-                    </div>
-
-                    <label className="flex items-center gap-2 cursor-pointer select-none">
-                      <input type="checkbox" checked={postForm.published}
-                        onChange={e => setPostForm(f => ({ ...f, published: e.target.checked }))} className="h-4 w-4" />
-                      <span className="text-sm font-medium">Publicar ahora</span>
-                    </label>
-
-                    <div className="flex gap-2 pt-2">
-                      <Button onClick={savePost} className="flex-1">
-                        {editingPost ? 'Guardar cambios' : 'Crear entrada'}
-                      </Button>
-                      {editingPost && (
-                        <Button variant="outline" onClick={() => { setEditingPost(null); setPostForm({ ...BLANK_POST }) }}>
-                          <X className="h-4 w-4" />
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Posts list */}
-              <div className="xl:col-span-2 space-y-3">
-                <h2 className="font-heading font-semibold text-foreground">
-                  Entradas ({posts.length})
-                </h2>
-                {posts.length === 0 && (
-                  <p className="text-sm text-muted-foreground">No hay entradas aún.</p>
+          {/* ============ EDITOR TAB ============ */}
+          <TabsContent value="editor">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="font-heading text-lg">
+                  {editingPost ? `Editando: ${editingPost.title}` : 'Nueva entrada'}
+                </CardTitle>
+                {editingPost && (
+                  <Button variant="outline" size="sm" onClick={() => { setEditingPost(null); setPostForm({ ...BLANK_POST }) }}>
+                    <X className="h-4 w-4 mr-1" /> Nueva entrada
+                  </Button>
                 )}
-                {posts.map(post => (
-                  <Card key={post.id} className="p-3">
-                    <div className="flex items-start gap-2">
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-sm text-foreground truncate">{post.title}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <Badge variant={post.published ? 'default' : 'secondary'} className="text-xs h-5">
-                            {post.published ? 'Publicado' : 'Borrador'}
-                          </Badge>
-                          {post.sectorId && (
-                            <span className="text-xs text-muted-foreground truncate">
-                              {sectors.find(s => s.id === post.sectorId)?.name}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      <div className="flex gap-1 shrink-0">
-                        <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => togglePublish(post)}
-                          title={post.published ? 'Despublicar' : 'Publicar'}>
-                          {post.published ? <Eye className="h-3.5 w-3.5" /> : <EyeOff className="h-3.5 w-3.5" />}
-                        </Button>
-                        <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => startEditPost(post)}>
-                          <Pencil className="h-3.5 w-3.5" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="h-7 w-7 text-destructive" onClick={() => deletePost(post.id)}>
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </Button>
-                      </div>
+              </CardHeader>
+              <CardContent className="space-y-5">
+
+                {/* Título + Slug */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Título *</label>
+                    <Input placeholder="Título del artículo" value={postForm.title}
+                      onChange={e => setPostForm(f => ({ ...f, title: e.target.value }))} />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Slug *</label>
+                    <div className="flex gap-2">
+                      <Input placeholder="url-del-articulo" value={postForm.slug}
+                        onChange={e => setPostForm(f => ({ ...f, slug: e.target.value }))} />
+                      <Button type="button" variant="outline" onClick={genSlug}>Auto</Button>
                     </div>
-                  </Card>
-                ))}
-              </div>
+                  </div>
+                </div>
+
+                {/* Extracto */}
+                <div>
+                  <label className="text-sm font-medium mb-1 block">Extracto</label>
+                  <Textarea placeholder="Breve descripción del artículo..." value={postForm.excerpt}
+                    onChange={e => setPostForm(f => ({ ...f, excerpt: e.target.value }))} rows={2} />
+                </div>
+
+                {/* Contenido (full width) */}
+                <div>
+                  <label className="text-sm font-medium mb-1 block">Contenido *</label>
+                  <RichTextEditor value={postForm.content} onChange={v => setPostForm(f => ({ ...f, content: v }))} />
+                </div>
+
+                {/* Sector + Subsector + Autor + Imagen */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Sector</label>
+                    <Select value={postForm.sectorId} onValueChange={v => setPostForm(f => ({ ...f, sectorId: v, subsectorId: '' }))}>
+                      <SelectTrigger><SelectValue placeholder="Selecciona sector" /></SelectTrigger>
+                      <SelectContent>
+                        {sectors.map(s => <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Subsector</label>
+                    <Select value={postForm.subsectorId} onValueChange={v => setPostForm(f => ({ ...f, subsectorId: v }))}
+                      disabled={!selectedSector || selectedSector.subsectors.length === 0}>
+                      <SelectTrigger><SelectValue placeholder="Selecciona subsector" /></SelectTrigger>
+                      <SelectContent>
+                        {selectedSector?.subsectors.map(s => <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Autor</label>
+                    <Input placeholder="Nombre del autor" value={postForm.author}
+                      onChange={e => setPostForm(f => ({ ...f, author: e.target.value }))} />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Imagen de portada (URL)</label>
+                    <Input placeholder="/Imagenes/foto.jpg" value={postForm.imageUrl}
+                      onChange={e => setPostForm(f => ({ ...f, imageUrl: e.target.value }))} />
+                    {postForm.imageUrl && (
+                      <div className="mt-2 relative w-full h-24 bg-muted rounded-md overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={encodeURI(postForm.imageUrl)} alt="Preview" className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* SEO */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">SEO Title</label>
+                    <Input placeholder="Título para buscadores" value={postForm.seoTitle}
+                      onChange={e => setPostForm(f => ({ ...f, seoTitle: e.target.value }))} />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">SEO Description</label>
+                    <Textarea placeholder="Descripción para buscadores (máx 160 caracteres)" value={postForm.seoDescription}
+                      onChange={e => setPostForm(f => ({ ...f, seoDescription: e.target.value }))} rows={2} />
+                  </div>
+                </div>
+
+                {/* Publish + Save */}
+                <div className="flex items-center justify-between pt-2 border-t">
+                  <label className="flex items-center gap-2 cursor-pointer select-none">
+                    <input type="checkbox" checked={postForm.published}
+                      onChange={e => setPostForm(f => ({ ...f, published: e.target.checked }))} className="h-4 w-4" />
+                    <span className="text-sm font-medium">Publicar ahora</span>
+                  </label>
+                  <Button onClick={savePost} size="lg">
+                    {editingPost ? 'Guardar cambios' : 'Crear entrada'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* ============ LIST TAB ============ */}
+          <TabsContent value="list" className="space-y-3">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-heading font-semibold text-foreground">Todas las entradas</h2>
+              <Button onClick={() => { setEditingPost(null); setPostForm({ ...BLANK_POST }); setTab('editor') }}>
+                <Plus className="h-4 w-4 mr-2" /> Nueva entrada
+              </Button>
             </div>
+            {posts.length === 0 && (
+              <Card><CardContent className="py-12 text-center text-muted-foreground">No hay entradas aún.</CardContent></Card>
+            )}
+            {posts.map(post => (
+              <Card key={post.id} className="p-4">
+                <div className="flex items-start gap-3">
+                  {post.imageUrl && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={encodeURI(post.imageUrl)} alt="" className="h-16 w-24 rounded object-cover shrink-0" />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-foreground">{post.title}</p>
+                    <p className="text-sm text-muted-foreground line-clamp-1 mt-0.5">{post.excerpt}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <Badge variant={post.published ? 'default' : 'secondary'} className="text-xs">
+                        {post.published ? 'Publicado' : 'Borrador'}
+                      </Badge>
+                      {post.sectorId && (
+                        <span className="text-xs text-muted-foreground">
+                          {sectors.find(s => s.id === post.sectorId)?.name}
+                        </span>
+                      )}
+                      <span className="text-xs text-muted-foreground">{post.author}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-1 shrink-0">
+                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => togglePublish(post)}
+                      title={post.published ? 'Despublicar' : 'Publicar'}>
+                      {post.published ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                    </Button>
+                    <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => { startEditPost(post); setTab('editor') }}>
+                      <Pencil className="h-4 w-4" />
+                    </Button>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => deletePost(post.id)}>
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
           </TabsContent>
 
           {/* ============ SECTORS TAB ============ */}
