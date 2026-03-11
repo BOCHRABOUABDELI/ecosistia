@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
-import { Clock, Shield, Sparkles } from "lucide-react"
+import { Clock, Shield, Sparkles, MapPin, Phone, Mail, Linkedin, Instagram } from "lucide-react"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Contacto | Consulta gratuita para tu proyecto con IA",
@@ -48,7 +49,8 @@ export default function ContactoPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
+            {/* Trust points */}
             <div className="flex flex-col gap-5">
               {trustPoints.map((point) => (
                 <div key={point.title} className="flex gap-4">
@@ -65,6 +67,72 @@ export default function ContactoPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Información de contacto */}
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                Información de Contacto
+              </h3>
+              <ul className="flex flex-col gap-4">
+                <li className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Avinguda Diagonal 449, 4º<br />Barcelona, España
+                  </p>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <Link href="tel:+34930422796" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                    +34 930 42 27 96
+                  </Link>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <Link href="mailto:hola@softwareopium.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                    hola@softwareopium.com
+                  </Link>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                    <Clock className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Lun - Vie: 10:00 - 19:00</p>
+                </li>
+              </ul>
+
+              {/* Redes sociales */}
+              <div className="mt-6 pt-5 border-t border-border">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Síguenos
+                </p>
+                <div className="flex gap-3">
+                  <Link
+                    href="https://www.instagram.com/ecosistia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-all hover:border-accent hover:text-accent"
+                    title="Instagram"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/company/ecosistia-ia-para-empresas/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-all hover:border-accent hover:text-accent"
+                    title="LinkedIn"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
