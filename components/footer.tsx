@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { MapPin, Phone, Mail, Clock, Linkedin, Instagram, Facebook } from "lucide-react"
 
 const footerLinks = {
   Producto: [
@@ -17,12 +18,56 @@ const footerLinks = {
   ],
 }
 
+const contactInfo = [
+  {
+    icon: MapPin,
+    label: "Ubicacion",
+    value: "Avinguda Diagonal 449, 4º Barcelona España",
+  },
+  {
+    icon: Phone,
+    label: "Telefono",
+    value: "+34 930 42 27 96",
+    href: "tel:+34930422796",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "hola@softwareopium.com",
+    href: "mailto:hola@softwareopium.com",
+  },
+  {
+    icon: Clock,
+    label: "Horario",
+    value: "Lun - Vie: 10:00 - 19:00",
+  },
+]
+
+const socialLinks = [
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/ecosistia",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/ecosistia",
+    label: "Instagram",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/ecosistia-ia-para-empresas/?viewAsMember=true",
+    label: "LinkedIn",
+  },
+]
+
 export function Footer() {
   return (
     <footer className="border-t border-primary-foreground/10 bg-primary">
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+          {/* Brand + Description */}
+          <div className="lg:col-span-1">
             <Link
               href="/"
               className="flex items-center gap-2 text-primary-foreground"
@@ -41,6 +86,8 @@ export function Footer() {
               procesos, integrar sistemas y crecer con tecnologia de primer nivel.
             </p>
           </div>
+
+          {/* Footer Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/40">
@@ -60,11 +107,62 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/40">
+              Contacto
+            </h3>
+            <ul className="mt-4 flex flex-col gap-3">
+              {contactInfo.map((item) => {
+                const Icon = item.icon
+                const content = (
+                  <div className="flex items-start gap-2">
+                    <Icon className="h-4 w-4 shrink-0 mt-0.5 text-accent" />
+                    <div className="text-sm">
+                      <p className="text-primary-foreground/40 text-xs">{item.label}</p>
+                      <p className="text-primary-foreground/70">{item.value}</p>
+                    </div>
+                  </div>
+                )
+                return (
+                  <li key={item.label}>
+                    {item.href ? (
+                      <Link href={item.href} className="transition-colors hover:text-accent">
+                        {content}
+                      </Link>
+                    ) : (
+                      content
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
+
+        {/* Divider */}
         <div className="mt-10 border-t border-primary-foreground/10 pt-6">
-          <p className="text-center text-xs text-primary-foreground/30">
-            {"\u00A9"} {new Date().getFullYear()} Ecosistia. Todos los derechos reservados.
-          </p>
+          {/* Social Links */}
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-primary-foreground/30">
+              {"\u00A9"} {new Date().getFullYear()} Ecosistia. Todos los derechos reservados.
+            </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/50 transition-all hover:bg-accent hover:text-accent-foreground"
+                  title={social.label}
+                >
+                  <social.icon className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
