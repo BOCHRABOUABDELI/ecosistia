@@ -1,12 +1,14 @@
 import type { Metadata } from "next"
 import { PricingCards } from "@/components/pricing-cards"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Check } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 import { CtaBanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
