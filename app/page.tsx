@@ -14,32 +14,41 @@ import {
   Zap,
   Users,
   CheckCircle2,
+  Scale,
+  Building2,
+  MessageSquare,
 } from "lucide-react"
 
 const problems = [
   {
     icon: Cog,
-    title: "Automatizacion de procesos",
+    title: "Automatizacion de tareas repetitivas",
     description:
-      "Elimina tareas repetitivas que consumen horas de tu equipo cada semana. Desde la entrada de datos hasta la generacion de informes, la IA automatiza flujos de trabajo completos para que tu equipo se centre en lo que realmente importa.",
+      "Elimina tareas manuales que consumen horas de tu equipo cada semana. La IA automatiza flujos de trabajo completos para que tu equipo se centre en lo que realmente importa.",
   },
   {
     icon: FileText,
-    title: "Lectura inteligente de documentos",
+    title: "Procesamiento automatico de documentos",
     description:
-      "Extrae datos de facturas, contratos, albaranes y formularios de forma automatica. Nuestra IA reconoce patrones, clasifica documentos y vuelca la informacion directamente en tus sistemas sin intervencion manual.",
+      "Extrae datos de facturas, contratos, albaranes y formularios de forma automatica. Nuestra IA reconoce patrones, clasifica documentos y vuelca la informacion directamente en tus sistemas.",
   },
   {
     icon: RefreshCw,
-    title: "Sincronizacion entre sistemas",
+    title: "Integracion de IA con ERP y CRM",
     description:
-      "Conecta tu CRM, ERP, email y herramientas de gestion para que los datos fluyan entre ellos de forma automatica. Elimina la doble entrada de datos y reduce errores de sincronizacion.",
+      "Conecta tu CRM, ERP, email y herramientas de gestion para que los datos fluyan entre ellos de forma automatica. Elimina la doble entrada de datos y reduce errores.",
+  },
+  {
+    icon: Users,
+    title: "Atencion automatica al cliente",
+    description:
+      "Chatbots inteligentes y sistemas de respuesta automatizada que atienden consultas 24/7, clasifican tickets y escalan los casos complejos a tu equipo humano.",
   },
   {
     icon: BarChart3,
-    title: "Paneles inteligentes y reportes",
+    title: "Analisis inteligente de datos",
     description:
-      "Dashboards con IA que analizan tus metricas, detectan anomalias y te sugieren acciones concretas. Toma mejores decisiones con datos actualizados en tiempo real y predicciones basadas en historicos.",
+      "Dashboards con IA que analizan tus metricas, detectan anomalias y te sugieren acciones concretas. Toma mejores decisiones con datos actualizados en tiempo real.",
   },
 ]
 
@@ -67,27 +76,27 @@ const whyUs = [
 const steps = [
   {
     number: "01",
-    title: "Nos cuentas tu idea",
+    title: "Analizamos tu empresa",
     description:
-      "Una conversacion para entender tu negocio, tus procesos y el resultado que buscas. No necesitas saber de tecnologia. Consulta gratuita y sin compromiso.",
+      "Estudiamos tus procesos, herramientas y operativa para identificar donde la IA puede generar mayor impacto. Diagnostico gratuito y sin compromiso.",
   },
   {
     number: "02",
-    title: "Creamos el prototipo",
+    title: "Detectamos procesos automatizables",
     description:
-      "En 5 dias laborables tienes un mock funcional para validar la idea con tu equipo antes de invertir en el desarrollo completo.",
+      "Te presentamos un informe con los procesos que puedes automatizar, el ahorro estimado y la solucion recomendada para cada caso.",
   },
   {
     number: "03",
-    title: "Desarrollamos la app",
+    title: "Implementamos soluciones con IA",
     description:
-      "Construimos tu aplicacion con IA conectada a tus sistemas. Entregas parciales semanales para que sigas el progreso en todo momento.",
+      "Desarrollamos e integramos la solucion de IA con tus sistemas actuales. Entregas parciales semanales para que sigas el progreso.",
   },
   {
     number: "04",
-    title: "Produccion y soporte",
+    title: "Automatizas y reduces costes",
     description:
-      "Despliegue en infraestructura segura, monitorizacion 24/7, actualizaciones continuas y soporte tecnico incluido.",
+      "Tu equipo empieza a trabajar con la nueva solucion. Soporte continuo, formacion incluida y mejoras basadas en datos reales de uso.",
   },
 ]
 
@@ -100,6 +109,29 @@ const sectors = [
   "Consultoras y servicios profesionales",
   "Comercio electronico y retail",
   "Logistica y distribucion",
+]
+
+const realUseCases = [
+  {
+    icon: Scale,
+    title: "Despachos juridicos",
+    description: "Automatizacion del analisis de documentos legales, extraccion de clausulas clave y generacion de resumenes de contratos.",
+  },
+  {
+    icon: FileText,
+    title: "Automatizacion de facturas y pedidos",
+    description: "Empresas que procesan cientos de facturas al mes de forma automatica, extrayendo datos y volcandolos en su ERP.",
+  },
+  {
+    icon: Building2,
+    title: "Administradores de fincas",
+    description: "Gestion automatizada de incidencias, clasificacion de comunicaciones y respuestas automaticas a propietarios.",
+  },
+  {
+    icon: BarChart3,
+    title: "ERP con IA integrada",
+    description: "Sistemas de gestion empresarial que utilizan IA para predecir demanda, optimizar inventarios y mejorar decisiones.",
+  },
 ]
 
 const jsonLd = {
@@ -240,23 +272,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problems we solve */}
+      {/* Real Use Cases */}
       <section className="py-20 lg:py-28 bg-muted/50">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-              Soluciones
+              Ejemplos reales
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
-              Soluciones de inteligencia artificial para automatizar tu negocio
+              Ejemplos reales de uso de IA en empresas
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              La inteligencia artificial aplicada a empresas transforma la operativa diaria y reduce costes hasta un 60%.
-              Desde la automatizacion de procesos repetitivos hasta paneles de datos inteligentes,
-              estas son las soluciones de IA que mas impacto generan en los negocios de nuestros clientes.
+              Casos practicos de como nuestros clientes estan utilizando la inteligencia artificial
+              para automatizar procesos y reducir costes en su dia a dia.
             </p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {realUseCases.map((useCase) => (
+              <div
+                key={useCase.title}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/20"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
+                  <useCase.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-semibold text-foreground">
+                  {useCase.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {useCase.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Solutions */}
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+              Problemas que resolvemos
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
+              Soluciones de Inteligencia Artificial
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              Desarrollamos aplicaciones con IA que automatizan procesos empresariales, analizan datos,
+              atienden clientes y se integran con tu ERP y software actual. Estas son las soluciones
+              que mas impacto generan en los negocios de nuestros clientes.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {problems.map((problem) => (
               <div
                 key={problem.title}
@@ -340,11 +408,11 @@ export default function HomePage() {
               Proceso
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
-              {"Como desarrollamos tu aplicacion con IA en 4 pasos"}
+              Como funciona
             </h2>
             <p className="mt-4 text-primary-foreground/60 text-lg leading-relaxed">
-              Un proceso agil y transparente: de tu idea a una aplicacion con inteligencia artificial
-              en produccion en 2-12 semanas. Sin sorpresas, sin letra pequena, sin tecnicismos innecesarios.
+              Un proceso claro y sin complicaciones: analizamos tu empresa, detectamos oportunidades
+              de automatizacion e implementamos soluciones con IA que generan resultados desde el primer mes.
             </p>
           </div>
           <div className="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
@@ -459,16 +527,16 @@ export default function HomePage() {
       <section className="py-24 lg:py-32 bg-primary">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
-            {"Tu proxima aplicacion con IA empieza aqui"}
+            Descubre como la IA puede transformar tu empresa
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
-            Cuentanos que problema quieres resolver. Sin compromiso, sin tecnicismos.
+            Solicita un diagnostico gratuito y descubre que procesos puedes automatizar.
             Te respondemos en menos de 24 horas con una propuesta clara y personalizada.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
               <Link href="/contacto">
-                Empezar mi proyecto
+                Solicitar diagnostico gratuito
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -478,7 +546,7 @@ export default function HomePage() {
               size="lg"
               className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
-              <Link href="/aplicaciones">Ver aplicaciones</Link>
+              <Link href="/aplicaciones">Ver ejemplos</Link>
             </Button>
           </div>
         </div>

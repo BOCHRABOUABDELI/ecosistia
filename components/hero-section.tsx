@@ -14,10 +14,10 @@ const benefits = [
 ]
 
 const rotatingWords = [
+  "ahorrar tiempo y costes",
   "automatizar procesos",
-  "reducir costes",
-  "escalar operaciones",
   "eliminar tareas manuales",
+  "escalar operaciones",
 ]
 
 export function HeroSection() {
@@ -76,26 +76,23 @@ export function HeroSection() {
 
             {/* H1 */}
             <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem] leading-[1.1] text-balance">
-              Aplicaciones con IA a medida para{" "}
-              <span className="relative">
-                <span
-                  className={cn(
-                    "text-accent transition-all duration-300",
-                    isWordChanging
-                      ? "opacity-0 translate-y-2"
-                      : "opacity-100 translate-y-0"
-                  )}
-                >
-                  {rotatingWords[wordIndex]}
-                </span>
-              </span>
+              Automatiza tu empresa con{" "}
+              <span className="text-accent">Inteligencia Artificial</span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Desarrollamos software con IA que transforma tu operativa:
-              automatiza lo repetitivo, conecta tus sistemas y libera a tu
-              equipo para crecer. Resultados medibles desde la primera semana.
+              Analizamos tu empresa gratis y te mostramos que procesos puedes automatizar con IA para{" "}
+              <span
+                className={cn(
+                  "font-semibold text-foreground transition-all duration-300",
+                  isWordChanging
+                    ? "opacity-0"
+                    : "opacity-100"
+                )}
+              >
+                {rotatingWords[wordIndex]}
+              </span>
             </p>
 
             {/* Price - elegant integration */}
@@ -120,7 +117,7 @@ export function HeroSection() {
                 className="group relative text-base px-8 shadow-lg shadow-success/25 transition-all duration-300 hover:shadow-xl hover:shadow-success/30 hover:scale-[1.02]"
               >
                 <Link href="/contacto">
-                  Hablemos de tu proyecto
+                  Solicitar diagnostico gratuito
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -131,7 +128,7 @@ export function HeroSection() {
                 className="group text-base px-8 transition-all duration-300 hover:border-accent/30"
               >
                 <Link href="/aplicaciones">
-                  Ver proyectos reales
+                  Ver ejemplos
                   <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </Link>
               </Button>
