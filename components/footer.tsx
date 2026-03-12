@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, Linkedin, Instagram, Facebook } from "lucid
 const footerLinks = {
   Producto: [
     { href: "/aplicaciones", label: "Aplicaciones" },
+    { href: "/ejemplos", label: "Ejemplos" },
     { href: "/integraciones", label: "Integraciones" },
     { href: "/como-funciona", label: "Como funciona" },
     { href: "/precios", label: "Precios" },

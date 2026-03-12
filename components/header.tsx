@@ -11,6 +11,7 @@ import Image from "next/image"
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/aplicaciones", label: "Aplicaciones" },
+  { href: "/ejemplos", label: "Ejemplos" },
   { href: "/integraciones", label: "Integraciones" },
   { href: "/como-funciona", label: "Como funciona" },
   { href: "/precios", label: "Precios" },
