@@ -4,26 +4,31 @@ import { Clock, Shield, Sparkles, MapPin, Phone, Mail, Linkedin, Instagram } fro
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Contacto | Consulta gratuita para tu proyecto con IA",
+  title: "Diagnóstico gratuito de IA | Ecosistia",
   description:
-    "Solicita una consulta gratuita para tu proyecto de inteligencia artificial. Te respondemos en menos de 24 horas con una propuesta personalizada. Desarrollo de apps con IA desde 899 €.",
+    "Solicita un diagnóstico gratuito de IA para tu empresa. Analizamos tus procesos y te mostramos cómo automatizar con Inteligencia Artificial. Respuesta en menos de 24 horas.",
 }
 
 const trustPoints = [
   {
     icon: Clock,
-    title: "Respuesta rapida",
-    description: "Te respondemos en menos de 24 horas con una propuesta inicial personalizada.",
+    title: "Análisis de procesos",
+    description: "Estudiamos tu operativa actual y flujos de trabajo para identificar oportunidades de automatización.",
   },
   {
     icon: Shield,
-    title: "Sin compromiso",
-    description: "La consulta es gratuita. Solo pagas si decides avanzar con el proyecto.",
+    title: "Identificación de automatizaciones",
+    description: "Te mostramos qué procesos pueden ser automatizados con IA y qué impacto generarían.",
   },
   {
     icon: Sparkles,
-    title: "Te ayudamos a definir",
-    description: "No necesitas tener todo claro. Te guiamos para concretar la solucion ideal.",
+    title: "Propuesta de soluciones IA",
+    description: "Recibe una propuesta clara con las soluciones de IA recomendadas para tu empresa.",
+  },
+  {
+    icon: Sparkles,
+    title: "Estimación de ahorro de tiempo",
+    description: "Calcula cuántas horas/mes podrías ahorrar automatizando tus procesos con IA.",
   },
 ]
 
@@ -32,13 +37,12 @@ export default function ContactoPage() {
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Contacto'}</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{'Diagnóstico'}</p>
           <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
-            Solicita tu consulta gratuita para desarrollo con IA
+            Solicita tu diagnóstico gratuito de IA
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-            Cuentanos que proceso quieres automatizar o mejorar con inteligencia artificial.
-            Te respondemos en menos de 24 horas con una propuesta personalizada, clara y sin compromiso.
+            Analizamos tu empresa y te mostramos qué procesos puedes automatizar con Inteligencia Artificial.
           </p>
         </div>
 
@@ -50,23 +54,24 @@ export default function ContactoPage() {
           </div>
 
           <div className="flex flex-col gap-8">
-            {/* Trust points */}
-            <div className="flex flex-col gap-5">
-              {trustPoints.map((point) => (
-                <div key={point.title} className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                    <point.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading text-sm font-semibold text-foreground">
-                      {point.title}
-                    </h4>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                      {point.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            {/* Qué incluye el diagnóstico */}
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="font-heading text-lg font-semibold text-foreground mb-5">
+                Qué incluye el diagnóstico
+              </h3>
+              <ul className="flex flex-col gap-4">
+                {trustPoints.map((point) => (
+                  <li key={point.title} className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent mt-0.5">
+                      <point.icon className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-foreground">{point.title}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">{point.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Información de contacto */}
@@ -135,6 +140,18 @@ export default function ContactoPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Footer CTA */}
+      <div className="mt-20 border-t pt-20">
+        <div className="text-center">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">
+            Empieza a transformar tu empresa con IA
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground text-lg leading-relaxed">
+            Tu diagnóstico gratuito nos ayudará a entender tus necesidades y crear un plan personalizado para automatizar tu negocio.
+          </p>
         </div>
       </div>
     </section>
