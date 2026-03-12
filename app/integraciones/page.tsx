@@ -93,6 +93,7 @@ export default function IntegracionesPage() {
   }, [search])
 
   return (
+    <>
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
@@ -350,5 +351,6 @@ export default function IntegracionesPage() {
       title="¿No encuentras la integración que necesitas?"
       description="Podemos conectar tu solución con cualquier sistema que tenga API. Solicita un diagnóstico gratuito y lo estudiamos juntos."
     />
+    </>
   )
 }
