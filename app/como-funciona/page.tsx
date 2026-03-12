@@ -1,13 +1,12 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { ArrowRight, MessageCircle, Palette, Code, Rocket } from "lucide-react"
+import { MessageCircle, Palette, Code, Rocket } from "lucide-react"
+import { CtaBanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
   title: "Como funciona el desarrollo de aplicaciones con IA | Proceso en 4 pasos",
@@ -182,28 +181,10 @@ export default function ComoFuncionaPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 lg:py-32 bg-primary">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
-            {"Listo para empezar?"}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
-            Cuentanos tu idea y te preparamos una propuesta sin compromiso. Respondemos en menos de 24 horas.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild variant="success" size="lg" className="text-base px-8 shadow-lg shadow-success/20">
-              <Link href="/contacto">
-                Empezar mi proyecto
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              <Link href="/aplicaciones">Ver aplicaciones</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Listo para automatizar tu empresa?"
+        description="Solicita un diagnóstico gratuito y te mostramos qué procesos puedes automatizar con IA. Respondemos en menos de 24 horas."
+      />
     </>
   )
 }

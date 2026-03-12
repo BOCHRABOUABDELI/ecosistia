@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Clock, User, Filter } from "lucide-react"
 import type { BlogPost, BlogSector } from "@/lib/blog-types"
+import { CtaBanner } from "@/components/cta-banner"
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -277,6 +278,11 @@ export default function BlogPage() {
           )}
         </div>
       </section>
+
+      <CtaBanner
+        title="¿Quieres saber cómo aplicar esto en tu empresa?"
+        description="Solicita un diagnóstico gratuito y analizamos juntos qué procesos puedes automatizar con IA."
+      />
     </main>
   )
 }

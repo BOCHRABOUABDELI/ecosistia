@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { PricingCards } from "@/components/pricing-cards"
 import {
   Accordion,
@@ -8,7 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { ArrowRight, Check } from "lucide-react"
+import { Check } from "lucide-react"
+import { CtaBanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
   title: "Precios de desarrollo de aplicaciones con IA | Desde 899 €",
@@ -166,24 +165,10 @@ export default function PreciosPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 lg:py-32 bg-primary">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl text-balance">
-            {"Hablemos de tu proyecto"}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/60 text-lg leading-relaxed">
-            Te ayudamos a elegir el plan perfecto para tu equipo y tus
-            necesidades. Consulta gratuita y sin compromiso.
-          </p>
-          <Button asChild variant="success" size="lg" className="mt-10 text-base px-8 shadow-lg shadow-success/20">
-            <Link href="/contacto">
-              Contactar ahora
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Tienes dudas sobre el precio?"
+        description="Solicita un diagnóstico gratuito y te ayudamos a elegir la solución perfecta para tu empresa. Sin compromiso."
+      />
     </>
   )
 }

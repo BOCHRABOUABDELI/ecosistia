@@ -6,15 +6,14 @@ import { AppCard } from "@/components/app-card"
 import { AppFilters } from "@/components/app-filters"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { CtaBanner } from "@/components/cta-banner"
 import {
   Cog,
   FileText,
   Users,
   BarChart3,
   RefreshCw,
-  Zap,
   ArrowRight,
-  Smartphone,
   Brain,
 } from "lucide-react"
 
@@ -192,6 +191,11 @@ export default function AplicacionesPage() {
           )}
         </div>
       </section>
+
+      <CtaBanner
+        title="¿Necesitas una solución a medida para tu empresa?"
+        description="Solicita un diagnóstico gratuito y desarrollamos la aplicación con IA perfecta para tus procesos."
+      />
     </>
   )
 }

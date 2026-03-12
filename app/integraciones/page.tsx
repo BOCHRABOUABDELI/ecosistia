@@ -12,6 +12,7 @@ import {
   type SortOption,
 } from "@/lib/integrations-data"
 import { Search, ArrowRight, Grid3X3, LayoutList } from "lucide-react"
+import { CtaBanner } from "@/components/cta-banner"
 import { cn } from "@/lib/utils"
 
 const sortOptions: { value: SortOption; label: string }[] = [
@@ -340,27 +341,14 @@ export default function IntegracionesPage() {
               </div>
             )}
 
-            {/* CTA */}
-            <div className="mt-12 rounded-2xl bg-primary p-8 text-center">
-              <h2 className="font-heading text-xl font-bold text-primary-foreground">
-                {"No encuentras la integracion que necesitas?"}
-              </h2>
-              <p className="mt-2 text-sm text-primary-foreground/60">
-                Podemos conectar tu app con cualquier sistema que tenga API.
-                Cuentanos tu caso y lo resolvemos.
-              </p>
-              <div className="mt-6">
-                <Button asChild variant="success">
-                  <Link href="/contacto">
-                    Contactar
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <CtaBanner
+      title="¿No encuentras la integración que necesitas?"
+      description="Podemos conectar tu solución con cualquier sistema que tenga API. Solicita un diagnóstico gratuito y lo estudiamos juntos."
+    />
   )
 }
